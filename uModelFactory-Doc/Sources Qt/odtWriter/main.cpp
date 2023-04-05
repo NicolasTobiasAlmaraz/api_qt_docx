@@ -16,18 +16,6 @@
 #define OUT_PATH        "../../ProyectoCosechadoraAgro/doc_CosechadoraAgro/doc_CosechadoraAgro.odt"
 #define IMAGES_DIR_PATH "../../ProyectoCosechadoraAgro/doc_CosechadoraAgro"
 
-
-//--------------------------------------------------
-//------PATHS ABSOLUTOS
-//--------------------------------------------------
-////Paths relativos a Qt
-//#define EXE_PATH        "D:/UTN/uModelFactory/uModelFactory-Documentacion/uModelFactory-Doc/EjecutableWindows/genOdt.exe"
-
-////Paths relativos a Python
-//#define OUT_PATH        "D:/UTN/uModelFactory/uModelFactory-Documentacion/ProyectoCosechadoraAgro/doc_CosechadoraAgro/doc_CosechadoraAgro.odt"
-//#define IMAGES_DIR_PATH "D:/UTN/uModelFactory/uModelFactory-Documentacion/ProyectoCosechadoraAgro/doc_CosechadoraAgro"
-//#define CODES_DIR_PATH  "D:/UTN/uModelFactory/uModelFactory-Documentacion/ProyectoCosechadoraAgro/doc_CosechadoraAgro/Resultados_CosechadoraAgro/switch/SinDepuracionSinComentariosExtendidos"
-
 typedef struct {
     //Header
     QString autores;
@@ -374,6 +362,7 @@ void escribirCodigoFuente(writerOdt* manager, CONTENIDO_DOCUMENTACION configDoc)
         tituloCodigo.setAlign(textOdt::ALIGN_CENTER);
         tituloCodigo.setBold(true);
         tituloCodigo.setFont("Courier new");
+        tituloCodigo.setLetterSize(14);
         tableElement TE_tituloCodigo(tituloCodigo);
         TE_tituloCodigo.setPos(0,0);
         tableOdt tableCode(1,1);

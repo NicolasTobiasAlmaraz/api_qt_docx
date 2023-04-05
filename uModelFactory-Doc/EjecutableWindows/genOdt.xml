@@ -1115,7 +1115,7 @@
   <element row="0" col="0">
    <text>
     <content><![CDATA[AP_FuncionesMDE.c]]></content>
-    <size>11</size>
+    <size>14</size>
     <font>Courier new</font>
     <align>center</align>
     <underline>0</underline>
@@ -5609,7 +5609,7 @@
   <element row="0" col="0">
    <text>
     <content><![CDATA[AP_FuncionesMDE.h]]></content>
-    <size>11</size>
+    <size>14</size>
     <font>Courier new</font>
     <align>center</align>
     <underline>0</underline>
@@ -6335,7 +6335,7 @@
   <element row="0" col="0">
    <text>
     <content><![CDATA[AP_Inicializacion.c]]></content>
-    <size>11</size>
+    <size>14</size>
     <font>Courier new</font>
     <align>center</align>
     <underline>0</underline>
@@ -7625,7 +7625,7 @@
   <element row="0" col="0">
    <text>
     <content><![CDATA[AP_Inicializacion.h]]></content>
-    <size>11</size>
+    <size>14</size>
     <font>Courier new</font>
     <align>center</align>
     <underline>0</underline>
@@ -7955,7 +7955,7 @@
   <element row="0" col="0">
    <text>
     <content><![CDATA[AP_MDE.c]]></content>
-    <size>11</size>
+    <size>14</size>
     <font>Courier new</font>
     <align>center</align>
     <underline>0</underline>
@@ -12977,7 +12977,7 @@
   <element row="0" col="0">
    <text>
     <content><![CDATA[AP_MDE.h]]></content>
-    <size>11</size>
+    <size>14</size>
     <font>Courier new</font>
     <align>center</align>
     <underline>0</underline>
@@ -13355,7 +13355,7 @@
   <element row="0" col="0">
    <text>
     <content><![CDATA[main.c]]></content>
-    <size>11</size>
+    <size>14</size>
     <font>Courier new</font>
     <align>center</align>
     <underline>0</underline>

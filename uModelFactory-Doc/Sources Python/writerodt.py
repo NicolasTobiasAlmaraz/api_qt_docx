@@ -8,10 +8,11 @@ from listodt import listOdt
 # Odt
 from odf.opendocument import OpenDocumentText
 from odf.style import Style, TextProperties, ParagraphProperties, ListLevelProperties, FontFace, PageLayout, \
-    PageLayoutProperties, MasterPage, GraphicProperties, PageLayout, Header, Footer
+    PageLayoutProperties, MasterPage, GraphicProperties, PageLayout, Header, Footer, TabStop, TabStops
 from odf.text import P, H, A, S, List, ListItem, ListStyle, ListLevelStyleBullet, ListLevelStyleNumber, Span
 from odf.table import Table, TableColumn, TableRow, TableCell
 from odf.draw import Frame, Image
+from odf import teletype
 
 
 class OdtWriter:
@@ -33,6 +34,17 @@ class OdtWriter:
         bullet1.addElement(L1prop1)
         L1style.addElement(bullet1)
         self.myTextDoc.automaticstyles.addElement(L1style)
+
+        # Configuro style para los tabs(\t)
+        tabstops_style = TabStops()
+        tabstop_style = TabStop(position="1cm")
+        tabstops_style.addElement(tabstop_style)
+        tabstoppar = ParagraphProperties()
+        tabstoppar.addElement(tabstops_style)
+        self.tabparagraphstyle = Style(name="Question", family="paragraph")
+        self.tabparagraphstyle.addElement(tabstoppar)
+        self.myTextDoc.styles.addElement(self.tabparagraphstyle)
+        self.myTextDoc.styles.addElement(self.tabparagraphstyle)
 
     # Genera un objeto texto listo para agregar al documento
     def generateText(self, text: textOdt):
@@ -64,10 +76,41 @@ class OdtWriter:
             attributes["textlinethroughtype"] = "single"
         style.addElement(TextProperties(attributes=attributes))
         style.addElement(ParagraphProperties(attributes={"textalign": text.mAlign}))
+
+        # Config tab = 0.75cm
+        tabstops_style = TabStops()
+        tabstop_style = TabStop(position="0.75cm")
+        tabstops_style.addElement(tabstop_style)
+        tabstoppar = ParagraphProperties()
+        tabstoppar.addElement(tabstops_style)
+        style.addElement(tabstoppar)
+
         self.myTextDoc.automaticstyles.addElement(style)
-        p = P(text=text.mContent, stylename=style)
-        # Es como hacer un append
-        #p.addElement(Span(text="_Agregado", stylename=style))
+
+        #Texto vacio
+        if text.mContent is not None:
+            cantSpaces = 0
+            newText = ""
+
+            #Reajusto texto teniendo en cuenta los \t
+            for c in text.mContent:
+                if c == " ":
+                    cantSpaces += 1
+                    if cantSpaces == 4:
+                        newText += "\t"
+                        cantSpaces = 0
+                else:
+                    if cantSpaces != 4 and cantSpaces != 0:
+                        newText += " "
+                    cantSpaces = 0
+                    newText += c
+            text.mContent = newText
+
+            # Genero texto
+            p = P(stylename=style)
+            teletype.addTextToElement(p, text.mContent)
+        else:
+            p = P(text=text.mContent, stylename=style)
         return p
 
     # Genera un objeto imagen listo para agregar al documento
