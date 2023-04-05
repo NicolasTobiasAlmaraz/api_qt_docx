@@ -1,4 +1,0 @@
-Example of script that extracts a table from an SQLite database and produces a spreadsheet.
-
-Issues:
-Numbers in the table become strings in the spreadsheet.
