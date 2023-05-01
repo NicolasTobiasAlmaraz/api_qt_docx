@@ -1,0 +1,1392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1366</width>
+    <height>914</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>uModel Factory | UTN-FRBA</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resources.qrc">
+    <normaloff>:/img/uModel.ico</normaloff>:/img/uModel.ico</iconset>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>2</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QSplitter" name="splitterCentral">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="handleWidth">
+       <number>3</number>
+      </property>
+      <property name="childrenCollapsible">
+       <bool>false</bool>
+      </property>
+      <widget class="QMdiArea" name="mdiArea">
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="activationOrder">
+        <enum>QMdiArea::ActivationHistoryOrder</enum>
+       </property>
+      </widget>
+      <widget class="QDockWidget" name="dockWidgetTransiciones">
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="features">
+        <set>QDockWidget::DockWidgetClosable|QDockWidget::DockWidgetMovable</set>
+       </property>
+       <property name="windowTitle">
+        <string>Tabla de Estados y Transiciones</string>
+       </property>
+       <widget class="QWidget" name="dockWidgetContentsTransiciones">
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <property name="spacing">
+          <number>2</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QTableWidget" name="tableWidgetTransiciones">
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+           <property name="editTriggers">
+            <set>QAbstractItemView::NoEditTriggers</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1366</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <widget class="QMenu" name="menuArchivo">
+    <property name="title">
+     <string>&amp;Archivo</string>
+    </property>
+    <widget class="QMenu" name="menuImportarRecursos">
+     <property name="title">
+      <string>Importar Recursos</string>
+     </property>
+     <property name="icon">
+      <iconset resource="resources.qrc">
+       <normaloff>:/img/img/plugin_add.png</normaloff>:/img/img/plugin_add.png</iconset>
+     </property>
+     <addaction name="actionImportarRecursosDesdeArchivo"/>
+     <addaction name="actionImportarRecursosDesdeOtroProyecto"/>
+    </widget>
+    <addaction name="actionNuevoProyecto"/>
+    <addaction name="actionAbrirProyecto"/>
+    <addaction name="separator"/>
+    <addaction name="actionGuardar"/>
+    <addaction name="actionGuardarComo"/>
+    <addaction name="separator"/>
+    <addaction name="menuImportarRecursos"/>
+    <addaction name="separator"/>
+    <addaction name="actionCerrarProyecto"/>
+    <addaction name="separator"/>
+    <addaction name="actionSalir"/>
+   </widget>
+   <widget class="QMenu" name="menuHerramientas">
+    <property name="title">
+     <string>&amp;Herramientas</string>
+    </property>
+    <addaction name="actionVerificar"/>
+    <addaction name="separator"/>
+    <addaction name="actionSimular"/>
+    <addaction name="actionTerminarSimulacion"/>
+    <addaction name="separator"/>
+    <addaction name="actionConfigurarDepuracion"/>
+    <addaction name="actionDepurar"/>
+    <addaction name="actionTerminarDepuracion"/>
+   </widget>
+   <widget class="QMenu" name="menuVer">
+    <property name="title">
+     <string>&amp;Ver</string>
+    </property>
+    <addaction name="separator"/>
+    <addaction name="actionMosaico"/>
+    <addaction name="actionCascada"/>
+   </widget>
+   <widget class="QMenu" name="menuGenerar">
+    <property name="title">
+     <string>Generar</string>
+    </property>
+    <addaction name="actionGenerarCodigo"/>
+    <addaction name="actionGenerarDocumentacion"/>
+   </widget>
+   <widget class="QMenu" name="menuAyuda">
+    <property name="title">
+     <string>Ayuda</string>
+    </property>
+    <widget class="QMenu" name="menuAyuda_Din_mica">
+     <property name="title">
+      <string>Ayuda Dinámica</string>
+     </property>
+     <property name="icon">
+      <iconset resource="resources.qrc">
+       <normaloff>:/img/img/book.png</normaloff>:/img/img/book.png</iconset>
+     </property>
+     <addaction name="actionAyudaDesactivada"/>
+     <addaction name="actionAyudaUsuarioInicial"/>
+     <addaction name="actionAyudaUsuarioAvanzado"/>
+    </widget>
+    <addaction name="actionAcercaDe"/>
+    <addaction name="menuAyuda_Din_mica"/>
+   </widget>
+   <widget class="QMenu" name="menuDiagrama">
+    <property name="title">
+     <string>Diagrama</string>
+    </property>
+    <widget class="QMenu" name="menuDefinir">
+     <property name="title">
+      <string>Definir</string>
+     </property>
+     <property name="icon">
+      <iconset resource="resources.qrc">
+       <normaloff>:/img/img/plugin_add.png</normaloff>:/img/img/plugin_add.png</iconset>
+     </property>
+     <addaction name="actionNuevoEvento"/>
+     <addaction name="actionNuevaAccion"/>
+     <addaction name="actionNuevaVariable"/>
+     <addaction name="actionNuevaConstante"/>
+    </widget>
+    <addaction name="actionNuevaMaquina"/>
+    <addaction name="actionRenombrarMaquina"/>
+    <addaction name="actionEliminarMaquina"/>
+    <addaction name="separator"/>
+    <addaction name="actionNuevoEstado"/>
+    <addaction name="actionNuevaTransicion"/>
+    <addaction name="actionEstadoInicial"/>
+    <addaction name="actionEliminarElemento"/>
+    <addaction name="separator"/>
+    <addaction name="menuDefinir"/>
+   </widget>
+   <addaction name="menuArchivo"/>
+   <addaction name="menuDiagrama"/>
+   <addaction name="menuHerramientas"/>
+   <addaction name="menuGenerar"/>
+   <addaction name="menuVer"/>
+   <addaction name="menuAyuda"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextUnderIcon</enum>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionNuevoProyecto"/>
+   <addaction name="actionAbrirProyecto"/>
+   <addaction name="actionGuardar"/>
+   <addaction name="separator"/>
+   <addaction name="actionNuevaMaquina"/>
+   <addaction name="separator"/>
+   <addaction name="actionSeleccionar"/>
+   <addaction name="actionNuevoEstado"/>
+   <addaction name="actionNuevaTransicion"/>
+   <addaction name="actionEstadoInicial"/>
+   <addaction name="separator"/>
+   <addaction name="actionInterfaz_Virtual"/>
+   <addaction name="actionSimular"/>
+   <addaction name="actionTerminarSimulacion"/>
+   <addaction name="separator"/>
+   <addaction name="actionVerificar"/>
+   <addaction name="separator"/>
+   <addaction name="actionGenerarCodigo"/>
+   <addaction name="actionGenerarDocumentacion"/>
+   <addaction name="separator"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QDockWidget" name="dockWidgetProyecto">
+   <property name="minimumSize">
+    <size>
+     <width>87</width>
+     <height>117</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <property name="features">
+    <set>QDockWidget::DockWidgetClosable|QDockWidget::DockWidgetMovable</set>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea</set>
+   </property>
+   <property name="windowTitle">
+    <string>Explorador de Proyecto</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContentsProyecto">
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <property name="spacing">
+      <number>2</number>
+     </property>
+     <property name="leftMargin">
+      <number>0</number>
+     </property>
+     <property name="topMargin">
+      <number>0</number>
+     </property>
+     <property name="rightMargin">
+      <number>0</number>
+     </property>
+     <property name="bottomMargin">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QTreeWidget" name="treeWidgetProyecto">
+       <property name="font">
+        <font>
+         <family>Consolas</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="editTriggers">
+        <set>QAbstractItemView::NoEditTriggers</set>
+       </property>
+       <property name="indentation">
+        <number>16</number>
+       </property>
+       <property name="expandsOnDoubleClick">
+        <bool>false</bool>
+       </property>
+       <property name="columnCount">
+        <number>1</number>
+       </property>
+       <attribute name="headerVisible">
+        <bool>false</bool>
+       </attribute>
+       <column>
+        <property name="text">
+         <string notr="true">1</string>
+        </property>
+       </column>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="dockWidgetSimulacion">
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <property name="features">
+    <set>QDockWidget::DockWidgetMovable</set>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea</set>
+   </property>
+   <property name="windowTitle">
+    <string>Simulación</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContentsSimulacion">
+    <layout class="QVBoxLayout" name="verticalLayout_4">
+     <property name="spacing">
+      <number>2</number>
+     </property>
+     <property name="leftMargin">
+      <number>0</number>
+     </property>
+     <property name="topMargin">
+      <number>0</number>
+     </property>
+     <property name="rightMargin">
+      <number>0</number>
+     </property>
+     <property name="bottomMargin">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QSplitter" name="splitterSimulacion">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="handleWidth">
+        <number>4</number>
+       </property>
+       <property name="childrenCollapsible">
+        <bool>false</bool>
+       </property>
+       <widget class="QTreeWidget" name="treeWidgetSimEstados">
+        <property name="font">
+         <font>
+          <family>Consolas</family>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+        <property name="columnCount">
+         <number>1</number>
+        </property>
+        <column>
+         <property name="text">
+          <string>&quot;nombre del proyecto&quot;</string>
+         </property>
+         <property name="font">
+          <font>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/img/img/control_play_blue.png</normaloff>:/img/img/control_play_blue.png</iconset>
+         </property>
+        </column>
+       </widget>
+       <widget class="QTableWidget" name="tableWidgetSimEventos">
+        <property name="font">
+         <font>
+          <family>Consolas</family>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+        <property name="editTriggers">
+         <set>QAbstractItemView::NoEditTriggers</set>
+        </property>
+        <property name="selectionMode">
+         <enum>QAbstractItemView::SingleSelection</enum>
+        </property>
+        <property name="gridStyle">
+         <enum>Qt::NoPen</enum>
+        </property>
+        <property name="sortingEnabled">
+         <bool>true</bool>
+        </property>
+        <property name="columnCount">
+         <number>1</number>
+        </property>
+        <attribute name="horizontalHeaderStretchLastSection">
+         <bool>true</bool>
+        </attribute>
+        <attribute name="verticalHeaderVisible">
+         <bool>false</bool>
+        </attribute>
+        <column>
+         <property name="text">
+          <string>Eventos</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Consolas</family>
+           <pointsize>10</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+        </column>
+       </widget>
+       <widget class="QTableWidget" name="tableWidgetSimAcciones">
+        <property name="font">
+         <font>
+          <family>Consolas</family>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+        <property name="sizeAdjustPolicy">
+         <enum>QAbstractScrollArea::AdjustIgnored</enum>
+        </property>
+        <property name="editTriggers">
+         <set>QAbstractItemView::NoEditTriggers</set>
+        </property>
+        <property name="showGrid">
+         <bool>false</bool>
+        </property>
+        <property name="gridStyle">
+         <enum>Qt::NoPen</enum>
+        </property>
+        <attribute name="horizontalHeaderStretchLastSection">
+         <bool>true</bool>
+        </attribute>
+        <attribute name="verticalHeaderVisible">
+         <bool>false</bool>
+        </attribute>
+        <column>
+         <property name="text">
+          <string>Acciones</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Consolas</family>
+           <pointsize>10</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+        </column>
+       </widget>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="dockWidgetVerificar">
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <property name="features">
+    <set>QDockWidget::DockWidgetClosable|QDockWidget::DockWidgetMovable</set>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea</set>
+   </property>
+   <property name="windowTitle">
+    <string>Verificación</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContentsVerificar">
+    <layout class="QVBoxLayout" name="verticalLayout_5">
+     <property name="spacing">
+      <number>2</number>
+     </property>
+     <property name="leftMargin">
+      <number>0</number>
+     </property>
+     <property name="topMargin">
+      <number>0</number>
+     </property>
+     <property name="rightMargin">
+      <number>0</number>
+     </property>
+     <property name="bottomMargin">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QTreeWidget" name="treeWidgetVerificar">
+       <property name="font">
+        <font>
+         <family>Consolas</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <column>
+        <property name="text">
+         <string>&quot;nombre del proyecto&quot;</string>
+        </property>
+        <property name="icon">
+         <iconset resource="resources.qrc">
+          <normaloff>:/img/img/check box.png</normaloff>:/img/img/check box.png</iconset>
+        </property>
+       </column>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="dockWidgetDebug">
+   <property name="minimumSize">
+    <size>
+     <width>265</width>
+     <height>348</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>265</width>
+     <height>524287</height>
+    </size>
+   </property>
+   <property name="features">
+    <set>QDockWidget::NoDockWidgetFeatures</set>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea</set>
+   </property>
+   <property name="windowTitle">
+    <string>Depuración</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents">
+    <layout class="QVBoxLayout" name="verticalLayout_7">
+     <item>
+      <widget class="QGroupBox" name="groupBoxMaquinasDebug">
+       <property name="title">
+        <string>Máquinas de Estado</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_9">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayoutMaquinasDebug"/>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="groupBox">
+       <property name="title">
+        <string>Controles</string>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_6">
+        <property name="spacing">
+         <number>6</number>
+        </property>
+        <property name="leftMargin">
+         <number>6</number>
+        </property>
+        <property name="topMargin">
+         <number>9</number>
+        </property>
+        <property name="rightMargin">
+         <number>6</number>
+        </property>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <widget class="QPushButton" name="pushButtonDebugStop">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="resources.qrc">
+              <normaloff>:/img/img/control_stop_blue.png</normaloff>:/img/img/control_stop_blue.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>28</width>
+              <height>28</height>
+             </size>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButtonDebugPlay">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="resources.qrc">
+              <normaloff>:/img/img/control_play_blue.png</normaloff>:/img/img/control_play_blue.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>28</width>
+              <height>28</height>
+             </size>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButtonDebugPausa">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="resources.qrc">
+              <normaloff>:/img/img/control_pause_blue.png</normaloff>:/img/img/control_pause_blue.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>28</width>
+              <height>28</height>
+             </size>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButtonDebugStepFw">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="resources.qrc">
+              <normaloff>:/img/img/control end blue.png</normaloff>:/img/img/control end blue.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>28</width>
+              <height>28</height>
+             </size>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="Line" name="lineControlesDebug">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <widget class="QLabel" name="labelEscalaTiempo">
+            <property name="text">
+             <string>Escala de Tiempo:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <property name="spacing">
+             <number>2</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="labelSpinBoxEscalaTiempo">
+              <property name="text">
+               <string>x</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QDoubleSpinBox" name="doubleSpinBoxEscalaTiempoDebug">
+              <property name="decimals">
+               <number>2</number>
+              </property>
+              <property name="singleStep">
+               <double>0.250000000000000</double>
+              </property>
+              <property name="value">
+               <double>1.000000000000000</double>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="groupBox_2">
+       <property name="title">
+        <string>Progreso</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_8">
+        <property name="spacing">
+         <number>6</number>
+        </property>
+        <property name="leftMargin">
+         <number>9</number>
+        </property>
+        <property name="topMargin">
+         <number>9</number>
+        </property>
+        <property name="rightMargin">
+         <number>9</number>
+        </property>
+        <property name="bottomMargin">
+         <number>9</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="labelEstadoDebug">
+          <property name="text">
+           <string>Estado Debug:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="Line" name="lineProgresoebug">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QProgressBar" name="progressBarDebug">
+          <property name="maximum">
+           <number>1000</number>
+          </property>
+          <property name="value">
+           <number>250</number>
+          </property>
+          <property name="format">
+           <string>t = %v ms</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>413</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="dockWidgetVariables">
+   <property name="floating">
+    <bool>false</bool>
+   </property>
+   <property name="features">
+    <set>QDockWidget::DockWidgetClosable|QDockWidget::DockWidgetMovable</set>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea</set>
+   </property>
+   <property name="windowTitle">
+    <string>Estado de las variables</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_4">
+    <widget class="QTableWidget" name="tableWidgetVariables">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>261</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>9</pointsize>
+      </font>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="tabKeyNavigation">
+      <bool>true</bool>
+     </property>
+     <property name="dragDropOverwriteMode">
+      <bool>true</bool>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::ExtendedSelection</enum>
+     </property>
+     <property name="horizontalScrollMode">
+      <enum>QAbstractItemView::ScrollPerItem</enum>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="dockWidgetAyuda">
+   <property name="minimumSize">
+    <size>
+     <width>265</width>
+     <height>450</height>
+    </size>
+   </property>
+   <property name="features">
+    <set>QDockWidget::DockWidgetClosable</set>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::RightDockWidgetArea</set>
+   </property>
+   <property name="windowTitle">
+    <string>Ayuda</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContentsAyuda">
+    <layout class="QVBoxLayout" name="verticalLayout_10">
+     <property name="spacing">
+      <number>2</number>
+     </property>
+     <property name="leftMargin">
+      <number>0</number>
+     </property>
+     <property name="topMargin">
+      <number>0</number>
+     </property>
+     <property name="rightMargin">
+      <number>0</number>
+     </property>
+     <property name="bottomMargin">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QTextEdit" name="textEditAyuda">
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <action name="actionNuevaMaquina">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/img/application_add.png</normaloff>:/img/img/application_add.png</iconset>
+   </property>
+   <property name="text">
+    <string>Nueva Máquina</string>
+   </property>
+   <property name="toolTip">
+    <string>Nueva Máquina de Estados</string>
+   </property>
+  </action>
+  <action name="actionNuevoEstado">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/img/add_box.png</normaloff>:/img/img/add_box.png</iconset>
+   </property>
+   <property name="text">
+    <string>Nuevo Estado</string>
+   </property>
+  </action>
+  <action name="actionNuevaTransicion">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/img/add_transition.png</normaloff>:/img/img/add_transition.png</iconset>
+   </property>
+   <property name="text">
+    <string>Nueva Transición</string>
+   </property>
+   <property name="toolTip">
+    <string>Nueva Transición</string>
+   </property>
+  </action>
+  <action name="actionEstadoInicial">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/img/bullet_blue.png</normaloff>:/img/img/bullet_blue.png</iconset>
+   </property>
+   <property name="text">
+    <string>Estado Inicial</string>
+   </property>
+  </action>
+  <action name="actionSimular">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/img/control_play_blue.png</normaloff>:/img/img/control_play_blue.png</iconset>
+   </property>
+   <property name="text">
+    <string>Simular Local</string>
+   </property>
+   <property name="toolTip">
+    <string>Iniciar Simulación</string>
+   </property>
+  </action>
+  <action name="actionTerminarSimulacion">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/img/control_stop_blue.png</normaloff>:/img/img/control_stop_blue.png</iconset>
+   </property>
+   <property name="text">
+    <string>Terminar</string>
+   </property>
+   <property name="toolTip">
+    <string>Terminar Simulación</string>
+   </property>
+  </action>
+  <action name="actionMosaico">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/img/application tile horizontal.png</normaloff>:/img/img/application tile horizontal.png</iconset>
+   </property>
+   <property name="text">
+    <string>Mosaico</string>
+   </property>
+  </action>
+  <action name="actionCascada">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/img/application cascade.png</normaloff>:/img/img/application cascade.png</iconset>
+   </property>
+   <property name="text">
+    <string>Cascada</string>
+   </property>
+  </action>
+  <action name="actionSeleccionar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/img/cursor.png</normaloff>:/img/img/cursor.png</iconset>
+   </property>
+   <property name="text">
+    <string>Seleccionar</string>
+   </property>
+   <property name="toolTip">
+    <string>Seleccionar</string>
+   </property>
+   <property name="shortcut">
+    <string>Esc</string>
+   </property>
+  </action>
+  <action name="actionEliminarElemento">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/img/cross.png</normaloff>:/img/img/cross.png</iconset>
+   </property>
+   <property name="text">
+    <string>Eliminar Elemento</string>
+   </property>
+   <property name="toolTip">
+    <string>Eliminar Elemento</string>
+   </property>
+   <property name="shortcut">
+    <string>Del</string>
+   </property>
+  </action>
+  <action name="actionGuardar">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/img/disk.png</normaloff>:/img/img/disk.png</iconset>
+   </property>
+   <property name="text">
+    <string>Guardar</string>
+   </property>
+   <property name="toolTip">
+    <string>Guardar</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionGuardarComo">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/img/save as.png</normaloff>:/img/img/save as.png</iconset>
+   </property>
+   <property name="text">
+    <string>Guardar Como...</string>
+   </property>
+   <property name="toolTip">
+    <string>Guardar Como...</string>
+   </property>
+  </action>
+  <action name="actionNuevoProyecto">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/img/folder_add.png</normaloff>:/img/img/folder_add.png</iconset>
+   </property>
+   <property name="text">
+    <string>Nuevo Proyecto</string>
+   </property>
+   <property name="toolTip">
+    <string>Nuevo Proyecto</string>
+   </property>
+  </action>
+  <action name="actionAbrirProyecto">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/img/folder.png</normaloff>:/img/img/folder.png</iconset>
+   </property>
+   <property name="text">
+    <string>Abrir Proyecto</string>
+   </property>
+   <property name="toolTip">
+    <string>Abrir Proyecto</string>
+   </property>
+  </action>
+  <action name="actionSalir">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/img/door.png</normaloff>:/img/img/door.png</iconset>
+   </property>
+   <property name="text">
+    <string>Salir</string>
+   </property>
+  </action>
+  <action name="actionCerrarProyecto">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/img/folder_delete.png</normaloff>:/img/img/folder_delete.png</iconset>
+   </property>
+   <property name="text">
+    <string>Cerrar Proyecto</string>
+   </property>
+  </action>
+  <action name="actionGenerarCodigo">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/img/source_code.png</normaloff>:/img/img/source_code.png</iconset>
+   </property>
+   <property name="text">
+    <string>Generar Código</string>
+   </property>
+  </action>
+  <action name="actionGenerarDocumentacion">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/img/report.png</normaloff>:/img/img/report.png</iconset>
+   </property>
+   <property name="text">
+    <string>Generar Documentación</string>
+   </property>
+   <property name="toolTip">
+    <string>Generar Documentación del Proyecto</string>
+   </property>
+  </action>
+  <action name="actionVerificar">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/img/check box.png</normaloff>:/img/img/check box.png</iconset>
+   </property>
+   <property name="text">
+    <string>Verificar</string>
+   </property>
+  </action>
+  <action name="actionAcercaDe">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/img/information.png</normaloff>:/img/img/information.png</iconset>
+   </property>
+   <property name="text">
+    <string>Acerca de uModelFactory...</string>
+   </property>
+  </action>
+  <action name="actionEliminarMaquina">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/img/application_delete.png</normaloff>:/img/img/application_delete.png</iconset>
+   </property>
+   <property name="text">
+    <string>Eliminar Máquina</string>
+   </property>
+  </action>
+  <action name="actionConfigurarDepuracion">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/img/cog_go.png</normaloff>:/img/img/cog_go.png</iconset>
+   </property>
+   <property name="text">
+    <string>Configurar Depuración</string>
+   </property>
+   <property name="toolTip">
+    <string>Configurar Depuración</string>
+   </property>
+  </action>
+  <action name="actionDepurar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/img/connect.png</normaloff>:/img/img/connect.png</iconset>
+   </property>
+   <property name="text">
+    <string>Depurar</string>
+   </property>
+  </action>
+  <action name="actionTerminarDepuracion">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/img/disconnect.png</normaloff>:/img/img/disconnect.png</iconset>
+   </property>
+   <property name="text">
+    <string>Terminar Depuración</string>
+   </property>
+   <property name="toolTip">
+    <string>Terminar Depuración</string>
+   </property>
+  </action>
+  <action name="actionImportarRecursosDesdeArchivo">
+   <property name="text">
+    <string>Desde Archivo...</string>
+   </property>
+   <property name="toolTip">
+    <string>Importar Recursos Desde Archivo</string>
+   </property>
+  </action>
+  <action name="actionImportarRecursosDesdeOtroProyecto">
+   <property name="text">
+    <string>Desde Otro Proyecto...</string>
+   </property>
+   <property name="toolTip">
+    <string>Importar Recursos Desde Otro Proyecto</string>
+   </property>
+  </action>
+  <action name="actionRenombrarMaquina">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/img/application edit.png</normaloff>:/img/img/application edit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Renombrar  Máquina</string>
+   </property>
+  </action>
+  <action name="actionNuevoEvento">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/img/events.png</normaloff>:/img/img/events.png</iconset>
+   </property>
+   <property name="text">
+    <string>Nuevo Evento</string>
+   </property>
+  </action>
+  <action name="actionNuevaAccion">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/img/external.png</normaloff>:/img/img/external.png</iconset>
+   </property>
+   <property name="text">
+    <string>Nueva Acción</string>
+   </property>
+  </action>
+  <action name="actionNuevaVariable">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/img/brick.png</normaloff>:/img/img/brick.png</iconset>
+   </property>
+   <property name="text">
+    <string>Nueva Variable</string>
+   </property>
+  </action>
+  <action name="actionNuevaConstante">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/img/non_derivative.png</normaloff>:/img/img/non_derivative.png</iconset>
+   </property>
+   <property name="text">
+    <string>Nueva Constante</string>
+   </property>
+   <property name="toolTip">
+    <string>Nueva Constante</string>
+   </property>
+  </action>
+  <action name="actionBorrarEvento">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/img/delete.png</normaloff>:/img/img/delete.png</iconset>
+   </property>
+   <property name="text">
+    <string>Borrar Evento</string>
+   </property>
+  </action>
+  <action name="actionBorrarAccion">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/img/delete.png</normaloff>:/img/img/delete.png</iconset>
+   </property>
+   <property name="text">
+    <string>Borrar Acción</string>
+   </property>
+   <property name="toolTip">
+    <string>Borrar Acción</string>
+   </property>
+  </action>
+  <action name="actionBorrarVariable">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/img/delete.png</normaloff>:/img/img/delete.png</iconset>
+   </property>
+   <property name="text">
+    <string>Borrar Variable</string>
+   </property>
+   <property name="toolTip">
+    <string>Borrar Variable</string>
+   </property>
+  </action>
+  <action name="actionBorrarConstante">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/img/delete.png</normaloff>:/img/img/delete.png</iconset>
+   </property>
+   <property name="text">
+    <string>Borrar Constante</string>
+   </property>
+   <property name="toolTip">
+    <string>Borrar Constante</string>
+   </property>
+  </action>
+  <action name="actionEditarConstante">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/img/pencil.png</normaloff>:/img/img/pencil.png</iconset>
+   </property>
+   <property name="text">
+    <string>Editar Constante</string>
+   </property>
+   <property name="toolTip">
+    <string>Editar Constante</string>
+   </property>
+  </action>
+  <action name="actionInterfaz_Virtual">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/img/infotronic2019-1.png</normaloff>:/img/img/infotronic2019-1.png</iconset>
+   </property>
+   <property name="text">
+    <string>Simular Virtual</string>
+   </property>
+   <property name="toolTip">
+    <string>Permite realizar la compatibilidad entre los nombres de utilizados en la maquina de estado y los preestablecidos en infotronic Virtual</string>
+   </property>
+  </action>
+  <action name="actionEliminar_comentario">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/img/delete.png</normaloff>:/img/img/delete.png</iconset>
+   </property>
+   <property name="text">
+    <string>Eliminar comentario</string>
+   </property>
+   <property name="toolTip">
+    <string>Eliminar un comentario</string>
+   </property>
+  </action>
+  <action name="actionAyudaDesactivada">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Desactivada</string>
+   </property>
+  </action>
+  <action name="actionAyudaUsuarioInicial">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Usuario Nivel Inicial</string>
+   </property>
+  </action>
+  <action name="actionAyudaUsuarioAvanzado">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Usuario Nivel Avanzado</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

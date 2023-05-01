@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <ver>1.0</ver>
+    <lang>es_AR</lang>
+    <help>       
+		<element type="estado">
+			<h1><![CDATA[<b><u>Estado</u></b><br><br>]]></h1>
+			
+			<h2><![CDATA[<b><u>Estado:</u></b><br>
+				Etapas de un proceso. <br><br>]]></h2>
+				
+			<h3><![CDATA[<b><u>Estado:</u></b><br>
+				Los estados son las diferentes instancias por las que tiene que pasar un sistema para completar un proceso.
+				Para avanzar de un estado a otro se hace a través de las transiciones.
+				En los diagramas son representados por recuadros o globos
+				Por ejemplo, estado "Esperando_Configuracion", "Encendido, "Apagado".<br><br>]]></h3>        
+		</element>
+		
+		<element type="transiciones">
+			<h1><![CDATA[<b><u>Transición</u></b><br><br>]]></h1>
+			
+			<h2><![CDATA[<b><u>Transición:</u></b><br>
+				Paso de un estado a otro.<br><br>]]></h2>
+				
+			<h3><![CDATA[<b><u>Transición:</u></b><br>
+				Es el paso entre un estado y otro. Estas se ejecutan si se cumplen ciertas condiciones de entrada. Se dice que una transición se dispara frente a un evento determinado.
+				En estas transiciones se accionan las salidas o alguna variable intermedia en caso de ser necesario.
+				Son representadas por las flechas donde se indican "eventos/ acciones".
+				Por ejemplo, apagar luces cuando se presiona el pulsador de parada.<br><br>]]></h3>
+		</element>
+
+		<element type="estadoInicial">
+			<h1><![CDATA[<b><u>Estado de reset</u></b><br><br>]]></h1>
+			
+			<h2><![CDATA[<b><u>Estado de reset:</u></b><br>
+				Impone condiciones iniciales de la máquina.<br><br>]]></h2>
+				
+			<h3><![CDATA[<b><u>Estado de reset:</u></b><br>
+				Se le llama estado de reset al estado en el que se inicia la máquina de estados.
+				En el diagrama se puede identificar como una transición que no parte propiamente de ningín estado de la máquina y conduce al estado inicial.
+				En esta se indican las condiciones iniciales de la máquina.
+				Por ejemplo, los motores y la luz roja comienzan apagados, la luz verde comienza encendida.<br><br>]]></h3>
+		</element>
+    </help>
+</root>

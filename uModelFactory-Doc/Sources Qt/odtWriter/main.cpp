@@ -43,12 +43,8 @@ typedef struct {
     bool fCodigos;
     std::list <QString> pathsCodigos;
 
-    //Listado de eventos
-    std::list <std::list <QString>> eventosMacros;
-    std::list <std::list <QString>> eventosBooleanos;
-    std::list <std::list <QString>> eventosTemporizados;
-
-    //Listado variables y acciones
+    //Listas de eventos, variables y acciones
+    std::list <QString> eventos;
     std::list <QString> variables;
     std::list <QString> acciones;
 } CONTENIDO_DOCUMENTACION;
@@ -59,6 +55,8 @@ writerOdt pageSetUp(CONTENIDO_DOCUMENTACION configDoc, QString exePath, QString 
 void escribirTitulo(writerOdt* manager, CONTENIDO_DOCUMENTACION configDoc);
 void escribirIntroTeorica(writerOdt* manager, CONTENIDO_DOCUMENTACION configDoc);
 void escribirTituloMaqGeneral(writerOdt* manager);
+void escribirEventosAccionesVariables(writerOdt* manager, CONTENIDO_DOCUMENTACION configDoc);
+void escribirLista(writerOdt* manager, std::list<QString> lista, QString titulo);
 void escribirTituloMaq(writerOdt* manager, QString titulo);
 void escribirDiagrama(writerOdt* manager, imageOdt diagrama);
 void escribirTablaEstados(writerOdt* manager, tableOdt maqTabla);
@@ -143,6 +141,24 @@ int main(void) {
     configDoc.fTablaEstadosTransiciones = true;
     configDoc.tablasEstTranc = tablasEstTranc;
 
+    //Eventos, acciones y variables
+    std::list<QString> eventos, variables, acciones;
+    eventos.push_back("Evento 1");
+    eventos.push_back("Evento 2");
+    eventos.push_back("Evento 3");
+
+    acciones.push_back("Accion 1");
+    acciones.push_back("Accion 2");
+    acciones.push_back("Accion 3");
+
+    variables.push_back("Variable 1");
+    variables.push_back("Variable 2");
+    variables.push_back("Variable 3");
+
+    configDoc.eventos = eventos;
+    configDoc.acciones = acciones;
+    configDoc.variables = variables;
+
     //Codigo
     std::list<QString> listCodes;
     listCodes.push_back(QString(CODES_DIR_PATH)+"/AP_FuncionesMDE.c");
@@ -170,6 +186,9 @@ void writeDocument(QString exePath, QString outPath, CONTENIDO_DOCUMENTACION con
     //Escribo intro teorica
     if(configDoc.fIntroTeorica)
         escribirIntroTeorica(&manager, configDoc);
+
+   //Lista de eventos, acciones, variables
+    escribirEventosAccionesVariables(&manager, configDoc);
 
     //Escribo cada maquina de estados
     escribirTituloMaqGeneral(&manager);
@@ -338,6 +357,36 @@ void escribirTablaEstados(writerOdt* manager, tableOdt maqTabla) {
     titulo.setItalic(true);
     manager->writeText(titulo);
     manager->writeTable(maqTabla);
+    manager->writeText(newLine);
+}
+
+void escribirEventosAccionesVariables(writerOdt* manager, CONTENIDO_DOCUMENTACION configDoc) {
+    textOdt titulo("Eventos, Acciones y Variables");
+    titulo.setBold(true);
+    titulo.setAlign(textOdt::ALIGN_CENTER);
+    titulo.setLetterSize(12);
+    manager->writeText(titulo);
+    manager->writeText(newLine);
+
+    escribirLista(manager, configDoc.acciones, "Lista de Acciones");
+    escribirLista(manager, configDoc.eventos, "Lista de Eventos");
+    escribirLista(manager, configDoc.variables, "Lista de Variables");
+}
+
+void escribirLista(writerOdt* manager, std::list<QString> lista, QString titulo) {
+    textOdt tituloLista(titulo);
+    tituloLista.setItalic(true);
+    tituloLista.setUnderline(true);
+    manager->writeText(tituloLista);
+    manager->writeText(newLine);
+
+    listOdt myList;
+    while( lista.size()!=0 ) {
+        QString txt = lista.front();
+        lista.pop_front();
+        myList.addElement( textOdt(txt) );
+    }
+    manager->writeList(myList);
     manager->writeText(newLine);
 }
 

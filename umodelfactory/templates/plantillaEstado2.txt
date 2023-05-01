@@ -1,0 +1,10 @@
+				if( {EVENTO_ENTRADA} )
+				{
+					#ifdef DEPURAR
+						Log( 0 , {INFO_DEPURAR} );
+                                        #endif
+
+					{ACCION_SALIDA}
+					estado = {ESTADO_SALIDA};	
+				}
+ 
