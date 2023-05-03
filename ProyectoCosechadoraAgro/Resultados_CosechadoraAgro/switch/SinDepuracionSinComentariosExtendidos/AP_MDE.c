@@ -3,7 +3,7 @@
 *	\brief      Maquina/s de Estado
 *	\details    Descripcion detallada del archivo
 *	\author     Almaraz
-*	\date       27-03-2023 08:54:15
+*	\date       01-05-2023 14:06:29
 */
 /************************************************************************************************************
  *** INCLUDES
@@ -95,7 +95,7 @@ static int General ( int );
 *	\brief   Coloque aqui su descripcion
 *	\details Amplie la descripcion
 *	\author  Almaraz
-*	\date    27-03-2023 08:54:15
+*	\date    01-05-2023 14:06:29
 *   \param   [in] Estado: caso dentro de la maquina (estado actual)
 *	\return  int : estado siguiente
 */
@@ -174,7 +174,7 @@ static int Cosecha ( int  Estado )
 *	\brief   Coloque aqui su descripcion
 *	\details Amplie la descripcion
 *	\author  Almaraz
-*	\date    27-03-2023 08:54:15
+*	\date    01-05-2023 14:06:29
 *   \param   [in] Estado: caso dentro de la maquina (estado actual)
 *	\return  int : estado siguiente
 */
@@ -307,7 +307,7 @@ static int Plantacion ( int  Estado )
 *	\brief   Coloque aqui su descripcion
 *	\details Amplie la descripcion
 *	\author  Almaraz
-*	\date    27-03-2023 08:54:15
+*	\date    01-05-2023 14:06:29
 *   \param   [in] Estado: caso dentro de la maquina (estado actual)
 *	\return  int : estado siguiente
 */
@@ -394,7 +394,7 @@ static int General ( int  Estado )
 *	\brief   Coloque aqui su descripcion
 *	\details Amplie la descripcion
 *	\author  Almaraz
-*	\date    27-03-2023 08:54:15
+*	\date    01-05-2023 14:06:29
 *   \param   void
 *	\return  void
 */

@@ -8,7 +8,8 @@ from listodt import listOdt
 # Odt
 from odf.opendocument import OpenDocumentText
 from odf.style import Style, TextProperties, ParagraphProperties, ListLevelProperties, FontFace, PageLayout, \
-    PageLayoutProperties, MasterPage, GraphicProperties, PageLayout, Header, Footer, TabStop, TabStops
+    PageLayoutProperties, MasterPage, GraphicProperties, PageLayout, Header, Footer, TabStop, TabStops, \
+    TableCellProperties
 from odf.text import P, H, A, S, List, ListItem, ListStyle, ListLevelStyleBullet, ListLevelStyleNumber, Span
 from odf.table import Table, TableColumn, TableRow, TableCell
 from odf.draw import Frame, Image
@@ -45,6 +46,11 @@ class OdtWriter:
         self.tabparagraphstyle.addElement(tabstoppar)
         self.myTextDoc.styles.addElement(self.tabparagraphstyle)
         self.myTextDoc.styles.addElement(self.tabparagraphstyle)
+
+        # Style para las tablas
+        some_style = Style(name="some_style", family="table-cell")
+        some_style.addElement(TableCellProperties(border="0.05pt solid #000000"))
+        self.myTextDoc.automaticstyles.addElement(some_style)
 
     # Genera un objeto texto listo para agregar al documento
     def generateText(self, text: textOdt):
@@ -221,7 +227,7 @@ class OdtWriter:
         cols = int(table.mColumns)
         rows = int(table.mRows)
         table.sortItems()
-        tbOdt = Table(name=f"myTable{self.cantTables}")
+        tbOdt = Table(name="myTable{self.cantTables}")
         self.cantTables += 1
         tbOdt.addElement(TableColumn(numbercolumnsrepeated=cols))
         for row in range(0, rows):
@@ -230,7 +236,7 @@ class OdtWriter:
             for column in range(0, cols):
                 if table.hasItems():
                     item = table.getItem()
-                    tc = TableCell(valuetype="string")
+                    tc = TableCell(valuetype="string", stylename="some_style")
                     if item.mVoid:
                         tc.addElement(P())
                         tr.addElement(tc)
@@ -239,7 +245,6 @@ class OdtWriter:
                         tc.addElement(newText)
                         tr.addElement(tc)
             self.myTextDoc.text.addElement(tbOdt)
-            self.myTextDoc.text.addElement(P(text="\n"))
 
     # Escribe lista en el body
     def writeList(self, textList: listOdt):

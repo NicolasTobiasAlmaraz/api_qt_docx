@@ -183,11 +183,9 @@ void Documentacion::generarDocumentacionFormatoHtml() {
     m_cursor.insertText(QLatin1String("\n\nListado de variables"),texto);
     m_cursor.insertText(QObject::tr("\n"));
     for(i=0; i<cantVariables; i++) {
-        QString variable1 = acciones.front();
-        acciones.pop_front();
-        m_cursor.insertText("void " + variable1 +  "() ;",aux);
-        m_cursor.insertText(QObject::tr("\n"));
-        m_cursor.insertText(variable1);
+        QString variable1 = variables.front();
+        variables.pop_front();
+        m_cursor.insertText(variable1, aux);
         m_cursor.insertText(QObject::tr("\n"));
     }
 
@@ -203,9 +201,9 @@ tableOdt Documentacion::generarTablaEstados(std::list<std::list<QString>> filas)
     //Encabezado
     std::list <QString> encabezado;
     encabezado.push_back("Estado actual");
-    encabezado.push_back("Evento");
-    encabezado.push_back("Accion");
     encabezado.push_back("Estado futuro");
+    encabezado.push_back("Eventos");
+    encabezado.push_back("Acciones");
     for(int columna=0; columna<4; columna++) {
         QString aux = encabezado.front();
         encabezado.pop_front();
@@ -310,9 +308,9 @@ void Documentacion::escribirSubtitulo(QString txt) {
 void Documentacion::escribirDiagrama(imageOdt img) {
     escribirSubtitulo("Diagrama de estados:");
     mManagerOdt->writeText(newLine);
-    mManagerOdt->writeText(newLine);
+    //mManagerOdt->writeText(newLine);
     mManagerOdt->writeImage(img);
-    mManagerOdt->writeText(newLine);
+    //mManagerOdt->writeText(newLine);
     mManagerOdt->writeText(newLine);
 }
 

@@ -3,7 +3,7 @@
 *	\brief      Funciones de Eventos y Acciones asociadas a las Maquinas de estados
 *	\details    Descripcion detallada del archivo
 *	\author     Almaraz
-*	\date       27-03-2023 08:54:15
+*	\date       01-05-2023 14:06:29
 */
 
 /************************************************************************************************************
@@ -31,7 +31,7 @@
 *	\brief   Coloque aqui su descripcion
 *	\details Amplie la descripcion
 *	\author  Almaraz
-*	\date    27-03-2023 08:54:15
+*	\date    01-05-2023 14:06:29
 *   \param   void
 *	\return  int : TRUE y FALSE
 */
@@ -51,7 +51,7 @@ int s_Config ( void )
 *	\brief   Coloque aqui su descripcion
 *	\details Amplie la descripcion
 *	\author  Almaraz
-*	\date    27-03-2023 08:54:15
+*	\date    01-05-2023 14:06:29
 *   \param   void
 *	\return  int : TRUE y FALSE
 */
@@ -71,7 +71,7 @@ int s_ConfigCosecha ( void )
 *	\brief   Coloque aqui su descripcion
 *	\details Amplie la descripcion
 *	\author  Almaraz
-*	\date    27-03-2023 08:54:15
+*	\date    01-05-2023 14:06:29
 *   \param   void
 *	\return  int : TRUE y FALSE
 */
@@ -91,7 +91,7 @@ int s_ConfigPlantado ( void )
 *	\brief   Coloque aqui su descripcion
 *	\details Amplie la descripcion
 *	\author  Almaraz
-*	\date    27-03-2023 08:54:15
+*	\date    01-05-2023 14:06:29
 *   \param   void
 *	\return  int : TRUE y FALSE
 */
@@ -111,7 +111,7 @@ int s_ErrorConfig ( void )
 *	\brief   Coloque aqui su descripcion
 *	\details Amplie la descripcion
 *	\author  Almaraz
-*	\date    27-03-2023 08:54:15
+*	\date    01-05-2023 14:06:29
 *   \param   void
 *	\return  int : TRUE y FALSE
 */
@@ -131,7 +131,7 @@ int s_ErrorProceso ( void )
 *	\brief   Coloque aqui su descripcion
 *	\details Amplie la descripcion
 *	\author  Almaraz
-*	\date    27-03-2023 08:54:15
+*	\date    01-05-2023 14:06:29
 *   \param   void
 *	\return  int : TRUE y FALSE
 */
@@ -151,7 +151,7 @@ int s_HaySemillas ( void )
 *	\brief   Coloque aqui su descripcion
 *	\details Amplie la descripcion
 *	\author  Almaraz
-*	\date    27-03-2023 08:54:15
+*	\date    01-05-2023 14:06:29
 *   \param   void
 *	\return  int : TRUE y FALSE
 */
@@ -171,7 +171,7 @@ int s_HayFertilizante ( void )
 *	\brief   Coloque aqui su descripcion
 *	\details Amplie la descripcion
 *	\author  Almaraz
-*	\date    27-03-2023 08:54:15
+*	\date    01-05-2023 14:06:29
 *   \param   void
 *	\return  int : TRUE y FALSE
 */
@@ -191,7 +191,7 @@ int s_TierraRemovida ( void )
 *	\brief   Coloque aqui su descripcion
 *	\details Amplie la descripcion
 *	\author  Almaraz
-*	\date    27-03-2023 08:54:15
+*	\date    01-05-2023 14:06:29
 *   \param   void
 *	\return  int : TRUE y FALSE
 */
@@ -211,7 +211,7 @@ int s_FertilizanteTirado ( void )
 *	\brief   Coloque aqui su descripcion
 *	\details Amplie la descripcion
 *	\author  Almaraz
-*	\date    27-03-2023 08:54:15
+*	\date    01-05-2023 14:06:29
 *   \param   void
 *	\return  int : TRUE y FALSE
 */
@@ -231,7 +231,7 @@ int s_TierraAgujereada ( void )
 *	\brief   Coloque aqui su descripcion
 *	\details Amplie la descripcion
 *	\author  Almaraz
-*	\date    27-03-2023 08:54:15
+*	\date    01-05-2023 14:06:29
 *   \param   void
 *	\return  int : TRUE y FALSE
 */
@@ -251,7 +251,7 @@ int s_SemillasPlantadas ( void )
 *	\brief   Coloque aqui su descripcion
 *	\details Amplie la descripcion
 *	\author  Almaraz
-*	\date    27-03-2023 08:54:15
+*	\date    01-05-2023 14:06:29
 *   \param   void
 *	\return  int : TRUE y FALSE
 */
@@ -271,7 +271,7 @@ int s_AgujeroTapado ( void )
 *	\brief   Coloque aqui su descripcion
 *	\details Amplie la descripcion
 *	\author  Almaraz
-*	\date    27-03-2023 08:54:15
+*	\date    01-05-2023 14:06:29
 *   \param   void
 *	\return  int : TRUE y FALSE
 */
@@ -291,7 +291,7 @@ int s_PlantacionPendiente ( void )
 *	\brief   Coloque aqui su descripcion
 *	\details Amplie la descripcion
 *	\author  Almaraz
-*	\date    27-03-2023 08:54:15
+*	\date    01-05-2023 14:06:29
 *   \param   void
 *	\return  int : TRUE y FALSE
 */
@@ -311,7 +311,7 @@ int s_HayLugar ( void )
 *	\brief   Coloque aqui su descripcion
 *	\details Amplie la descripcion
 *	\author  Almaraz
-*	\date    27-03-2023 08:54:15
+*	\date    01-05-2023 14:06:29
 *   \param   void
 *	\return  int : TRUE y FALSE
 */
@@ -331,7 +331,7 @@ int s_FrutaRetirada ( void )
 *	\brief   Coloque aqui su descripcion
 *	\details Amplie la descripcion
 *	\author  Almaraz
-*	\date    27-03-2023 08:54:15
+*	\date    01-05-2023 14:06:29
 *   \param   void
 *	\return  int : TRUE y FALSE
 */
@@ -351,7 +351,7 @@ int s_FrutaGuardada ( void )
 *	\brief   Coloque aqui su descripcion
 *	\details Amplie la descripcion
 *	\author  Almaraz
-*	\date    27-03-2023 08:54:15
+*	\date    01-05-2023 14:06:29
 *   \param   void
 *	\return  int : TRUE y FALSE
 */

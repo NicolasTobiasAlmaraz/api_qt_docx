@@ -4,7 +4,7 @@
         <nombre>CosechadoraAgro</nombre>
         <autores>Almaraz</autores>
         <creacion>27-03-2023 08:24:15</creacion>
-        <modificacion>01-05-2023 02:08:51</modificacion>
+        <modificacion>03-05-2023 14:20:26</modificacion>
         <carpeta>D:/UTN/uModelFactory/uModelFactory-Documentacion/ProyectoCosechadoraAgro</carpeta>
     </general>
     <configuracion>
@@ -207,10 +207,10 @@
                 <diagrama>
                     <nombre>Tirar_Fertilizante</nombre>
                     <color>#e0ffff</color>
-                    <pos_x>-270</pos_x>
-                    <pos_y>-562.75</pos_y>
-                    <ancho>164</ancho>
-                    <alto>0</alto>
+                    <pos_x>-297.2</pos_x>
+                    <pos_y>-540.95</pos_y>
+                    <ancho>168</ancho>
+                    <alto>50</alto>
                 </diagrama>
                 <transiciones>
                     <tr0>

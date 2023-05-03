@@ -196,8 +196,8 @@ private:
 
     // Documentación
     std::list<QString> exportarImagenesDiagramas();
-    void crearDocumentacion(void);
     std::list<QString> obtenerNombresArchivos();
+    Documentacion m_docManager;
 
     // Depuracion
     void procesarDatosRecibidosSerial();
@@ -289,7 +289,6 @@ private:
     QString commentElementId;
     QAction * m_actionAgregarComentario;
     QString convertStringComentario(const QString & comment);
-
 
     // Ayuda Dinámica
     AyudaDinamica ayudaDinamica;

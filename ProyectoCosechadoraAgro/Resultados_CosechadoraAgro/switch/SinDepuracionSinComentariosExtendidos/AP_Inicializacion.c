@@ -3,7 +3,7 @@
 *	\brief      Funciones de inicializacion de todo el proyecto
 *	\details    Descripcion detallada del archivo
 *	\author     Almaraz
-*	\date       27-03-2023 08:54:15
+*	\date       01-05-2023 14:06:29
 */
 
 /************************************************************************************************************
@@ -32,7 +32,7 @@ static void Inicializar_General( void ) ;
 *	\brief   Inicializacion de las diferentes maquinas de estado
 *	\details Amplie la descripcion
 *	\author  Almaraz
-*	\date    27-03-2023 08:54:15
+*	\date    01-05-2023 14:06:29
 *   \param   void
 *	\return  void
 */
@@ -48,7 +48,7 @@ static void Inicializar_Cosecha( void )
 *	\brief   Inicializacion de las diferentes maquinas de estado
 *	\details Amplie la descripcion
 *	\author  Almaraz
-*	\date    27-03-2023 08:54:15
+*	\date    01-05-2023 14:06:29
 *   \param   void
 *	\return  void
 */
@@ -64,7 +64,7 @@ static void Inicializar_Plantacion( void )
 *	\brief   Inicializacion de las diferentes maquinas de estado
 *	\details Amplie la descripcion
 *	\author  Almaraz
-*	\date    27-03-2023 08:54:15
+*	\date    01-05-2023 14:06:29
 *   \param   void
 *	\return  void
 */
@@ -84,7 +84,7 @@ static void Inicializar_General( void )
 *	\brief   Inicializacion de las diferentes maquinas de estado
 *	\details Amplie la descripcion
 *	\author  Almaraz
-*	\date    27-03-2023 08:54:15
+*	\date    01-05-2023 14:06:29
 *   \param   void
 *	\return  void
 */

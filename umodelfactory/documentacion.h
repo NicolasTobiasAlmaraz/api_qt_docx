@@ -45,6 +45,7 @@ public:
     inline void setPathsCodigos(std::list <QString> paths) {mPathsCodigos = paths;}
     inline void setCodigos(bool fConfig) {fCodigos = fConfig;}
     inline void setIntroTeorica(bool fConfig) {fIntroTeorica = fConfig;}
+    inline void resetListaMaq() {mMaquinas.clear();}
 
     // Generar documentacion
     void generarDocumentacionFormatoOdt(QString exePath, QString outPath);

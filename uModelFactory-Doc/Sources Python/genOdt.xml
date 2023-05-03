@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <docOdt>
- <outputPath>../../ProyectoCosechadoraAgro/doc_CosechadoraAgro/doc_CosechadoraAgro.odt</outputPath>
+ <outputPath>D:/UTN/uModelFactory/uModelFactory-Documentacion/ProyectoCosechadoraAgro/doc_CosechadoraAgro/documentacion.odt</outputPath>
  <pageSetUp>
   <sizeWidth>210</sizeWidth>
   <sizeHeight>297</sizeHeight>
@@ -11,14 +11,14 @@
  </pageSetUp>
  <header>
   <image>
-   <imgPath>../../ProyectoCosechadoraAgro/doc_CosechadoraAgro/logoUTN.png</imgPath>
-   <imgHeight>46</imgHeight>
-   <imgWidth>207</imgWidth>
+   <imgPath>D:/UTN/uModelFactory/uModelFactory-Documentacion/ProyectoCosechadoraAgro/doc_CosechadoraAgro/logoUTN.png_resized.png</imgPath>
+   <imgHeight>45</imgHeight>
+   <imgWidth>200</imgWidth>
    <imgAnchor>paralel</imgAnchor>
    <imgAlign>right</imgAlign>
   </image>
   <text>
-   <content><![CDATA[Autores: Almaraz Nicolas, Gonzalez Nahuel, Nirino Felipe]]></content>
+   <content><![CDATA[Autores: Almaraz]]></content>
    <size>11</size>
    <font>Calibri</font>
    <align>left</align>
@@ -30,7 +30,7 @@
    <fillColor>#000000</fillColor>
   </text>
   <text>
-   <content><![CDATA[Fecha: 23/03/2023]]></content>
+   <content><![CDATA[Fecha: 01-05-2023 13:14:13]]></content>
    <size>11</size>
    <font>Calibri</font>
    <align>left</align>
@@ -56,7 +56,7 @@
  </header>
  <footer>
   <text>
-   <content><![CDATA[Generado con uModelFactory]]></content>
+   <content><![CDATA[Generado automaticamente con uModelFactory]]></content>
    <size>11</size>
    <font>Calibri</font>
    <align>center</align>
@@ -69,7 +69,7 @@
   </text>
  </footer>
  <text>
-  <content><![CDATA[Cosechadora Agro Industrial]]></content>
+  <content><![CDATA[CosechadoraAgro]]></content>
   <size>14</size>
   <font>Calibri</font>
   <align>center</align>
@@ -97,7 +97,7 @@
   <size>12</size>
   <font>Calibri</font>
   <align>center</align>
-  <underline>0</underline>
+  <underline>1</underline>
   <bold>1</bold>
   <italic>0</italic>
   <strikethrough>0</strikethrough>
@@ -105,7 +105,7 @@
   <fillColor>#000000</fillColor>
  </text>
  <text>
-  <content><![CDATA[Estados: son instancias o etapas de un proceso]]></content>
+  <content><![CDATA[]]></content>
   <size>11</size>
   <font>Calibri</font>
   <align>left</align>
@@ -117,7 +117,7 @@
   <fillColor>#000000</fillColor>
  </text>
  <text>
-  <content><![CDATA[Transiciones: son el paso de un estado a otro]]></content>
+  <content><![CDATA[Estados: definicion correspondiente]]></content>
   <size>11</size>
   <font>Calibri</font>
   <align>left</align>
@@ -129,7 +129,7 @@
   <fillColor>#000000</fillColor>
  </text>
  <text>
-  <content><![CDATA[Eventos: son las condicioens que hacen que se ejecute una trasicion]]></content>
+  <content><![CDATA[Transicion: definicion correspondiente]]></content>
   <size>11</size>
   <font>Calibri</font>
   <align>left</align>
@@ -141,7 +141,7 @@
   <fillColor>#000000</fillColor>
  </text>
  <text>
-  <content><![CDATA[Acciones: son las ordenes que se ejecutan cada vez que se dispara cierta transicion]]></content>
+  <content><![CDATA[Evetos: definicion correspondiente]]></content>
   <size>11</size>
   <font>Calibri</font>
   <align>left</align>
@@ -153,7 +153,7 @@
   <fillColor>#000000</fillColor>
  </text>
  <text>
-  <content><![CDATA[Estado de reset: es el estado que fija las condiciones iniciales del sistema]]></content>
+  <content><![CDATA[Acciones: definicion correspondiente]]></content>
   <size>11</size>
   <font>Calibri</font>
   <align>left</align>
@@ -164,6 +164,646 @@
   <bkgColor>#FFFFFF</bkgColor>
   <fillColor>#000000</fillColor>
  </text>
+ <text>
+  <content><![CDATA[Reset: definicion correspondiente]]></content>
+  <size>11</size>
+  <font>Calibri</font>
+  <align>left</align>
+  <underline>0</underline>
+  <bold>0</bold>
+  <italic>0</italic>
+  <strikethrough>0</strikethrough>
+  <bkgColor>#FFFFFF</bkgColor>
+  <fillColor>#000000</fillColor>
+ </text>
+ <text>
+  <content><![CDATA[]]></content>
+  <size>11</size>
+  <font>Calibri</font>
+  <align>left</align>
+  <underline>0</underline>
+  <bold>0</bold>
+  <italic>0</italic>
+  <strikethrough>0</strikethrough>
+  <bkgColor>#FFFFFF</bkgColor>
+  <fillColor>#000000</fillColor>
+ </text>
+ <text>
+  <content><![CDATA[Eventos, Acciones y Variables]]></content>
+  <size>12</size>
+  <font>Calibri</font>
+  <align>center</align>
+  <underline>1</underline>
+  <bold>1</bold>
+  <italic>0</italic>
+  <strikethrough>0</strikethrough>
+  <bkgColor>#FFFFFF</bkgColor>
+  <fillColor>#000000</fillColor>
+ </text>
+ <text>
+  <content><![CDATA[]]></content>
+  <size>11</size>
+  <font>Calibri</font>
+  <align>left</align>
+  <underline>0</underline>
+  <bold>0</bold>
+  <italic>0</italic>
+  <strikethrough>0</strikethrough>
+  <bkgColor>#FFFFFF</bkgColor>
+  <fillColor>#000000</fillColor>
+ </text>
+ <text>
+  <content><![CDATA[Eventos:]]></content>
+  <size>11</size>
+  <font>Calibri</font>
+  <align>left</align>
+  <underline>1</underline>
+  <bold>1</bold>
+  <italic>1</italic>
+  <strikethrough>0</strikethrough>
+  <bkgColor>#FFFFFF</bkgColor>
+  <fillColor>#000000</fillColor>
+ </text>
+ <text>
+  <content><![CDATA[]]></content>
+  <size>11</size>
+  <font>Calibri</font>
+  <align>left</align>
+  <underline>0</underline>
+  <bold>0</bold>
+  <italic>0</italic>
+  <strikethrough>0</strikethrough>
+  <bkgColor>#FFFFFF</bkgColor>
+  <fillColor>#000000</fillColor>
+ </text>
+ <list>
+  <element>
+   <text>
+    <content><![CDATA[s_Config]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element>
+   <text>
+    <content><![CDATA[s_ConfigCosecha]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element>
+   <text>
+    <content><![CDATA[s_ConfigPlantado]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element>
+   <text>
+    <content><![CDATA[s_ErrorConfig]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element>
+   <text>
+    <content><![CDATA[s_ErrorProceso]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element>
+   <text>
+    <content><![CDATA[s_HaySemillas]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element>
+   <text>
+    <content><![CDATA[s_HayFertilizante]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element>
+   <text>
+    <content><![CDATA[s_TierraRemovida]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element>
+   <text>
+    <content><![CDATA[s_FertilizanteTirado]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element>
+   <text>
+    <content><![CDATA[s_TierraAgujereada]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element>
+   <text>
+    <content><![CDATA[s_SemillasPlantadas]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element>
+   <text>
+    <content><![CDATA[s_AgujeroTapado]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element>
+   <text>
+    <content><![CDATA[s_PlantacionPendiente]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element>
+   <text>
+    <content><![CDATA[s_HayLugar]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element>
+   <text>
+    <content><![CDATA[s_FrutaRetirada]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element>
+   <text>
+    <content><![CDATA[s_FrutaGuardada]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element>
+   <text>
+    <content><![CDATA[s_CosechasPendientes]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+ </list>
+ <text>
+  <content><![CDATA[]]></content>
+  <size>11</size>
+  <font>Calibri</font>
+  <align>left</align>
+  <underline>0</underline>
+  <bold>0</bold>
+  <italic>0</italic>
+  <strikethrough>0</strikethrough>
+  <bkgColor>#FFFFFF</bkgColor>
+  <fillColor>#000000</fillColor>
+ </text>
+ <text>
+  <content><![CDATA[Acciones:]]></content>
+  <size>11</size>
+  <font>Calibri</font>
+  <align>left</align>
+  <underline>1</underline>
+  <bold>1</bold>
+  <italic>1</italic>
+  <strikethrough>0</strikethrough>
+  <bkgColor>#FFFFFF</bkgColor>
+  <fillColor>#000000</fillColor>
+ </text>
+ <text>
+  <content><![CDATA[]]></content>
+  <size>11</size>
+  <font>Calibri</font>
+  <align>left</align>
+  <underline>0</underline>
+  <bold>0</bold>
+  <italic>0</italic>
+  <strikethrough>0</strikethrough>
+  <bkgColor>#FFFFFF</bkgColor>
+  <fillColor>#000000</fillColor>
+ </text>
+ <list>
+  <element>
+   <text>
+    <content><![CDATA[m_LeerConfig()]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element>
+   <text>
+    <content><![CDATA[m_Cosechar()]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element>
+   <text>
+    <content><![CDATA[m_Plantar()]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element>
+   <text>
+    <content><![CDATA[m_ApagarActuadores()]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element>
+   <text>
+    <content><![CDATA[m_ChequearSemillas()]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element>
+   <text>
+    <content><![CDATA[m_ChequearFertilizante()]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element>
+   <text>
+    <content><![CDATA[m_RemoverTierra()]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element>
+   <text>
+    <content><![CDATA[m_TirarFertilizante()]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element>
+   <text>
+    <content><![CDATA[m_AgujerearTierra()]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element>
+   <text>
+    <content><![CDATA[m_TirarSemillas()]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element>
+   <text>
+    <content><![CDATA[m_TaparAgujero()]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element>
+   <text>
+    <content><![CDATA[m_Avanzar()]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element>
+   <text>
+    <content><![CDATA[m_ChequearConfig()]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element>
+   <text>
+    <content><![CDATA[m_ChequearAlmacenamiento()]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element>
+   <text>
+    <content><![CDATA[m_RetirarFruta()]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element>
+   <text>
+    <content><![CDATA[m_GuardarFruta()]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element>
+   <text>
+    <content><![CDATA[m_Avanzar()]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+ </list>
+ <text>
+  <content><![CDATA[]]></content>
+  <size>11</size>
+  <font>Calibri</font>
+  <align>left</align>
+  <underline>0</underline>
+  <bold>0</bold>
+  <italic>0</italic>
+  <strikethrough>0</strikethrough>
+  <bkgColor>#FFFFFF</bkgColor>
+  <fillColor>#000000</fillColor>
+ </text>
+ <text>
+  <content><![CDATA[Variables:]]></content>
+  <size>11</size>
+  <font>Calibri</font>
+  <align>left</align>
+  <underline>1</underline>
+  <bold>1</bold>
+  <italic>1</italic>
+  <strikethrough>0</strikethrough>
+  <bkgColor>#FFFFFF</bkgColor>
+  <fillColor>#000000</fillColor>
+ </text>
+ <text>
+  <content><![CDATA[]]></content>
+  <size>11</size>
+  <font>Calibri</font>
+  <align>left</align>
+  <underline>0</underline>
+  <bold>0</bold>
+  <italic>0</italic>
+  <strikethrough>0</strikethrough>
+  <bkgColor>#FFFFFF</bkgColor>
+  <fillColor>#000000</fillColor>
+ </text>
+ <list>
+  <element>
+   <text>
+    <content><![CDATA[No hay]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+ </list>
  <text>
   <content><![CDATA[]]></content>
   <size>11</size>
@@ -181,7 +821,7 @@
   <size>12</size>
   <font>Calibri</font>
   <align>center</align>
-  <underline>0</underline>
+  <underline>1</underline>
   <bold>1</bold>
   <italic>0</italic>
   <strikethrough>0</strikethrough>
@@ -201,7 +841,7 @@
   <fillColor>#000000</fillColor>
  </text>
  <text>
-  <content><![CDATA[Maquina de estados 1]]></content>
+  <content><![CDATA[Cosecha]]></content>
   <size>11</size>
   <font>Calibri</font>
   <align>left</align>
@@ -213,24 +853,84 @@
   <fillColor>#000000</fillColor>
  </text>
  <text>
-  <content><![CDATA[Diagrama de estados:]]></content>
+  <content><![CDATA[]]></content>
   <size>11</size>
   <font>Calibri</font>
   <align>left</align>
   <underline>0</underline>
   <bold>0</bold>
+  <italic>0</italic>
+  <strikethrough>0</strikethrough>
+  <bkgColor>#FFFFFF</bkgColor>
+  <fillColor>#000000</fillColor>
+ </text>
+ <text>
+  <content><![CDATA[Diagrama de estados:]]></content>
+  <size>11</size>
+  <font>Calibri</font>
+  <align>left</align>
+  <underline>1</underline>
+  <bold>1</bold>
   <italic>1</italic>
   <strikethrough>0</strikethrough>
   <bkgColor>#FFFFFF</bkgColor>
   <fillColor>#000000</fillColor>
  </text>
+ <text>
+  <content><![CDATA[]]></content>
+  <size>11</size>
+  <font>Calibri</font>
+  <align>left</align>
+  <underline>0</underline>
+  <bold>0</bold>
+  <italic>0</italic>
+  <strikethrough>0</strikethrough>
+  <bkgColor>#FFFFFF</bkgColor>
+  <fillColor>#000000</fillColor>
+ </text>
+ <text>
+  <content><![CDATA[]]></content>
+  <size>11</size>
+  <font>Calibri</font>
+  <align>left</align>
+  <underline>0</underline>
+  <bold>0</bold>
+  <italic>0</italic>
+  <strikethrough>0</strikethrough>
+  <bkgColor>#FFFFFF</bkgColor>
+  <fillColor>#000000</fillColor>
+ </text>
+ <text>
+  <content><![CDATA[]]></content>
+  <size>11</size>
+  <font>Calibri</font>
+  <align>left</align>
+  <underline>0</underline>
+  <bold>0</bold>
+  <italic>0</italic>
+  <strikethrough>0</strikethrough>
+  <bkgColor>#FFFFFF</bkgColor>
+  <fillColor>#000000</fillColor>
+ </text>
  <image>
-  <imgPath>../../ProyectoCosechadoraAgro/doc_CosechadoraAgro/capturaMdE0.png</imgPath>
-  <imgHeight>340</imgHeight>
-  <imgWidth>477</imgWidth>
+  <imgPath>D:/UTN/uModelFactory/uModelFactory-Documentacion/ProyectoCosechadoraAgro/doc_CosechadoraAgro/capturaMdE0.png_resized.png</imgPath>
+  <imgHeight>536</imgHeight>
+  <imgWidth>750</imgWidth>
   <imgAnchor>none</imgAnchor>
   <imgAlign>center</imgAlign>
  </image>
+ <text>
+  <content><![CDATA[]]></content>
+  <size>11</size>
+  <font>Calibri</font>
+  <align>left</align>
+  <underline>0</underline>
+  <bold>0</bold>
+  <italic>0</italic>
+  <strikethrough>0</strikethrough>
+  <bkgColor>#FFFFFF</bkgColor>
+  <fillColor>#000000</fillColor>
+ </text>
  <text>
   <content><![CDATA[]]></content>
   <size>11</size>
@@ -248,17 +948,29 @@
   <size>11</size>
   <font>Calibri</font>
   <align>left</align>
+  <underline>1</underline>
+  <bold>1</bold>
+  <italic>1</italic>
+  <strikethrough>0</strikethrough>
+  <bkgColor>#FFFFFF</bkgColor>
+  <fillColor>#000000</fillColor>
+ </text>
+ <text>
+  <content><![CDATA[]]></content>
+  <size>11</size>
+  <font>Calibri</font>
+  <align>left</align>
   <underline>0</underline>
   <bold>0</bold>
-  <italic>1</italic>
+  <italic>0</italic>
   <strikethrough>0</strikethrough>
   <bkgColor>#FFFFFF</bkgColor>
   <fillColor>#000000</fillColor>
  </text>
  <table>
   <columns>4</columns>
-  <rows>4</rows>
-  <element row="0" col="0">
+  <rows>7</rows>
+  <element col="0" row="0">
    <text>
     <content><![CDATA[Estado actual]]></content>
     <size>11</size>
@@ -272,35 +984,7 @@
     <fillColor>#000000</fillColor>
    </text>
   </element>
-  <element row="0" col="1">
-   <text>
-    <content><![CDATA[Evento]]></content>
-    <size>11</size>
-    <font>Calibri</font>
-    <align>center</align>
-    <underline>0</underline>
-    <bold>1</bold>
-    <italic>0</italic>
-    <strikethrough>0</strikethrough>
-    <bkgColor>#FFFFFF</bkgColor>
-    <fillColor>#000000</fillColor>
-   </text>
-  </element>
-  <element row="0" col="2">
-   <text>
-    <content><![CDATA[Accion]]></content>
-    <size>11</size>
-    <font>Calibri</font>
-    <align>center</align>
-    <underline>0</underline>
-    <bold>1</bold>
-    <italic>0</italic>
-    <strikethrough>0</strikethrough>
-    <bkgColor>#FFFFFF</bkgColor>
-    <fillColor>#000000</fillColor>
-   </text>
-  </element>
-  <element row="0" col="3">
+  <element col="1" row="0">
    <text>
     <content><![CDATA[Estado futuro]]></content>
     <size>11</size>
@@ -314,7 +998,49 @@
     <fillColor>#000000</fillColor>
    </text>
   </element>
-  <element row="1" col="0">
+  <element col="2" row="0">
+   <text>
+    <content><![CDATA[Eventos]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>center</align>
+    <underline>0</underline>
+    <bold>1</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="3" row="0">
+   <text>
+    <content><![CDATA[Acciones]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>center</align>
+    <underline>0</underline>
+    <bold>1</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="0" row="1">
+   <text>
+    <content><![CDATA[-]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="1" row="1">
    <text>
     <content><![CDATA[REPOSO]]></content>
     <size>11</size>
@@ -328,7 +1054,63 @@
     <fillColor>#000000</fillColor>
    </text>
   </element>
-  <element row="1" col="1">
+  <element col="2" row="1">
+   <text>
+    <content><![CDATA[ (reset) ]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="3" row="1">
+   <text>
+    <content><![CDATA[m_ChequearAlmacenamiento(),m_LeerConfig()]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="0" row="2">
+   <text>
+    <content><![CDATA[REPOSO]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="1" row="2">
+   <text>
+    <content><![CDATA[RETIRAR_FRUTA]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="2" row="2">
    <text>
     <content><![CDATA[s_HayLugar]]></content>
     <size>11</size>
@@ -342,9 +1124,9 @@
     <fillColor>#000000</fillColor>
    </text>
   </element>
-  <element row="1" col="2">
+  <element col="3" row="2">
    <text>
-    <content><![CDATA[m_RetirarFruta]]></content>
+    <content><![CDATA[m_RetirarFruta()]]></content>
     <size>11</size>
     <font>Calibri</font>
     <align>left</align>
@@ -356,7 +1138,77 @@
     <fillColor>#000000</fillColor>
    </text>
   </element>
-  <element row="1" col="3">
+  <element col="0" row="3">
+   <text>
+    <content><![CDATA[AVANZAR]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="1" row="3">
+   <text>
+    <content><![CDATA[REPOSO]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="2" row="3">
+   <text>
+    <content><![CDATA[!s_CosechasPendientes || !s_HayLugar]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="3" row="3">
+   <text>
+    <content><![CDATA[-]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="0" row="4">
+   <text>
+    <content><![CDATA[AVANZAR]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="1" row="4">
    <text>
     <content><![CDATA[RETIRAR_FRUTA]]></content>
     <size>11</size>
@@ -370,7 +1222,35 @@
     <fillColor>#000000</fillColor>
    </text>
   </element>
-  <element row="2" col="0">
+  <element col="2" row="4">
+   <text>
+    <content><![CDATA[s_HayLugar && s_CosechasPendientes]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="3" row="4">
+   <text>
+    <content><![CDATA[m_RetirarFruta()]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="0" row="5">
    <text>
     <content><![CDATA[RETIRAR_FRUTA]]></content>
     <size>11</size>
@@ -384,7 +1264,21 @@
     <fillColor>#000000</fillColor>
    </text>
   </element>
-  <element row="2" col="1">
+  <element col="1" row="5">
+   <text>
+    <content><![CDATA[DEPOSITAR_FRUTA]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="2" row="5">
    <text>
     <content><![CDATA[s_FrutaRetirada]]></content>
     <size>11</size>
@@ -398,9 +1292,9 @@
     <fillColor>#000000</fillColor>
    </text>
   </element>
-  <element row="2" col="2">
+  <element col="3" row="5">
    <text>
-    <content><![CDATA[m_GuardarFruta]]></content>
+    <content><![CDATA[m_GuardarFruta()]]></content>
     <size>11</size>
     <font>Calibri</font>
     <align>left</align>
@@ -412,21 +1306,7 @@
     <fillColor>#000000</fillColor>
    </text>
   </element>
-  <element row="2" col="3">
-   <text>
-    <content><![CDATA[DEPOSITAR_FRUTA]]></content>
-    <size>11</size>
-    <font>Calibri</font>
-    <align>left</align>
-    <underline>0</underline>
-    <bold>0</bold>
-    <italic>0</italic>
-    <strikethrough>0</strikethrough>
-    <bkgColor>#FFFFFF</bkgColor>
-    <fillColor>#000000</fillColor>
-   </text>
-  </element>
-  <element row="3" col="0">
+  <element col="0" row="6">
    <text>
     <content><![CDATA[DEPOSITAR_FRUTA]]></content>
     <size>11</size>
@@ -440,7 +1320,21 @@
     <fillColor>#000000</fillColor>
    </text>
   </element>
-  <element row="3" col="1">
+  <element col="1" row="6">
+   <text>
+    <content><![CDATA[AVANZAR]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="2" row="6">
    <text>
     <content><![CDATA[s_FrutaGuardada]]></content>
     <size>11</size>
@@ -454,23 +1348,9 @@
     <fillColor>#000000</fillColor>
    </text>
   </element>
-  <element row="3" col="2">
+  <element col="3" row="6">
    <text>
-    <content><![CDATA[m_ChequearConfig y m_ChequearAlmacenamiento]]></content>
-    <size>11</size>
-    <font>Calibri</font>
-    <align>left</align>
-    <underline>0</underline>
-    <bold>0</bold>
-    <italic>0</italic>
-    <strikethrough>0</strikethrough>
-    <bkgColor>#FFFFFF</bkgColor>
-    <fillColor>#000000</fillColor>
-   </text>
-  </element>
-  <element row="3" col="3">
-   <text>
-    <content><![CDATA[AVANZAR]]></content>
+    <content><![CDATA[m_Avanzar(),m_ChequearConfig(),m_ChequearAlmacenamiento()]]></content>
     <size>11</size>
     <font>Calibri</font>
     <align>left</align>
@@ -496,7 +1376,7 @@
   <fillColor>#000000</fillColor>
  </text>
  <text>
-  <content><![CDATA[Maquina de estados 2]]></content>
+  <content><![CDATA[Plantacion]]></content>
   <size>11</size>
   <font>Calibri</font>
   <align>left</align>
@@ -508,24 +1388,84 @@
   <fillColor>#000000</fillColor>
  </text>
  <text>
-  <content><![CDATA[Diagrama de estados:]]></content>
+  <content><![CDATA[]]></content>
   <size>11</size>
   <font>Calibri</font>
   <align>left</align>
   <underline>0</underline>
   <bold>0</bold>
+  <italic>0</italic>
+  <strikethrough>0</strikethrough>
+  <bkgColor>#FFFFFF</bkgColor>
+  <fillColor>#000000</fillColor>
+ </text>
+ <text>
+  <content><![CDATA[Diagrama de estados:]]></content>
+  <size>11</size>
+  <font>Calibri</font>
+  <align>left</align>
+  <underline>1</underline>
+  <bold>1</bold>
   <italic>1</italic>
   <strikethrough>0</strikethrough>
   <bkgColor>#FFFFFF</bkgColor>
   <fillColor>#000000</fillColor>
  </text>
+ <text>
+  <content><![CDATA[]]></content>
+  <size>11</size>
+  <font>Calibri</font>
+  <align>left</align>
+  <underline>0</underline>
+  <bold>0</bold>
+  <italic>0</italic>
+  <strikethrough>0</strikethrough>
+  <bkgColor>#FFFFFF</bkgColor>
+  <fillColor>#000000</fillColor>
+ </text>
+ <text>
+  <content><![CDATA[]]></content>
+  <size>11</size>
+  <font>Calibri</font>
+  <align>left</align>
+  <underline>0</underline>
+  <bold>0</bold>
+  <italic>0</italic>
+  <strikethrough>0</strikethrough>
+  <bkgColor>#FFFFFF</bkgColor>
+  <fillColor>#000000</fillColor>
+ </text>
+ <text>
+  <content><![CDATA[]]></content>
+  <size>11</size>
+  <font>Calibri</font>
+  <align>left</align>
+  <underline>0</underline>
+  <bold>0</bold>
+  <italic>0</italic>
+  <strikethrough>0</strikethrough>
+  <bkgColor>#FFFFFF</bkgColor>
+  <fillColor>#000000</fillColor>
+ </text>
  <image>
-  <imgPath>../../ProyectoCosechadoraAgro/doc_CosechadoraAgro/capturaMdE1.png</imgPath>
-  <imgHeight>356</imgHeight>
-  <imgWidth>705</imgWidth>
+  <imgPath>D:/UTN/uModelFactory/uModelFactory-Documentacion/ProyectoCosechadoraAgro/doc_CosechadoraAgro/capturaMdE1.png_resized.png</imgPath>
+  <imgHeight>379</imgHeight>
+  <imgWidth>750</imgWidth>
   <imgAnchor>none</imgAnchor>
   <imgAlign>center</imgAlign>
  </image>
+ <text>
+  <content><![CDATA[]]></content>
+  <size>11</size>
+  <font>Calibri</font>
+  <align>left</align>
+  <underline>0</underline>
+  <bold>0</bold>
+  <italic>0</italic>
+  <strikethrough>0</strikethrough>
+  <bkgColor>#FFFFFF</bkgColor>
+  <fillColor>#000000</fillColor>
+ </text>
  <text>
   <content><![CDATA[]]></content>
   <size>11</size>
@@ -543,17 +1483,29 @@
   <size>11</size>
   <font>Calibri</font>
   <align>left</align>
+  <underline>1</underline>
+  <bold>1</bold>
+  <italic>1</italic>
+  <strikethrough>0</strikethrough>
+  <bkgColor>#FFFFFF</bkgColor>
+  <fillColor>#000000</fillColor>
+ </text>
+ <text>
+  <content><![CDATA[]]></content>
+  <size>11</size>
+  <font>Calibri</font>
+  <align>left</align>
   <underline>0</underline>
   <bold>0</bold>
-  <italic>1</italic>
+  <italic>0</italic>
   <strikethrough>0</strikethrough>
   <bkgColor>#FFFFFF</bkgColor>
   <fillColor>#000000</fillColor>
  </text>
  <table>
   <columns>4</columns>
-  <rows>4</rows>
-  <element row="0" col="0">
+  <rows>13</rows>
+  <element col="0" row="0">
    <text>
     <content><![CDATA[Estado actual]]></content>
     <size>11</size>
@@ -567,35 +1519,7 @@
     <fillColor>#000000</fillColor>
    </text>
   </element>
-  <element row="0" col="1">
-   <text>
-    <content><![CDATA[Evento]]></content>
-    <size>11</size>
-    <font>Calibri</font>
-    <align>center</align>
-    <underline>0</underline>
-    <bold>1</bold>
-    <italic>0</italic>
-    <strikethrough>0</strikethrough>
-    <bkgColor>#FFFFFF</bkgColor>
-    <fillColor>#000000</fillColor>
-   </text>
-  </element>
-  <element row="0" col="2">
-   <text>
-    <content><![CDATA[Accion]]></content>
-    <size>11</size>
-    <font>Calibri</font>
-    <align>center</align>
-    <underline>0</underline>
-    <bold>1</bold>
-    <italic>0</italic>
-    <strikethrough>0</strikethrough>
-    <bkgColor>#FFFFFF</bkgColor>
-    <fillColor>#000000</fillColor>
-   </text>
-  </element>
-  <element row="0" col="3">
+  <element col="1" row="0">
    <text>
     <content><![CDATA[Estado futuro]]></content>
     <size>11</size>
@@ -609,7 +1533,49 @@
     <fillColor>#000000</fillColor>
    </text>
   </element>
-  <element row="1" col="0">
+  <element col="2" row="0">
+   <text>
+    <content><![CDATA[Eventos]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>center</align>
+    <underline>0</underline>
+    <bold>1</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="3" row="0">
+   <text>
+    <content><![CDATA[Acciones]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>center</align>
+    <underline>0</underline>
+    <bold>1</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="0" row="1">
+   <text>
+    <content><![CDATA[-]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="1" row="1">
    <text>
     <content><![CDATA[REPOSO]]></content>
     <size>11</size>
@@ -623,9 +1589,9 @@
     <fillColor>#000000</fillColor>
    </text>
   </element>
-  <element row="1" col="1">
+  <element col="2" row="1">
    <text>
-    <content><![CDATA[s_HayLugar]]></content>
+    <content><![CDATA[ (reset) ]]></content>
     <size>11</size>
     <font>Calibri</font>
     <align>left</align>
@@ -637,9 +1603,9 @@
     <fillColor>#000000</fillColor>
    </text>
   </element>
-  <element row="1" col="2">
+  <element col="3" row="1">
    <text>
-    <content><![CDATA[m_RetirarFruta]]></content>
+    <content><![CDATA[m_ApagarActuadores(),m_ChequearSemillas(),m_ChequearFertilizante(),m_ChequearConfig()]]></content>
     <size>11</size>
     <font>Calibri</font>
     <align>left</align>
@@ -651,9 +1617,9 @@
     <fillColor>#000000</fillColor>
    </text>
   </element>
-  <element row="1" col="3">
+  <element col="0" row="2">
    <text>
-    <content><![CDATA[RETIRAR_FRUTA]]></content>
+    <content><![CDATA[REPOSO]]></content>
     <size>11</size>
     <font>Calibri</font>
     <align>left</align>
@@ -665,9 +1631,9 @@
     <fillColor>#000000</fillColor>
    </text>
   </element>
-  <element row="2" col="0">
+  <element col="1" row="2">
    <text>
-    <content><![CDATA[RETIRAR_FRUTA]]></content>
+    <content><![CDATA[REMOVER_TIERRA]]></content>
     <size>11</size>
     <font>Calibri</font>
     <align>left</align>
@@ -679,9 +1645,9 @@
     <fillColor>#000000</fillColor>
    </text>
   </element>
-  <element row="2" col="1">
+  <element col="2" row="2">
    <text>
-    <content><![CDATA[s_FrutaRetirada]]></content>
+    <content><![CDATA[s_HaySemillas && s_HayFertilizante && s_PlantacionPendiente]]></content>
     <size>11</size>
     <font>Calibri</font>
     <align>left</align>
@@ -693,9 +1659,9 @@
     <fillColor>#000000</fillColor>
    </text>
   </element>
-  <element row="2" col="2">
+  <element col="3" row="2">
    <text>
-    <content><![CDATA[m_GuardarFruta]]></content>
+    <content><![CDATA[m_RemoverTierra()]]></content>
     <size>11</size>
     <font>Calibri</font>
     <align>left</align>
@@ -707,9 +1673,9 @@
     <fillColor>#000000</fillColor>
    </text>
   </element>
-  <element row="2" col="3">
+  <element col="0" row="3">
    <text>
-    <content><![CDATA[DEPOSITAR_FRUTA]]></content>
+    <content><![CDATA[REPOSO]]></content>
     <size>11</size>
     <font>Calibri</font>
     <align>left</align>
@@ -721,9 +1687,9 @@
     <fillColor>#000000</fillColor>
    </text>
   </element>
-  <element row="3" col="0">
+  <element col="1" row="3">
    <text>
-    <content><![CDATA[DEPOSITAR_FRUTA]]></content>
+    <content><![CDATA[CARGAR_INSUMOS]]></content>
     <size>11</size>
     <font>Calibri</font>
     <align>left</align>
@@ -735,9 +1701,9 @@
     <fillColor>#000000</fillColor>
    </text>
   </element>
-  <element row="3" col="1">
+  <element col="2" row="3">
    <text>
-    <content><![CDATA[s_FrutaGuardada]]></content>
+    <content><![CDATA[!s_HaySemillas || !s_HayFertilizante]]></content>
     <size>11</size>
     <font>Calibri</font>
     <align>left</align>
@@ -749,9 +1715,9 @@
     <fillColor>#000000</fillColor>
    </text>
   </element>
-  <element row="3" col="2">
+  <element col="3" row="3">
    <text>
-    <content><![CDATA[m_ChequearConfig y m_ChequearAlmacenamiento]]></content>
+    <content><![CDATA[-]]></content>
     <size>11</size>
     <font>Calibri</font>
     <align>left</align>
@@ -763,9 +1729,499 @@
     <fillColor>#000000</fillColor>
    </text>
   </element>
-  <element row="3" col="3">
+  <element col="0" row="4">
+   <text>
+    <content><![CDATA[AGUJEREAR_TIERRA]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="1" row="4">
+   <text>
+    <content><![CDATA[PLANTAR_SEMILLA]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="2" row="4">
+   <text>
+    <content><![CDATA[s_TierraAgujereada]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="3" row="4">
+   <text>
+    <content><![CDATA[m_TirarSemillas()]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="0" row="5">
+   <text>
+    <content><![CDATA[PLANTAR_SEMILLA]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="1" row="5">
+   <text>
+    <content><![CDATA[TAPAR_AGUJERO]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="2" row="5">
+   <text>
+    <content><![CDATA[s_SemillasPlantadas]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="3" row="5">
+   <text>
+    <content><![CDATA[m_TaparAgujero()]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="0" row="6">
+   <text>
+    <content><![CDATA[REMOVER_TIERRA]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="1" row="6">
+   <text>
+    <content><![CDATA[TIRAR_FERTILIZANTE]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="2" row="6">
+   <text>
+    <content><![CDATA[s_TierraRemovida]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="3" row="6">
+   <text>
+    <content><![CDATA[m_TirarFertilizante()]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="0" row="7">
+   <text>
+    <content><![CDATA[TIRAR_FERTILIZANTE]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="1" row="7">
+   <text>
+    <content><![CDATA[AGUJEREAR_TIERRA]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="2" row="7">
+   <text>
+    <content><![CDATA[s_FertilizanteTirado]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="3" row="7">
+   <text>
+    <content><![CDATA[m_AgujerearTierra()]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="0" row="8">
+   <text>
+    <content><![CDATA[TAPAR_AGUJERO]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="1" row="8">
    <text>
     <content><![CDATA[AVANZAR]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="2" row="8">
+   <text>
+    <content><![CDATA[s_AgujeroTapado]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="3" row="8">
+   <text>
+    <content><![CDATA[m_Avanzar(),m_ChequearFertilizante(),m_ChequearSemillas()]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="0" row="9">
+   <text>
+    <content><![CDATA[AVANZAR]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="1" row="9">
+   <text>
+    <content><![CDATA[REMOVER_TIERRA]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="2" row="9">
+   <text>
+    <content><![CDATA[s_PlantacionPendiente && s_HaySemillas && s_HayFertilizante]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="3" row="9">
+   <text>
+    <content><![CDATA[m_RemoverTierra()]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="0" row="10">
+   <text>
+    <content><![CDATA[AVANZAR]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="1" row="10">
+   <text>
+    <content><![CDATA[REPOSO]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="2" row="10">
+   <text>
+    <content><![CDATA[!s_PlantacionPendiente]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="3" row="10">
+   <text>
+    <content><![CDATA[-]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="0" row="11">
+   <text>
+    <content><![CDATA[AVANZAR]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="1" row="11">
+   <text>
+    <content><![CDATA[CARGAR_INSUMOS]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="2" row="11">
+   <text>
+    <content><![CDATA[!s_HayFertilizante && !s_HaySemillas]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="3" row="11">
+   <text>
+    <content><![CDATA[-]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="0" row="12">
+   <text>
+    <content><![CDATA[CARGAR_INSUMOS]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="1" row="12">
+   <text>
+    <content><![CDATA[REPOSO]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="2" row="12">
+   <text>
+    <content><![CDATA[s_HaySemillas && s_HayFertilizante]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="3" row="12">
+   <text>
+    <content><![CDATA[m_ChequearConfig()]]></content>
     <size>11</size>
     <font>Calibri</font>
     <align>left</align>
@@ -791,7 +2247,7 @@
   <fillColor>#000000</fillColor>
  </text>
  <text>
-  <content><![CDATA[Maquina de estados 3]]></content>
+  <content><![CDATA[General]]></content>
   <size>11</size>
   <font>Calibri</font>
   <align>left</align>
@@ -803,24 +2259,84 @@
   <fillColor>#000000</fillColor>
  </text>
  <text>
-  <content><![CDATA[Diagrama de estados:]]></content>
+  <content><![CDATA[]]></content>
   <size>11</size>
   <font>Calibri</font>
   <align>left</align>
   <underline>0</underline>
   <bold>0</bold>
+  <italic>0</italic>
+  <strikethrough>0</strikethrough>
+  <bkgColor>#FFFFFF</bkgColor>
+  <fillColor>#000000</fillColor>
+ </text>
+ <text>
+  <content><![CDATA[Diagrama de estados:]]></content>
+  <size>11</size>
+  <font>Calibri</font>
+  <align>left</align>
+  <underline>1</underline>
+  <bold>1</bold>
   <italic>1</italic>
   <strikethrough>0</strikethrough>
   <bkgColor>#FFFFFF</bkgColor>
   <fillColor>#000000</fillColor>
  </text>
+ <text>
+  <content><![CDATA[]]></content>
+  <size>11</size>
+  <font>Calibri</font>
+  <align>left</align>
+  <underline>0</underline>
+  <bold>0</bold>
+  <italic>0</italic>
+  <strikethrough>0</strikethrough>
+  <bkgColor>#FFFFFF</bkgColor>
+  <fillColor>#000000</fillColor>
+ </text>
+ <text>
+  <content><![CDATA[]]></content>
+  <size>11</size>
+  <font>Calibri</font>
+  <align>left</align>
+  <underline>0</underline>
+  <bold>0</bold>
+  <italic>0</italic>
+  <strikethrough>0</strikethrough>
+  <bkgColor>#FFFFFF</bkgColor>
+  <fillColor>#000000</fillColor>
+ </text>
+ <text>
+  <content><![CDATA[]]></content>
+  <size>11</size>
+  <font>Calibri</font>
+  <align>left</align>
+  <underline>0</underline>
+  <bold>0</bold>
+  <italic>0</italic>
+  <strikethrough>0</strikethrough>
+  <bkgColor>#FFFFFF</bkgColor>
+  <fillColor>#000000</fillColor>
+ </text>
  <image>
-  <imgPath>../../ProyectoCosechadoraAgro/doc_CosechadoraAgro/capturaMdE2.png</imgPath>
-  <imgHeight>337</imgHeight>
-  <imgWidth>416</imgWidth>
+  <imgPath>D:/UTN/uModelFactory/uModelFactory-Documentacion/ProyectoCosechadoraAgro/doc_CosechadoraAgro/capturaMdE2.png_resized.png</imgPath>
+  <imgHeight>607</imgHeight>
+  <imgWidth>750</imgWidth>
   <imgAnchor>none</imgAnchor>
   <imgAlign>center</imgAlign>
  </image>
+ <text>
+  <content><![CDATA[]]></content>
+  <size>11</size>
+  <font>Calibri</font>
+  <align>left</align>
+  <underline>0</underline>
+  <bold>0</bold>
+  <italic>0</italic>
+  <strikethrough>0</strikethrough>
+  <bkgColor>#FFFFFF</bkgColor>
+  <fillColor>#000000</fillColor>
+ </text>
  <text>
   <content><![CDATA[]]></content>
   <size>11</size>
@@ -838,17 +2354,29 @@
   <size>11</size>
   <font>Calibri</font>
   <align>left</align>
+  <underline>1</underline>
+  <bold>1</bold>
+  <italic>1</italic>
+  <strikethrough>0</strikethrough>
+  <bkgColor>#FFFFFF</bkgColor>
+  <fillColor>#000000</fillColor>
+ </text>
+ <text>
+  <content><![CDATA[]]></content>
+  <size>11</size>
+  <font>Calibri</font>
+  <align>left</align>
   <underline>0</underline>
   <bold>0</bold>
-  <italic>1</italic>
+  <italic>0</italic>
   <strikethrough>0</strikethrough>
   <bkgColor>#FFFFFF</bkgColor>
   <fillColor>#000000</fillColor>
  </text>
  <table>
   <columns>4</columns>
-  <rows>4</rows>
-  <element row="0" col="0">
+  <rows>8</rows>
+  <element col="0" row="0">
    <text>
     <content><![CDATA[Estado actual]]></content>
     <size>11</size>
@@ -862,35 +2390,7 @@
     <fillColor>#000000</fillColor>
    </text>
   </element>
-  <element row="0" col="1">
-   <text>
-    <content><![CDATA[Evento]]></content>
-    <size>11</size>
-    <font>Calibri</font>
-    <align>center</align>
-    <underline>0</underline>
-    <bold>1</bold>
-    <italic>0</italic>
-    <strikethrough>0</strikethrough>
-    <bkgColor>#FFFFFF</bkgColor>
-    <fillColor>#000000</fillColor>
-   </text>
-  </element>
-  <element row="0" col="2">
-   <text>
-    <content><![CDATA[Accion]]></content>
-    <size>11</size>
-    <font>Calibri</font>
-    <align>center</align>
-    <underline>0</underline>
-    <bold>1</bold>
-    <italic>0</italic>
-    <strikethrough>0</strikethrough>
-    <bkgColor>#FFFFFF</bkgColor>
-    <fillColor>#000000</fillColor>
-   </text>
-  </element>
-  <element row="0" col="3">
+  <element col="1" row="0">
    <text>
     <content><![CDATA[Estado futuro]]></content>
     <size>11</size>
@@ -904,9 +2404,37 @@
     <fillColor>#000000</fillColor>
    </text>
   </element>
-  <element row="1" col="0">
+  <element col="2" row="0">
    <text>
-    <content><![CDATA[REPOSO]]></content>
+    <content><![CDATA[Eventos]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>center</align>
+    <underline>0</underline>
+    <bold>1</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="3" row="0">
+   <text>
+    <content><![CDATA[Acciones]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>center</align>
+    <underline>0</underline>
+    <bold>1</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="0" row="1">
+   <text>
+    <content><![CDATA[-]]></content>
     <size>11</size>
     <font>Calibri</font>
     <align>left</align>
@@ -918,9 +2446,9 @@
     <fillColor>#000000</fillColor>
    </text>
   </element>
-  <element row="1" col="1">
+  <element col="1" row="1">
    <text>
-    <content><![CDATA[s_HayLugar]]></content>
+    <content><![CDATA[ESPERANDO CONFIGURACION]]></content>
     <size>11</size>
     <font>Calibri</font>
     <align>left</align>
@@ -932,9 +2460,9 @@
     <fillColor>#000000</fillColor>
    </text>
   </element>
-  <element row="1" col="2">
+  <element col="2" row="1">
    <text>
-    <content><![CDATA[m_RetirarFruta]]></content>
+    <content><![CDATA[ (reset) ]]></content>
     <size>11</size>
     <font>Calibri</font>
     <align>left</align>
@@ -946,9 +2474,9 @@
     <fillColor>#000000</fillColor>
    </text>
   </element>
-  <element row="1" col="3">
+  <element col="3" row="1">
    <text>
-    <content><![CDATA[RETIRAR_FRUTA]]></content>
+    <content><![CDATA[m_ApagarActuadores()]]></content>
     <size>11</size>
     <font>Calibri</font>
     <align>left</align>
@@ -960,9 +2488,9 @@
     <fillColor>#000000</fillColor>
    </text>
   </element>
-  <element row="2" col="0">
+  <element col="0" row="2">
    <text>
-    <content><![CDATA[RETIRAR_FRUTA]]></content>
+    <content><![CDATA[ESPERANDO CONFIGURACION]]></content>
     <size>11</size>
     <font>Calibri</font>
     <align>left</align>
@@ -974,9 +2502,9 @@
     <fillColor>#000000</fillColor>
    </text>
   </element>
-  <element row="2" col="1">
+  <element col="1" row="2">
    <text>
-    <content><![CDATA[s_FrutaRetirada]]></content>
+    <content><![CDATA[CONFIGURADA]]></content>
     <size>11</size>
     <font>Calibri</font>
     <align>left</align>
@@ -988,9 +2516,9 @@
     <fillColor>#000000</fillColor>
    </text>
   </element>
-  <element row="2" col="2">
+  <element col="2" row="2">
    <text>
-    <content><![CDATA[m_GuardarFruta]]></content>
+    <content><![CDATA[s_Config]]></content>
     <size>11</size>
     <font>Calibri</font>
     <align>left</align>
@@ -1002,9 +2530,9 @@
     <fillColor>#000000</fillColor>
    </text>
   </element>
-  <element row="2" col="3">
+  <element col="3" row="2">
    <text>
-    <content><![CDATA[DEPOSITAR_FRUTA]]></content>
+    <content><![CDATA[m_LeerConfig()]]></content>
     <size>11</size>
     <font>Calibri</font>
     <align>left</align>
@@ -1016,9 +2544,9 @@
     <fillColor>#000000</fillColor>
    </text>
   </element>
-  <element row="3" col="0">
+  <element col="0" row="3">
    <text>
-    <content><![CDATA[DEPOSITAR_FRUTA]]></content>
+    <content><![CDATA[CONFIGURADA]]></content>
     <size>11</size>
     <font>Calibri</font>
     <align>left</align>
@@ -1030,9 +2558,9 @@
     <fillColor>#000000</fillColor>
    </text>
   </element>
-  <element row="3" col="1">
+  <element col="1" row="3">
    <text>
-    <content><![CDATA[s_FrutaGuardada]]></content>
+    <content><![CDATA[COSECHADO]]></content>
     <size>11</size>
     <font>Calibri</font>
     <align>left</align>
@@ -1044,9 +2572,9 @@
     <fillColor>#000000</fillColor>
    </text>
   </element>
-  <element row="3" col="2">
+  <element col="2" row="3">
    <text>
-    <content><![CDATA[m_ChequearConfig y m_ChequearAlmacenamiento]]></content>
+    <content><![CDATA[s_ConfigCosecha]]></content>
     <size>11</size>
     <font>Calibri</font>
     <align>left</align>
@@ -1058,9 +2586,233 @@
     <fillColor>#000000</fillColor>
    </text>
   </element>
-  <element row="3" col="3">
+  <element col="3" row="3">
    <text>
-    <content><![CDATA[AVANZAR]]></content>
+    <content><![CDATA[m_Cosechar()]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="0" row="4">
+   <text>
+    <content><![CDATA[CONFIGURADA]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="1" row="4">
+   <text>
+    <content><![CDATA[PLANTACION_DE_SEMILLA]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="2" row="4">
+   <text>
+    <content><![CDATA[s_ConfigPlantado]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="3" row="4">
+   <text>
+    <content><![CDATA[m_Plantar()]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="0" row="5">
+   <text>
+    <content><![CDATA[CONFIGURADA]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="1" row="5">
+   <text>
+    <content><![CDATA[ESPERANDO CONFIGURACION]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="2" row="5">
+   <text>
+    <content><![CDATA[s_ErrorConfig]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="3" row="5">
+   <text>
+    <content><![CDATA[-]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="0" row="6">
+   <text>
+    <content><![CDATA[PLANTACION_DE_SEMILLA]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="1" row="6">
+   <text>
+    <content><![CDATA[ESPERANDO CONFIGURACION]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="2" row="6">
+   <text>
+    <content><![CDATA[s_ErrorProceso]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="3" row="6">
+   <text>
+    <content><![CDATA[m_ApagarActuadores()]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="0" row="7">
+   <text>
+    <content><![CDATA[COSECHADO]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="1" row="7">
+   <text>
+    <content><![CDATA[ESPERANDO CONFIGURACION]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="2" row="7">
+   <text>
+    <content><![CDATA[s_ErrorProceso]]></content>
+    <size>11</size>
+    <font>Calibri</font>
+    <align>left</align>
+    <underline>0</underline>
+    <bold>0</bold>
+    <italic>0</italic>
+    <strikethrough>0</strikethrough>
+    <bkgColor>#FFFFFF</bkgColor>
+    <fillColor>#000000</fillColor>
+   </text>
+  </element>
+  <element col="3" row="7">
+   <text>
+    <content><![CDATA[m_ApagarActuadores()]]></content>
     <size>11</size>
     <font>Calibri</font>
     <align>left</align>
@@ -1112,10 +2864,10 @@
  <table>
   <columns>1</columns>
   <rows>1</rows>
-  <element row="0" col="0">
+  <element col="0" row="0">
    <text>
     <content><![CDATA[AP_FuncionesMDE.c]]></content>
-    <size>11</size>
+    <size>14</size>
     <font>Courier new</font>
     <align>center</align>
     <underline>0</underline>
@@ -5606,10 +7358,10 @@
  <table>
   <columns>1</columns>
   <rows>1</rows>
-  <element row="0" col="0">
+  <element col="0" row="0">
    <text>
     <content><![CDATA[AP_FuncionesMDE.h]]></content>
-    <size>11</size>
+    <size>14</size>
     <font>Courier new</font>
     <align>center</align>
     <underline>0</underline>
@@ -6332,10 +8084,10 @@
  <table>
   <columns>1</columns>
   <rows>1</rows>
-  <element row="0" col="0">
+  <element col="0" row="0">
    <text>
     <content><![CDATA[AP_Inicializacion.c]]></content>
-    <size>11</size>
+    <size>14</size>
     <font>Courier new</font>
     <align>center</align>
     <underline>0</underline>
@@ -7622,10 +9374,10 @@
  <table>
   <columns>1</columns>
   <rows>1</rows>
-  <element row="0" col="0">
+  <element col="0" row="0">
    <text>
     <content><![CDATA[AP_Inicializacion.h]]></content>
-    <size>11</size>
+    <size>14</size>
     <font>Courier new</font>
     <align>center</align>
     <underline>0</underline>
@@ -7952,10 +9704,10 @@
  <table>
   <columns>1</columns>
   <rows>1</rows>
-  <element row="0" col="0">
+  <element col="0" row="0">
    <text>
     <content><![CDATA[AP_MDE.c]]></content>
-    <size>11</size>
+    <size>14</size>
     <font>Courier new</font>
     <align>center</align>
     <underline>0</underline>
@@ -12974,10 +14726,10 @@
  <table>
   <columns>1</columns>
   <rows>1</rows>
-  <element row="0" col="0">
+  <element col="0" row="0">
    <text>
     <content><![CDATA[AP_MDE.h]]></content>
-    <size>11</size>
+    <size>14</size>
     <font>Courier new</font>
     <align>center</align>
     <underline>0</underline>
@@ -13352,10 +15104,10 @@
  <table>
   <columns>1</columns>
   <rows>1</rows>
-  <element row="0" col="0">
+  <element col="0" row="0">
    <text>
     <content><![CDATA[main.c]]></content>
-    <size>11</size>
+    <size>14</size>
     <font>Courier new</font>
     <align>center</align>
     <underline>0</underline>

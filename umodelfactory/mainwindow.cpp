@@ -1216,6 +1216,7 @@ void MainWindow::on_itemInserted(DiagramItem *item)
      // Vuelvo al modo Seleccionar (en todas las subwindows)
      ui->actionSeleccionar->trigger();
 }
+
 void MainWindow::on_arrowInserted(DiagramTransition *arrow)
 {
     // Crea y muestra el QDialog para editar la transición
@@ -2603,7 +2604,6 @@ std::list<QString> MainWindow::obtenerNombresArchivos() {
 }
 
 void MainWindow::on_actionGenerarDocumentacion_triggered() {
-    Documentacion docManager;
     int i;
 
     //Guardo los datos del proyecto
@@ -2611,16 +2611,16 @@ void MainWindow::on_actionGenerarDocumentacion_triggered() {
 
     //Recupero datos basicos
     QString tituloProy = m_datosXml->getContenidoGeneral(NOMBRE);
-    docManager.setTituloProyecto(tituloProy);
+    m_docManager.setTituloProyecto(tituloProy);
 
     QString pathProy = m_datosXml->getContenidoGeneral(CARPETA);
-    docManager.setPathProyecto(pathProy);
+    m_docManager.setPathProyecto(pathProy);
 
     QString fechaProy = m_datosXml->getContenidoGeneral(MODIFICACION);
-    docManager.setFecha(fechaProy);
+    m_docManager.setFecha(fechaProy);
 
     QString autoresProy = m_datosXml->getContenidoGeneral(AUTORES);
-    docManager.setAutores(autoresProy);
+    m_docManager.setAutores(autoresProy);
 
     QString pathSalidaOdt = pathProy+"/doc_"+tituloProy+"/documentacion.odt";
 
@@ -2628,18 +2628,33 @@ void MainWindow::on_actionGenerarDocumentacion_triggered() {
     std::list<QString> diagramas = exportarImagenesDiagramas();
     QString logoUtn = pathProy+"/doc_"+tituloProy+"/logoUTN.png";
     QFile::copy(":/img/img/logoUTN.png",logoUtn);
-    docManager.setLogoUtn(logoUtn);
+    m_docManager.setLogoUtn(logoUtn);
 
     //Cargo Maquinas de estados
     int cantMaq = m_sceneList.count();
     for(int i=0; i<cantMaq; i++) {
+        //Nombre
         QString nombreMaq = m_datosXml->getContenidoMaquina(MAQUINA+QString::number((i)),NOMBRE_MAQUINA);
+
+        //Diagrama
         QString path = pathProy+"/doc_"+tituloProy+"/capturaMdE" + QString::number(i) + ".png";
-        /*
-            Aca generar tabla de estados y transiciones
-        */
-        MaquinaDeEstados maq  = {nombreMaq, path, tableOdt(2,2)};
-        docManager.addMaquina(maq);
+
+        //Tabla
+        updateTablaTransiciones(m_sceneList.at(i));
+        std::list< std::list<QString> > listaFilas;
+        int cantColumnas = this->ui->tableWidgetTransiciones->columnCount();
+        int cantFilas = this->ui->tableWidgetTransiciones->rowCount();
+        for(int filaActual=0; filaActual<cantFilas; filaActual++) {
+            std::list<QString> fila;
+            for(int columnaActual=0; columnaActual<cantColumnas; columnaActual++) {
+                QString itemActual = this->ui->tableWidgetTransiciones->item(filaActual, columnaActual)->text();
+                fila.push_back(itemActual);
+            }
+            listaFilas.push_back(fila);
+        }
+        tableOdt tabla = m_docManager.generarTablaEstados(listaFilas);
+        MaquinaDeEstados maq  = {nombreMaq, path, tabla};
+        m_docManager.addMaquina(maq);
     }
 
     //Cargo lista de eventos
@@ -2651,7 +2666,7 @@ void MainWindow::on_actionGenerarDocumentacion_triggered() {
     }
     if(i==0)
         eventos.push_front(QString("No hay"));
-    docManager.setEventos(eventos);
+    m_docManager.setEventos(eventos);
 
     //Cargo lista acciones
     std::list<QString> acciones;
@@ -2664,7 +2679,7 @@ void MainWindow::on_actionGenerarDocumentacion_triggered() {
     }
     if(i==0)
         acciones.push_front(QString("No hay"));
-    docManager.setAcciones(acciones);
+    m_docManager.setAcciones(acciones);
 
     //Cargo lista variables
     std::list<QString> variables;int cantVariables = m_datosXml->cantidadVariables();
@@ -2674,22 +2689,17 @@ void MainWindow::on_actionGenerarDocumentacion_triggered() {
     }
     if(i==0)
         variables.push_front(QString("No hay"));
-    docManager.setVariables(variables);
+    m_docManager.setVariables(variables);
 
     //Cargo info teorica
-    docManager.setIntroTeorica(true);
+    m_docManager.setIntroTeorica(true);
     InfoTeorica info;
     info.estados = "Estados: definicion correspondiente";
     info.reset = "Reset: definicion correspondiente";
     info.eventos = "Evetos: definicion correspondiente";
     info.transiciones = "Transicion: definicion correspondiente";
     info.acciones = "Acciones: definicion correspondiente";
-    docManager.setInfoTeorica(info);
-
-
-
-
-
+    m_docManager.setInfoTeorica(info);
 
     //Cargo codigos
     /*************************************************************
@@ -2702,29 +2712,27 @@ void MainWindow::on_actionGenerarDocumentacion_triggered() {
     msgBox.setDefaultButton(QMessageBox::Open);
     int result = msgBox.exec();
     if(result == QMessageBox::Open ) {
-        docManager.setCodigos(true);
+        m_docManager.setCodigos(true);
         std::list<QString> pathsCodes = obtenerNombresArchivos();
         if(pathsCodes.size()==0)
-            docManager.setCodigos(false);
-        docManager.setPathsCodigos(pathsCodes);
+            m_docManager.setCodigos(false);
+        m_docManager.setPathsCodigos(pathsCodes);
     } else {
-        docManager.setCodigos(false);
+        m_docManager.setCodigos(false);
     }
     /*************************************************************
     ------------------------PROVISORIO----------------------------
     *************************************************************/
 
-
-
-
-
-
-
-
-
     //Genero documentos .html y .odt
-    //docManager.generarDocumentacionFormatoHtml();
-    docManager.generarDocumentacionFormatoOdt(DOCUMENTACION_EXE_PATH, pathSalidaOdt);
+    m_docManager.generarDocumentacionFormatoHtml();
+    m_docManager.generarDocumentacionFormatoOdt(DOCUMENTACION_EXE_PATH, pathSalidaOdt);
+
+    //Le digo que  ya escribí todo lo que cargué
+    //Xq la lista de maquinas del html es la misma q la del odt entonces internamente no puedo vaciarla
+    //Sino una vez q escribi el html, no podría escribir el odt a menos que cargue los datos de nuevo.
+    //Debe vaciarla el usuario de la clase manualmente
+    m_docManager.resetListaMaq();
 
     //Doy aviso de que se generó todo ok
     QMessageBox::information(this, QString::fromUtf8("Generar Documentación"),
