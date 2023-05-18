@@ -35,6 +35,9 @@ void Documentacion::generarDocumentacionFormatoOdt(QString exePath, QString outP
     if(fIntroTeorica)
         escribirIntroTeorica();
 
+    if(fDescripcion)
+        escribirDescripcion();
+
    //Lista de eventos, acciones, variables
     escribirEventosAccionesVariables();
 
@@ -50,13 +53,14 @@ void Documentacion::generarDocumentacionFormatoOdt(QString exePath, QString outP
         escribirSubtitulo(maq.titulo);
 
         //Diagrama
-        ajustarImagenAncho(maq.diagrama, 750); //Ajusto ancho de la hoja
-        imageOdt img(maq.diagrama+"_resized.png", imageOdt::NONE, imageOdt::CENTER);
+        //ajustarImagenAncho(maq.diagrama, 750); //Ajusto ancho de la hoja
+        imageOdt img(maq.diagrama, imageOdt::NONE, imageOdt::CENTER);
+        img.scaleToWidth(750);
         escribirDiagrama(img);
 
         //Tabla
         if(fTabla) {
-            escribirTablaEstados(maq.tablaEstTranc);
+            escribirTablaEstados( generarTablaEstados(maq.tablaEstTranc) );
         }
     }
 
@@ -82,15 +86,20 @@ void Documentacion::generarDocumentacionFormatoHtml() {
     titulo.setForeground(Qt::darkBlue);
     titulo.setFontWeight(QFont::Bold);
     titulo.setFontPointSize(20);
-    //titulo.AlignMiddle;
-    //titulo.setVerticalAlignment(titulo.AlignMiddle);
 
     QTextCharFormat texto;
     texto.setForeground(Qt::red);
     texto.setFontWeight(QFont::Bold);
-    //texto.setFontWeight(12);
     texto.setFontPointSize(12);
-    //texto.VerticalAlignment = texto.AlignMiddle;
+
+    QTextCharFormat textoContenido;
+    textoContenido.setForeground(Qt::black);
+    textoContenido.setFontPointSize(12);
+
+    QTextTableFormat tableFormat;
+    tableFormat.setBorder(1);
+    tableFormat.setBorderBrush(Qt::black);
+    tableFormat.setBorderStyle(QTextTableFormat::BorderStyle_Solid);
 
     QTextCharFormat aux;
     aux.setForeground(Qt::black);
@@ -116,10 +125,12 @@ void Documentacion::generarDocumentacionFormatoHtml() {
     m_cursor.insertText(QObject::tr("\n"));
     m_cursor.insertText(QObject::tr("\n"));
 
-    QTextCharFormat formato;
-    aux.setForeground(Qt::black);
-    aux.setFontPointSize(12);
-    aux.setFontWeight(QFont::Bold);
+    if(fDescripcion) {
+        m_cursor.insertText("Descripion del proyecto:\n",texto);
+        m_cursor.insertText(mDescripcion,textoContenido);
+        m_cursor.insertText(QObject::tr("\n"));
+        m_cursor.insertText(QObject::tr("\n"));
+    }
 
     std::list<MaquinaDeEstados> maquinas = mMaquinas;
     for(int k = 0 ; k < cantMaq ; k++)
@@ -135,14 +146,47 @@ void Documentacion::generarDocumentacionFormatoHtml() {
 
         //Inserto Diagrama máquina
         m_cursor.insertImage(maq.diagrama);
+        m_cursor.insertText(QObject::tr("\n"));
+        m_cursor.insertText(QObject::tr("\n"));
 
-        //*****************************************************************
-        //ahora inserto la tabla de estados y transiciones de esa maquina
-        //*****************************************************************
-        m_cursor.insertText(QObject::tr("\n"));
-        m_cursor.insertText(QObject::tr("\n"));
+        if(fTabla) {
+            //Inserto tabla
+            m_cursor.insertText(QLatin1String("Tabla de estados y transiciones - ") + nombreMaq ,texto);
+            std::list<std::list<QString>> filas = maq.tablaEstTranc;
+            std::list<QString> fila;
+
+            //Agrego encabezado de la tabla
+            std::list<QString> encabezado;
+            encabezado.push_back("Estado Actual");
+            encabezado.push_back("Estado Futuro");
+            encabezado.push_back("Eventos");
+            encabezado.push_back("Acciones");
+            filas.push_front(encabezado);
+
+            int numFilas = filas.size();
+            int numColumnas = filas.front().size();
+            m_cursor.insertTable(numFilas, numColumnas, tableFormat);
+
+            // Completo tabla
+            for (int filaActual=0 ; filaActual<numFilas ; filaActual++) {
+                fila = filas.front();
+                filas.pop_front();
+                for (int columnaActual=0 ; columnaActual<numColumnas ; columnaActual++) {
+                    QTextCharFormat formatoAux = textoContenido;
+                    if(filaActual == 0)
+                        formatoAux = aux;
+                    m_cursor.insertText(fila.front(), formatoAux);
+                    fila.pop_front();
+                    m_cursor.movePosition(QTextCursor::NextCell);
+                }
+                //m_cursor.movePosition(QTextCursor::NextRow);
+            }
+            //Salgo dela tabla
+            m_cursor.movePosition(QTextCursor::End);
+            m_cursor.insertText(QObject::tr("\n"));
+            m_cursor.insertText(QObject::tr("\n"));
+        }
     }
-
     m_cursor.insertText(QObject::tr("\n"));
     m_cursor.insertText(QObject::tr("\n"));
     m_cursor.insertText(QObject::tr("\n"));
@@ -245,8 +289,8 @@ writerOdt Documentacion::pageSetUp(QString exePath, QString outPath) {
 
     //Configuro header
     headerFooterOdt header;
-    ajustarImagenAncho(mLogoUtn, 200);
-    imageOdt imgHeader(mLogoUtn+"_resized.png", imageOdt::PARALEL, imageOdt::RIGHT);
+    imageOdt imgHeader(mLogoUtn, imageOdt::PARALEL, imageOdt::RIGHT);
+    imgHeader.scaleToWidth(200);
     textOdt autores("Autores: "+mAutores);
     textOdt fecha("Fecha: "+mFecha);
     header.addElement(imgHeader);
@@ -285,6 +329,18 @@ void Documentacion::escribirIntroTeorica() {
 
     mManagerOdt->writeText(newLine);
 }
+
+void Documentacion::escribirDescripcion() {
+    escribirTitulo("Descripcion del proyecto",12);
+    // Dividir el texto por saltos de línea
+    QStringList lineas = mDescripcion.split("\n");
+    // Agregar cada línea a la lista
+    for (const QString& linea : lineas) {
+        textOdt texto = textOdt(linea);
+        mManagerOdt->writeText(texto);
+    }
+}
+
 
 void Documentacion::escribirTitulo(QString txt, int size) {
     textOdt titulo(txt);
@@ -386,20 +442,4 @@ void Documentacion::escribirCodigoFuente() {
         file.close();
         mManagerOdt->writeText(newLine);
     }
-}
-
-void Documentacion::ajustarImagenAncho(const QString& imagePath, int newWidth) {
-    //Abro Imagen
-    QImage image(imagePath);
-
-    //Reescalo imagen
-    QImage newImage = image.scaledToWidth(newWidth,Qt::SmoothTransformation);
-
-    //Guardo en path nuevo
-    QString newPath = imagePath;
-    newPath.remove(imagePath.size()-4,4);
-    QFile file(imagePath+"_resized.png");
-    file.open(QIODevice::WriteOnly);
-    newImage.save(&file);
-    file.close();
 }

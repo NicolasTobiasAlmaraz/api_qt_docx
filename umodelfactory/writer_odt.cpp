@@ -136,6 +136,12 @@ imageOdt::imageOdt(QString imgPath, QString anchor, QString align) {
     mAnchor = anchor;
 }
 
+void imageOdt::scaleToWidth(int newWidth) {
+    double relacionAspecto = (double) mHeight / mWidth;
+    mWidth = newWidth;
+    mHeight = newWidth * relacionAspecto;
+}
+
 
 
 /************************************************

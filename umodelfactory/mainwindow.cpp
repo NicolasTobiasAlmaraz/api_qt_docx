@@ -2599,12 +2599,18 @@ std::list<QString> MainWindow::obtenerNombresArchivos() {
     for (QString archivo : listaArchivos) {
         listaArchivosStd.push_back(dir+"/"+archivo);
     }
-
     return listaArchivosStd;
 }
 
 void MainWindow::on_actionGenerarDocumentacion_triggered() {
     int i;
+
+    //Le pido la config al usuario con la interfaz grafica
+    QString descripcion = m_docManager.getDescripcion();
+    DialogConfigDocumentacion dialogDocumentacion(nullptr, descripcion);
+    dialogDocumentacion.setWindowTitle("Configuración de Documentacion");
+    if (dialogDocumentacion.exec() != QFileDialog::Accepted)
+        return;
 
     //Guardo los datos del proyecto
     guardarDatos();
@@ -2630,6 +2636,12 @@ void MainWindow::on_actionGenerarDocumentacion_triggered() {
     QFile::copy(":/img/img/logoUTN.png",logoUtn);
     m_docManager.setLogoUtn(logoUtn);
 
+    //Cargo descripcion
+    bool fDescripcion = dialogDocumentacion.getFlagDescripcion();
+    descripcion = dialogDocumentacion.getTextoDescripcion();
+    m_docManager.setFlagDescripcion(fDescripcion);
+    m_docManager.setDescripcion(descripcion);
+
     //Cargo Maquinas de estados
     int cantMaq = m_sceneList.count();
     for(int i=0; i<cantMaq; i++) {
@@ -2652,10 +2664,11 @@ void MainWindow::on_actionGenerarDocumentacion_triggered() {
             }
             listaFilas.push_back(fila);
         }
-        tableOdt tabla = m_docManager.generarTablaEstados(listaFilas);
-        MaquinaDeEstados maq  = {nombreMaq, path, tabla};
+        MaquinaDeEstados maq  = {nombreMaq, path, listaFilas};
         m_docManager.addMaquina(maq);
     }
+    bool fTabla = dialogDocumentacion.getFlagTabla();
+    m_docManager.setFlagTabla(fTabla);
 
     //Cargo lista de eventos
     std::list<QString> eventos;
@@ -2692,7 +2705,8 @@ void MainWindow::on_actionGenerarDocumentacion_triggered() {
     m_docManager.setVariables(variables);
 
     //Cargo info teorica
-    m_docManager.setIntroTeorica(true);
+    bool fInfo = dialogDocumentacion.getFlagIntroTeorica();
+    m_docManager.setFlagInfoTeorica(fInfo);
     InfoTeorica info;
     info.estados = "Estados: definicion correspondiente";
     info.reset = "Reset: definicion correspondiente";
@@ -2702,31 +2716,18 @@ void MainWindow::on_actionGenerarDocumentacion_triggered() {
     m_docManager.setInfoTeorica(info);
 
     //Cargo codigos
-    /*************************************************************
-    ------------------------PROVISORIO----------------------------
-    *************************************************************/
-    // Crea un QMessageBox con dos botones
-    QMessageBox msgBox;
-    msgBox.setText("Si desea incluir las implementaciones en C seleccione la ruta donde se encuentran los códigos generados desde el botón open. De lo contrario cierre esta ventana");
-    msgBox.setStandardButtons(QMessageBox::Open | QMessageBox::Cancel);
-    msgBox.setDefaultButton(QMessageBox::Open);
-    int result = msgBox.exec();
-    if(result == QMessageBox::Open ) {
-        m_docManager.setCodigos(true);
-        std::list<QString> pathsCodes = obtenerNombresArchivos();
-        if(pathsCodes.size()==0)
-            m_docManager.setCodigos(false);
-        m_docManager.setPathsCodigos(pathsCodes);
-    } else {
-        m_docManager.setCodigos(false);
-    }
-    /*************************************************************
-    ------------------------PROVISORIO----------------------------
-    *************************************************************/
+    bool fCodigos = dialogDocumentacion.getFlagCodigo();
+    std::list<QString> pathsCodes = dialogDocumentacion.getListaArchivos();
+    m_docManager.setFlagCodigos(fCodigos);
+    m_docManager.setPathsCodigos(pathsCodes);
 
     //Genero documentos .html y .odt
-    m_docManager.generarDocumentacionFormatoHtml();
-    m_docManager.generarDocumentacionFormatoOdt(DOCUMENTACION_EXE_PATH, pathSalidaOdt);
+    bool fOdt = dialogDocumentacion.getFlagOdt();
+    bool fHtml = dialogDocumentacion.getFlagHtml();
+    if(fOdt)
+        m_docManager.generarDocumentacionFormatoOdt(DOCUMENTACION_EXE_PATH, pathSalidaOdt);
+    if(fHtml)
+        m_docManager.generarDocumentacionFormatoHtml();
 
     //Le digo que  ya escribí todo lo que cargué
     //Xq la lista de maquinas del html es la misma q la del odt entonces internamente no puedo vaciarla

@@ -16,6 +16,7 @@ SOURCES += main.cpp\
     ayudadinamica.cpp \
     converciondedatos.cpp \
     diagramtransition.cpp \
+    dialogconfigdocumentacion.cpp \
     dialogconfigurardebug.cpp \
     dialogconstantes.cpp \
     documentacion.cpp \
@@ -43,6 +44,7 @@ HEADERS  += mainwindow.h \
     diagramitem.h \
     diagramscene.h \
     diagramtransition.h \
+    dialogconfigdocumentacion.h \
     dialogconfigurardebug.h \
     dialogconstantes.h \
     documentacion.h \
@@ -62,6 +64,7 @@ HEADERS  += mainwindow.h \
     fuentes.h
 
 FORMS    += mainwindow.ui \
+    dialogconfigdocumentacion.ui \
     dialogconfigurardebug.ui \
     dialogconstantes.ui \
     dialogtransicion.ui \

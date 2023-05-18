@@ -73,6 +73,8 @@ a usar para implementar la clase de documentación
 
 /************************************************
 Clase Page Set Up
+En esta clase podremos crear un objeto Hoja
+En este le aclararemos tamaño de pagina y margenes en mm
 ***************************************************/
 class pageOdt {
 public:
@@ -106,6 +108,10 @@ private:
 
 /************************************************
 Clase Texto
+En esta clase podremos crear texto con formato:
+Tamaño de letra, fuente, alineacion del texto, subrayado
+negrita, italica, subrayado, tachado, color de letra,
+color de fondo.
 ***************************************************/
 class textOdt {
 public:
@@ -162,6 +168,13 @@ private:
 
 /************************************************
 Clase Imagen
+En esta clase debemos indicar:
+Path de la imagen,
+Anclaje a la pagina
+    texto al rededor: PARALEL
+    en un renglón aparte: None,
+Alineación (LEFT, RIGHT, CENTER),
+
 ***************************************************/
 class imageOdt {
 public:
@@ -179,6 +192,9 @@ public:
     int inline getWidht(){return mWidth;}
     QString inline getAnchor(){return mAnchor;}
     QString inline getAlign(){return mAlign;}
+
+    //Metodo para escalar imagen
+    void scaleToWidth(int newWidth);
 private:
     QString mImgPath;
     int mHeight;
@@ -191,6 +207,12 @@ private:
 
 /************************************************
 Clase Elemento Tabla
+Esta clase sirve para crear objetos que luego añadiremos a una
+tableOdt.
+Podremos asignar un objeto texto o un objeto imagen
+Además tendremos que indicar nro de fila y columna.
+Luego dentro de la clase tabla tendremos un método para
+añadir los objetos aquí creados
 ***************************************************/
 class tableElement {
 public:
@@ -214,6 +236,11 @@ private:
 
 /************************************************
 Clase Tabla
+Con esta clase podremos generar un objeto tabla
+En el constructor debemos indicar el tamaño (filas x columnas)
+Para ir completando la tabla usaremos el metodo addElement
+e iremos añadiento obetos tableElement. Estos tendran el atributo
+correspondiente a la celda donde hay que escribirlos
 ***************************************************/
 class tableOdt {
 public:
@@ -222,13 +249,18 @@ public:
     static const int REPLACE;
     //Construtor
     tableOdt(int rows, int columns);
-    //Agrega un elemento a la lista de elementos
-    //En caso de haber un elemento con la misma coordenada entonces lo reemplaza
+
+    //Agrega un elemento a la lista de elementos y retornará APPEND
+    //En caso de haber un elemento con la misma coordenada entonces lo reemplaza y retornará REPLACE
+    //En caso de que el elemento este en una ubicacion imposible retornará INDEX_ERROR
     int addElement(tableElement item);
+
     //Devuelve la cantidad de filas que tiene la tabla
     int inline getRows(){return mRows;}
+
     //Devuelve la cantidad de columnas que tiene la tabla
     int inline getColumns(){return mColumns;}
+
     //Deuelve el contenido de las celdas de la tabla
     std::list<tableElement> getElements(){return listElements;}
 private:
@@ -241,6 +273,7 @@ private:
 
 /************************************************
 Clase Lista
+Con esta clase podremos generar añadiendo objetos textOdt
 ***************************************************/
 class listOdt {
 public:
@@ -257,6 +290,8 @@ private:
 
 /************************************************
 Clase Header/Footer
+Con esta clase podremos generar el header y footer inclyendo
+texto e imágenes a nuestro gusto
 ***************************************************/
 typedef struct {
     textOdt text;
@@ -280,7 +315,17 @@ private:
 
 
 /************************************************
-Clase Writer
+Clase Writer:
+Con esta clase podremos administrar cada objeto de los anteriores
+permitiendo escribir el XML auxiliar.
+Para poder inicializarlo necesitamos pasarle los datos de escritura
+unica (pageSetUp, header y footer) y la ubicacion del
+ejecutable de python y ruta de salida
+
+Con los metodos "write" podremos ir escribirendo a nuestro gusto
+
+Con el metodo generateOdt, llamaremos al ejecutable de python que
+consumirá el XML y escribirá todo lo que le fuimos indicando
 ***************************************************/
 class writerOdt {
 public:

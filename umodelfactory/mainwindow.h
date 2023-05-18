@@ -19,6 +19,7 @@
 #include <QDir>
 #include <QStringList>
 #include <list>
+#include <dialogconfigdocumentacion.h>
 
 #define DEFAULT_NAME_NUEVA_MAQUINA  "MdE"
 #define DEFAULT_NAME_NUEVO_ESTADO   "ESTADO"
