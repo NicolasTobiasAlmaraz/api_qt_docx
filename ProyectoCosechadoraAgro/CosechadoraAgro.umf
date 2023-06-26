@@ -2,10 +2,15 @@
 <proyecto>
     <general>
         <nombre>CosechadoraAgro</nombre>
-        <autores>Almaraz</autores>
-        <creacion>27-03-2023 08:24:15</creacion>
-        <modificacion>17-05-2023 18:02:13</modificacion>
+        <autores>Nicolas</autores>
+        <creacion>13-06-2023 16:03:55</creacion>
+        <modificacion>21-06-2023 17:16:35</modificacion>
         <carpeta>D:/UTN/uModelFactory/uModelFactory-Documentacion/ProyectoCosechadoraAgro</carpeta>
+        <descripcion>En este proyecto se describe el funconamiento de una maquina agro-industrial para la cosecha y plantacion de plantas en un campo. Consta de tres maquinas de estados:
+- Máquina A
+- Máquina B
+- Máquina C
+ect etc etc</descripcion>
     </general>
     <configuracion>
         <hardware/>
@@ -17,424 +22,259 @@
     </recursos>
     <maquinas>
         <maquina0>
-            <nombre>Cosecha</nombre>
+            <nombre>MdE2</nombre>
             <estadoInicial>
-                <pos_x>-1173</pos_x>
-                <pos_y>-533.5</pos_y>
-                <idAcciones>m_ChequearAlmacenamiento(),m_LeerConfig()</idAcciones>
-                <idProxEstado>estado0</idProxEstado>
-                <midPos>-1190,-490</midPos>
-                <textPos>-43,-131</textPos>
+                <pos_x>-1180</pos_x>
+                <pos_y>-710.5</pos_y>
+                <idAcciones>plantaciones = 0</idAcciones>
+                <idProxEstado>estado1</idProxEstado>
+                <midPos>-1153.4,-690.2</midPos>
+                <textPos>11,-41</textPos>
             </estadoInicial>
             <estado0>
                 <diagrama>
-                    <nombre>Reposo</nombre>
+                    <nombre>Tapando Tierra</nombre>
                     <color>#e0ffff</color>
-                    <pos_x>-1128</pos_x>
-                    <pos_y>-418</pos_y>
+                    <pos_x>-1116</pos_x>
+                    <pos_y>-408</pos_y>
                     <ancho>110</ancho>
                     <alto>65</alto>
                 </diagrama>
                 <transiciones>
                     <tr0>
-                        <idEvento>s_HayLugar</idEvento>
-                        <idAcciones>m_RetirarFruta()</idAcciones>
-                        <idProxEstado>estado2</idProxEstado>
-                        <midPos>-812.6,-516.6</midPos>
-                        <textPos>-57,-57</textPos>
+                        <idEvento>s_agujeroTapado</idEvento>
+                        <idAcciones>m_avanzar(),plantaciones += 1</idAcciones>
+                        <idProxEstado>estado1</idProxEstado>
+                        <midPos>-1123.5,-526.1</midPos>
+                        <textPos>-128,-42</textPos>
                     </tr0>
                 </transiciones>
             </estado0>
             <estado1>
                 <diagrama>
-                    <nombre>Avanzar</nombre>
+                    <nombre>Posicionando</nombre>
                     <color>#e0ffff</color>
-                    <pos_x>-609</pos_x>
-                    <pos_y>-134</pos_y>
+                    <pos_x>-1085</pos_x>
+                    <pos_y>-638</pos_y>
                     <ancho>110</ancho>
                     <alto>65</alto>
                 </diagrama>
                 <transiciones>
                     <tr0>
-                        <idEvento>!s_CosechasPendientes || !s_HayLugar</idEvento>
-                        <idAcciones></idAcciones>
-                        <idProxEstado>estado0</idProxEstado>
-                        <midPos>-974,-221</midPos>
-                        <textPos>-159,42</textPos>
-                    </tr0>
-                    <tr1>
-                        <idEvento>s_HayLugar &amp;&amp; s_CosechasPendientes</idEvento>
-                        <idAcciones>m_RetirarFruta()</idAcciones>
+                        <idEvento>s_enPosicion</idEvento>
+                        <idAcciones>m_agujerearPiso()</idAcciones>
                         <idProxEstado>estado2</idProxEstado>
-                        <midPos>-724,-351</midPos>
-                        <textPos>-262,-29</textPos>
-                    </tr1>
+                        <midPos>-926.3,-676.5</midPos>
+                        <textPos>-86,-54</textPos>
+                    </tr0>
                 </transiciones>
             </estado1>
             <estado2>
                 <diagrama>
-                    <nombre>Retirar_Fruta</nombre>
+                    <nombre>Removiendo</nombre>
                     <color>#e0ffff</color>
-                    <pos_x>-622</pos_x>
-                    <pos_y>-544</pos_y>
+                    <pos_x>-797</pos_x>
+                    <pos_y>-624</pos_y>
                     <ancho>110</ancho>
                     <alto>65</alto>
                 </diagrama>
                 <transiciones>
                     <tr0>
-                        <idEvento>s_FrutaRetirada</idEvento>
-                        <idAcciones>m_GuardarFruta()</idAcciones>
+                        <idEvento>s_agujereado &amp;&amp; !s_sinSemillas</idEvento>
+                        <idAcciones>m_tirarSemilla()</idAcciones>
                         <idProxEstado>estado3</idProxEstado>
-                        <midPos>-498,-482</midPos>
-                        <textPos>24,-5</textPos>
+                        <midPos>-754,-549.4</midPos>
+                        <textPos>-242,-3</textPos>
                     </tr0>
+                    <tr1>
+                        <idEvento>s_sinSemillas</idEvento>
+                        <idAcciones></idAcciones>
+                        <idProxEstado>estado4</idProxEstado>
+                        <midPos>-650.1,-607.1</midPos>
+                        <textPos>0,-23</textPos>
+                    </tr1>
                 </transiciones>
             </estado2>
             <estado3>
                 <diagrama>
-                    <nombre>Depositar_Fruta</nombre>
+                    <nombre>PLANTANDO</nombre>
                     <color>#e0ffff</color>
-                    <pos_x>-500</pos_x>
-                    <pos_y>-380</pos_y>
+                    <pos_x>-743</pos_x>
+                    <pos_y>-464</pos_y>
                     <ancho>110</ancho>
                     <alto>65</alto>
                 </diagrama>
                 <transiciones>
                     <tr0>
-                        <idEvento>s_FrutaGuardada</idEvento>
-                        <idAcciones>m_Avanzar(),m_ChequearConfig(),m_ChequearAlmacenamiento()</idAcciones>
-                        <idProxEstado>estado1</idProxEstado>
-                        <midPos>-484,-254</midPos>
-                        <textPos>33,-24</textPos>
+                        <idEvento>s_semillaTirada</idEvento>
+                        <idAcciones>m_tapar()</idAcciones>
+                        <idProxEstado>estado0</idProxEstado>
+                        <midPos>-923.9,-398.7</midPos>
+                        <textPos>-23,1</textPos>
                     </tr0>
                 </transiciones>
             </estado3>
+            <estado4>
+                <diagrama>
+                    <nombre>Sin_Semillas</nombre>
+                    <color>#e0ffff</color>
+                    <pos_x>-521</pos_x>
+                    <pos_y>-535</pos_y>
+                    <ancho>110</ancho>
+                    <alto>65</alto>
+                </diagrama>
+            </estado4>
         </maquina0>
         <maquina1>
-            <nombre>Plantacion</nombre>
+            <nombre>MdE3</nombre>
             <estadoInicial>
-                <pos_x>-1146</pos_x>
-                <pos_y>-674.5</pos_y>
-                <idAcciones>m_ApagarActuadores(),m_ChequearSemillas(),m_ChequearFertilizante(),m_ChequearConfig()</idAcciones>
-                <idProxEstado>estado0</idProxEstado>
-                <midPos>-1035,-662</midPos>
-                <textPos>-29,-100</textPos>
+                <pos_x>-1069</pos_x>
+                <pos_y>-256.5</pos_y>
+                <idAcciones></idAcciones>
+                <idProxEstado>estado2</idProxEstado>
+                <midPos>-993,-250</midPos>
+                <textPos>-26,-43</textPos>
             </estadoInicial>
             <estado0>
                 <diagrama>
-                    <nombre>Reposo</nombre>
+                    <nombre>cosechando</nombre>
                     <color>#e0ffff</color>
-                    <pos_x>-1006</pos_x>
-                    <pos_y>-555</pos_y>
+                    <pos_x>-992</pos_x>
+                    <pos_y>-576</pos_y>
                     <ancho>110</ancho>
                     <alto>65</alto>
                 </diagrama>
                 <transiciones>
                     <tr0>
-                        <idEvento>s_HaySemillas &amp;&amp; s_HayFertilizante &amp;&amp; s_PlantacionPendiente</idEvento>
-                        <idAcciones>m_RemoverTierra()</idAcciones>
-                        <idProxEstado>estado3</idProxEstado>
-                        <midPos>-827.3,-608.3</midPos>
-                        <textPos>-124,-40</textPos>
-                    </tr0>
-                    <tr1>
-                        <idEvento>!s_HaySemillas || !s_HayFertilizante</idEvento>
+                        <idEvento>s_finCosecha</idEvento>
                         <idAcciones></idAcciones>
-                        <idProxEstado>estado7</idProxEstado>
-                        <midPos>-1123.1,-456.7</midPos>
-                        <textPos>-401,25</textPos>
-                    </tr1>
+                        <idProxEstado>estado2</idProxEstado>
+                        <midPos>-905,-458.2</midPos>
+                        <textPos>-23,-60</textPos>
+                    </tr0>
                 </transiciones>
             </estado0>
             <estado1>
                 <diagrama>
-                    <nombre>Agujerear_Tierra</nombre>
+                    <nombre>plantando</nombre>
                     <color>#e0ffff</color>
-                    <pos_x>-252.5</pos_x>
-                    <pos_y>-316</pos_y>
-                    <ancho>141</ancho>
-                    <alto>63</alto>
+                    <pos_x>-704</pos_x>
+                    <pos_y>-556</pos_y>
+                    <ancho>110</ancho>
+                    <alto>65</alto>
                 </diagrama>
                 <transiciones>
                     <tr0>
-                        <idEvento>s_TierraAgujereada</idEvento>
-                        <idAcciones>m_TirarSemillas()</idAcciones>
+                        <idEvento>s_finPlantar</idEvento>
+                        <idAcciones></idAcciones>
                         <idProxEstado>estado2</idProxEstado>
-                        <midPos>-358.45,-241.25</midPos>
+                        <midPos>-790,-445</midPos>
                         <textPos>0,0</textPos>
                     </tr0>
                 </transiciones>
             </estado1>
             <estado2>
                 <diagrama>
-                    <nombre>Plantar_Semilla</nombre>
+                    <nombre>sin_configuracion</nombre>
                     <color>#e0ffff</color>
-                    <pos_x>-485</pos_x>
-                    <pos_y>-213</pos_y>
-                    <ancho>110</ancho>
-                    <alto>65</alto>
+                    <pos_x>-870</pos_x>
+                    <pos_y>-316</pos_y>
+                    <ancho>142</ancho>
+                    <alto>51</alto>
                 </diagrama>
                 <transiciones>
                     <tr0>
-                        <idEvento>s_SemillasPlantadas</idEvento>
-                        <idAcciones>m_TaparAgujero()</idAcciones>
-                        <idProxEstado>estado5</idProxEstado>
-                        <midPos>-642.1,-179.5</midPos>
-                        <textPos>-39,14</textPos>
-                    </tr0>
-                </transiciones>
-            </estado2>
-            <estado3>
-                <diagrama>
-                    <nombre>Remover_Tierra</nombre>
-                    <color>#e0ffff</color>
-                    <pos_x>-584</pos_x>
-                    <pos_y>-575</pos_y>
-                    <ancho>110</ancho>
-                    <alto>65</alto>
-                </diagrama>
-                <transiciones>
-                    <tr0>
-                        <idEvento>s_TierraRemovida</idEvento>
-                        <idAcciones>m_TirarFertilizante()</idAcciones>
-                        <idProxEstado>estado4</idProxEstado>
-                        <midPos>-425.775,-600.275</midPos>
-                        <textPos>-103,-45</textPos>
-                    </tr0>
-                </transiciones>
-            </estado3>
-            <estado4>
-                <diagrama>
-                    <nombre>Tirar_Fertilizante</nombre>
-                    <color>#e0ffff</color>
-                    <pos_x>-297.2</pos_x>
-                    <pos_y>-540.95</pos_y>
-                    <ancho>168</ancho>
-                    <alto>50</alto>
-                </diagrama>
-                <transiciones>
-                    <tr0>
-                        <idEvento>s_FertilizanteTirado</idEvento>
-                        <idAcciones>m_AgujerearTierra()</idAcciones>
-                        <idProxEstado>estado1</idProxEstado>
-                        <midPos>-236.575,-441.125</midPos>
-                        <textPos>0,-23</textPos>
-                    </tr0>
-                </transiciones>
-            </estado4>
-            <estado5>
-                <diagrama>
-                    <nombre>Tapar_Agujero</nombre>
-                    <color>#e0ffff</color>
-                    <pos_x>-800</pos_x>
-                    <pos_y>-209</pos_y>
-                    <ancho>110</ancho>
-                    <alto>65</alto>
-                </diagrama>
-                <transiciones>
-                    <tr0>
-                        <idEvento>s_AgujeroTapado</idEvento>
-                        <idAcciones>m_Avanzar(),m_ChequearFertilizante(),m_ChequearSemillas()</idAcciones>
-                        <idProxEstado>estado6</idProxEstado>
-                        <midPos>-939,-238.4</midPos>
-                        <textPos>-216,-34</textPos>
-                    </tr0>
-                </transiciones>
-            </estado5>
-            <estado6>
-                <diagrama>
-                    <nombre>Avanzar</nombre>
-                    <color>#e0ffff</color>
-                    <pos_x>-973</pos_x>
-                    <pos_y>-331</pos_y>
-                    <ancho>110</ancho>
-                    <alto>65</alto>
-                </diagrama>
-                <transiciones>
-                    <tr0>
-                        <idEvento>s_PlantacionPendiente &amp;&amp; s_HaySemillas &amp;&amp; s_HayFertilizante</idEvento>
-                        <idAcciones>m_RemoverTierra()</idAcciones>
-                        <idProxEstado>estado3</idProxEstado>
-                        <midPos>-797,-451</midPos>
-                        <textPos>-28,21</textPos>
+                        <idEvento>s_configCosecha</idEvento>
+                        <idAcciones></idAcciones>
+                        <idProxEstado>estado0</idProxEstado>
+                        <midPos>-1096,-416</midPos>
+                        <textPos>-137,3</textPos>
                     </tr0>
                     <tr1>
-                        <idEvento>!s_PlantacionPendiente</idEvento>
+                        <idEvento>s_configPlantar</idEvento>
                         <idAcciones></idAcciones>
-                        <idProxEstado>estado0</idProxEstado>
-                        <midPos>-1011.9,-439.7</midPos>
-                        <textPos>10,-53</textPos>
+                        <idProxEstado>estado1</idProxEstado>
+                        <midPos>-575,-375</midPos>
+                        <textPos>-124,45</textPos>
                     </tr1>
-                    <tr2>
-                        <idEvento>!s_HayFertilizante &amp;&amp; !s_HaySemillas</idEvento>
-                        <idAcciones></idAcciones>
-                        <idProxEstado>estado7</idProxEstado>
-                        <midPos>-1171.4,-389.6</midPos>
-                        <textPos>-194,25</textPos>
-                    </tr2>
                 </transiciones>
-            </estado6>
-            <estado7>
-                <diagrama>
-                    <nombre>Cargar_Insumos</nombre>
-                    <color>#e0ffff</color>
-                    <pos_x>-1332</pos_x>
-                    <pos_y>-520</pos_y>
-                    <ancho>110</ancho>
-                    <alto>65</alto>
-                </diagrama>
-                <transiciones>
-                    <tr0>
-                        <idEvento>s_HaySemillas &amp;&amp; s_HayFertilizante</idEvento>
-                        <idAcciones>m_ChequearConfig()</idAcciones>
-                        <idProxEstado>estado0</idProxEstado>
-                        <midPos>-1200,-607</midPos>
-                        <textPos>-212,-38</textPos>
-                    </tr0>
-                </transiciones>
-            </estado7>
+            </estado2>
         </maquina1>
         <maquina2>
-            <nombre>General</nombre>
+            <nombre>MdE4</nombre>
             <estadoInicial>
-                <pos_x>-819</pos_x>
-                <pos_y>-701.5</pos_y>
-                <idAcciones>m_ApagarActuadores()</idAcciones>
-                <idProxEstado>estado0</idProxEstado>
-                <midPos>-792.4,-681.2</midPos>
-                <textPos>0,-38</textPos>
+                <pos_x>-705</pos_x>
+                <pos_y>-689.5</pos_y>
+                <idAcciones>m_apagarLed()</idAcciones>
+                <idProxEstado>estado1</idProxEstado>
+                <midPos>-696,-620</midPos>
+                <textPos>0,-23</textPos>
             </estadoInicial>
             <estado0>
                 <diagrama>
-                    <nombre>Esperando Configuracion</nombre>
+                    <nombre>led_On</nombre>
                     <color>#e0ffff</color>
-                    <pos_x>-724</pos_x>
-                    <pos_y>-629</pos_y>
+                    <pos_x>-1127</pos_x>
+                    <pos_y>-609</pos_y>
                     <ancho>110</ancho>
                     <alto>65</alto>
                 </diagrama>
                 <transiciones>
                     <tr0>
-                        <idEvento>s_Config</idEvento>
-                        <idAcciones>m_LeerConfig()</idAcciones>
+                        <idEvento>e_tiempoOn</idEvento>
+                        <idAcciones>t_tiempoOn_001_S(),m_apagarLed()</idAcciones>
                         <idProxEstado>estado1</idProxEstado>
-                        <midPos>-703.8,-546.2</midPos>
-                        <textPos>0,-38</textPos>
+                        <midPos>-987.4,-639</midPos>
+                        <textPos>-54,-52</textPos>
                     </tr0>
                 </transiciones>
             </estado0>
             <estado1>
                 <diagrama>
-                    <nombre>Configurada</nombre>
+                    <nombre>led_Off</nombre>
                     <color>#e0ffff</color>
-                    <pos_x>-710</pos_x>
-                    <pos_y>-419</pos_y>
+                    <pos_x>-836</pos_x>
+                    <pos_y>-609</pos_y>
                     <ancho>110</ancho>
                     <alto>65</alto>
                 </diagrama>
                 <transiciones>
                     <tr0>
-                        <idEvento>s_ConfigCosecha</idEvento>
-                        <idAcciones>m_Cosechar()</idAcciones>
-                        <idProxEstado>estado3</idProxEstado>
-                        <midPos>-634.9,-405.1</midPos>
-                        <textPos>12,2</textPos>
-                    </tr0>
-                    <tr1>
-                        <idEvento>s_ConfigPlantado</idEvento>
-                        <idAcciones>m_Plantar()</idAcciones>
-                        <idProxEstado>estado2</idProxEstado>
-                        <midPos>-822,-407</midPos>
-                        <textPos>-25,38</textPos>
-                    </tr1>
-                    <tr2>
-                        <idEvento>s_ErrorConfig</idEvento>
-                        <idAcciones></idAcciones>
+                        <idEvento>e_tiempoOn</idEvento>
+                        <idAcciones>t_tiempoOn_001_S(),m_prenderLed()</idAcciones>
                         <idProxEstado>estado0</idProxEstado>
-                        <midPos>-737.2,-544.8</midPos>
-                        <textPos>-134,0</textPos>
-                    </tr2>
+                        <midPos>-986.6,-583</midPos>
+                        <textPos>-52,18</textPos>
+                    </tr0>
                 </transiciones>
             </estado1>
-            <estado2>
-                <diagrama>
-                    <nombre>Plantacion_de_semilla</nombre>
-                    <color>#e0ffff</color>
-                    <pos_x>-867.5</pos_x>
-                    <pos_y>-270.5</pos_y>
-                    <ancho>157</ancho>
-                    <alto>64</alto>
-                </diagrama>
-                <transiciones>
-                    <tr0>
-                        <idEvento>s_ErrorProceso</idEvento>
-                        <idAcciones>m_ApagarActuadores()</idAcciones>
-                        <idProxEstado>estado0</idProxEstado>
-                        <midPos>-1023,-543</midPos>
-                        <textPos>-139,19</textPos>
-                    </tr0>
-                </transiciones>
-            </estado2>
-            <estado3>
-                <diagrama>
-                    <nombre>Cosechado</nombre>
-                    <color>#e0ffff</color>
-                    <pos_x>-565</pos_x>
-                    <pos_y>-263</pos_y>
-                    <ancho>110</ancho>
-                    <alto>65</alto>
-                </diagrama>
-                <transiciones>
-                    <tr0>
-                        <idEvento>s_ErrorProceso</idEvento>
-                        <idAcciones>m_ApagarActuadores()</idAcciones>
-                        <idProxEstado>estado0</idProxEstado>
-                        <midPos>-326,-508</midPos>
-                        <textPos>-223,-2</textPos>
-                    </tr0>
-                </transiciones>
-            </estado3>
         </maquina2>
     </maquinas>
     <eventos>
-        <ev0>s_Config</ev0>
-        <ev1>s_ConfigCosecha</ev1>
-        <ev2>s_ConfigPlantado</ev2>
-        <ev3>s_ErrorConfig</ev3>
-        <ev4>s_ErrorProceso</ev4>
-        <ev5>s_HaySemillas</ev5>
-        <ev6>s_HayFertilizante</ev6>
-        <ev7>s_TierraRemovida</ev7>
-        <ev8>s_FertilizanteTirado</ev8>
-        <ev9>s_TierraAgujereada</ev9>
-        <ev10>s_SemillasPlantadas</ev10>
-        <ev11>s_AgujeroTapado</ev11>
-        <ev12>s_PlantacionPendiente</ev12>
-        <ev13>s_HayLugar</ev13>
-        <ev14>s_FrutaRetirada</ev14>
-        <ev15>s_FrutaGuardada</ev15>
-        <ev16>s_CosechasPendientes</ev16>
+        <ev0>s_configCosecha</ev0>
+        <ev1>s_configPlantar</ev1>
+        <ev2>s_finCosecha</ev2>
+        <ev3>s_finPlantar</ev3>
+        <ev4>e_tiempoOn</ev4>
+        <ev5>s_sinSemillas</ev5>
+        <ev6>s_agujereado</ev6>
+        <ev7>s_semillaTirada</ev7>
+        <ev8>s_agujeroTapado</ev8>
+        <ev9>s_enPosicion</ev9>
     </eventos>
     <acciones>
-        <acc0>m_LeerConfig()</acc0>
-        <acc1>m_Cosechar()</acc1>
-        <acc2>m_Plantar()</acc2>
-        <acc3>m_ApagarActuadores()</acc3>
-        <acc4>m_ChequearSemillas()</acc4>
-        <acc5>m_ChequearFertilizante()</acc5>
-        <acc6>m_RemoverTierra()</acc6>
-        <acc7>m_TirarFertilizante()</acc7>
-        <acc8>m_AgujerearTierra()</acc8>
-        <acc9>m_TirarSemillas()</acc9>
-        <acc10>m_TaparAgujero()</acc10>
-        <acc11>m_Avanzar()</acc11>
-        <acc12>m_ChequearConfig()</acc12>
-        <acc13>m_ChequearAlmacenamiento()</acc13>
-        <acc14>m_RetirarFruta()</acc14>
-        <acc15>m_GuardarFruta()</acc15>
-        <acc16>m_Avanzar()</acc16>
+        <acc0>t_tiempoOn_001_S()</acc0>
+        <acc1>t_tiempoOn_001_stop()</acc1>
+        <acc2>m_apagarLed()</acc2>
+        <acc3>m_prenderLed()</acc3>
+        <acc4>m_agujerearPiso()</acc4>
+        <acc5>m_avanzar()</acc5>
+        <acc6>m_tirarSemilla()</acc6>
+        <acc7>m_tapar()</acc7>
     </acciones>
-    <variables/>
+    <variables>
+        <var0>plantaciones</var0>
+    </variables>
     <constantes>
         <cons0>TRUE,1</cons0>
         <cons1>FALSE,0</cons1>

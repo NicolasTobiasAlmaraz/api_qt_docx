@@ -2605,9 +2605,14 @@ std::list<QString> MainWindow::obtenerNombresArchivos() {
 void MainWindow::on_actionGenerarDocumentacion_triggered() {
     int i;
 
+    //Me fijo que descripcion del proyecto estaba guardada
+    QString descripcionProy = m_datosXml->getContenidoGeneral(DESCRIPCION);
+    if(descripcionProy=="-1")
+        descripcionProy = "";
+
     //Le pido la config al usuario con la interfaz grafica
-    QString descripcion = m_docManager.getDescripcion();
-    DialogConfigDocumentacion dialogDocumentacion(nullptr, descripcion);
+    DialogConfigDocumentacion dialogDocumentacion(nullptr, descripcionProy);
+
     dialogDocumentacion.setWindowTitle("Configuración de Documentacion");
     if (dialogDocumentacion.exec() != QFileDialog::Accepted)
         return;
@@ -2628,7 +2633,7 @@ void MainWindow::on_actionGenerarDocumentacion_triggered() {
     QString autoresProy = m_datosXml->getContenidoGeneral(AUTORES);
     m_docManager.setAutores(autoresProy);
 
-    QString pathSalidaOdt = pathProy+"/doc_"+tituloProy+"/documentacion.odt";
+    QString pathSalidaOdt = pathProy+"/doc_"+tituloProy+"/documentacion.docx";
 
     //Exporto imagenes de diagramas y copio logo Utn a carpeta proyecto
     std::list<QString> diagramas = exportarImagenesDiagramas();
@@ -2638,9 +2643,13 @@ void MainWindow::on_actionGenerarDocumentacion_triggered() {
 
     //Cargo descripcion
     bool fDescripcion = dialogDocumentacion.getFlagDescripcion();
-    descripcion = dialogDocumentacion.getTextoDescripcion();
+    descripcionProy = dialogDocumentacion.getTextoDescripcion();
     m_docManager.setFlagDescripcion(fDescripcion);
-    m_docManager.setDescripcion(descripcion);
+    m_docManager.setDescripcion(descripcionProy);
+
+    //Guardo descripcion para la proxima vez que  se use
+    m_datosXml->setContenidoGeneral(DESCRIPCION,descripcionProy);
+    guardarDatos();
 
     //Cargo Maquinas de estados
     int cantMaq = m_sceneList.count();
@@ -2708,7 +2717,7 @@ void MainWindow::on_actionGenerarDocumentacion_triggered() {
     bool fInfo = dialogDocumentacion.getFlagIntroTeorica();
     m_docManager.setFlagInfoTeorica(fInfo);
     InfoTeorica info;
-    info.estados = "Estados: definicion correspondiente";
+    info.estados = "Estados: definición correspondiente";
     info.reset = "Reset: definicion correspondiente";
     info.eventos = "Evetos: definicion correspondiente";
     info.transiciones = "Transicion: definicion correspondiente";
@@ -2736,8 +2745,8 @@ void MainWindow::on_actionGenerarDocumentacion_triggered() {
     m_docManager.resetListaMaq();
 
     //Doy aviso de que se generó todo ok
-    QMessageBox::information(this, QString::fromUtf8("Generar Documentación"),
-                             QString::fromUtf8("Se ha creado con éxito la documentación del proyecto."));
+    DialogDocumentacionGenerada msg(nullptr,pathProy+"/doc_"+tituloProy);
+    msg.exec();
 }
 
 std::list<QString> MainWindow::exportarImagenesDiagramas() {

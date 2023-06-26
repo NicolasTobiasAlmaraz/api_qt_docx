@@ -43,7 +43,7 @@ void Documentacion::generarDocumentacionFormatoOdt(QString exePath, QString outP
 
     //Escribo cada maquina de estados
     std::list<MaquinaDeEstados> maquinas = mMaquinas;
-    escribirTitulo("Maquinas de estados", 12);
+    escribirTitulo("Máquinas de estados", 12);
     int cantMaq = maquinas.size();
     for(int i=0 ; i<cantMaq ; i++) {
         MaquinaDeEstados maq = maquinas.front();
@@ -300,7 +300,7 @@ writerOdt Documentacion::pageSetUp(QString exePath, QString outPath) {
 
     //Configuro footer
     headerFooterOdt footer;
-    textOdt uModelFactory("Generado automaticamente con uModelFactory");
+    textOdt uModelFactory("Generado automáticamente con uModelFactory");
     uModelFactory.setAlign(textOdt::ALIGN_CENTER);
     footer.addElement(uModelFactory);
 
@@ -310,7 +310,7 @@ writerOdt Documentacion::pageSetUp(QString exePath, QString outPath) {
 }
 
 void Documentacion::escribirIntroTeorica() {
-    escribirTitulo("Introduccion teorica",12);
+    escribirTitulo("Introducción teorica",12);
 
     textOdt estados(mInfoTeorica.estados);
     mManagerOdt->writeText(estados);
@@ -331,7 +331,7 @@ void Documentacion::escribirIntroTeorica() {
 }
 
 void Documentacion::escribirDescripcion() {
-    escribirTitulo("Descripcion del proyecto",12);
+    escribirTitulo("Descripción del proyecto",12);
     // Dividir el texto por saltos de línea
     QStringList lineas = mDescripcion.split("\n");
     // Agregar cada línea a la lista
@@ -349,7 +349,7 @@ void Documentacion::escribirTitulo(QString txt, int size) {
     titulo.setUnderline(true);
     titulo.setLetterSize(size);
     mManagerOdt->writeText(titulo);
-    mManagerOdt->writeText(newLine);
+    //mManagerOdt->writeText(newLine);
 }
 
 void Documentacion::escribirSubtitulo(QString txt) {
@@ -358,7 +358,7 @@ void Documentacion::escribirSubtitulo(QString txt) {
     titulo.setUnderline(true);
     titulo.setItalic(true);
     mManagerOdt->writeText(titulo);
-    mManagerOdt->writeText(newLine);
+    //mManagerOdt->writeText(newLine);
 }
 
 void Documentacion::escribirDiagrama(imageOdt img) {
@@ -397,7 +397,7 @@ void Documentacion::escribirLista(QString subtitulo, std::list<QString> lista) {
 }
 
 void Documentacion::escribirCodigoFuente() {
-    textOdt titulo("Implementacion en C:");
+    textOdt titulo("Implementación en C:");
     titulo.setBold(true);
     titulo.setLetterSize(12);
     titulo.setAlign(textOdt::ALIGN_CENTER);

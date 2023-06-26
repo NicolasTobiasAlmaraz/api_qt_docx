@@ -50,8 +50,8 @@ textOdt::textOdt(QString txt) {
     mBold = false;
     mItalic = false;
     mStrikethrough = false;
-    mFillColor = "#000000";
-    mBackgroundColor = "#FFFFFF";
+    mFillColor = "000000";
+    mBackgroundColor = "FFFFFF";
 }
 
 
@@ -384,6 +384,7 @@ void writerOdt::writeList(listOdt list) {
 void writerOdt::generateOdt() {
     // Save
     QTextStream output(mXmlFile);
+    output.setCodec("UTF-8");
     output << mXml.toString();
     mXmlFile->close();
 

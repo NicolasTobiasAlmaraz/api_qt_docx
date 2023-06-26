@@ -5,15 +5,16 @@ from textodt import textOdt
 from imageodt import imageOdt
 from listodt import listOdt
 
-# Odt
-from odf.opendocument import OpenDocumentText
-from odf.style import Style, TextProperties, ParagraphProperties, ListLevelProperties, FontFace, PageLayout, \
-    PageLayoutProperties, MasterPage, GraphicProperties, PageLayout, Header, Footer, TabStop, TabStops, \
-    TableCellProperties
-from odf.text import P, H, A, S, List, ListItem, ListStyle, ListLevelStyleBullet, ListLevelStyleNumber, Span
-from odf.table import Table, TableColumn, TableRow, TableCell
-from odf.draw import Frame, Image
-from odf import teletype
+from docx import Document
+from docx.shared import  RGBColor
+from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
+from docx.shared import Mm, Pt, Inches
+from docx.enum.table import WD_CELL_VERTICAL_ALIGNMENT
+
+def separarRgb(cadena):
+    componentes = [int(cadena[i:i+2], 16) for i in range(0, len(cadena), 2)]
+    return componentes
+
 
 
 class OdtWriter:
@@ -21,84 +22,19 @@ class OdtWriter:
         self.listElementsHeader = []
         self.listElementsFooter = []
         self.path = path
-        self.myTextDoc = OpenDocumentText()
+        self.myTextDoc = Document()
         self.cantStyles = 0
         self.cantTables = 0
         self.aux = False
 
-        # Style para listas
-        L1style = ListStyle(name="L1")
-        # u'\u2022' is the bullet character (http://www.unicode.org/charts/PDF/U2000.pdf)
-        bullet1 = ListLevelStyleBullet(level="1", stylename="Numbering_20_Symbols",
-                                       numsuffix=".", bulletchar=u'\u2022')
-        L1prop1 = ListLevelProperties(spacebefore="0.25in", minlabelwidth="0.25in")
-        bullet1.addElement(L1prop1)
-        L1style.addElement(bullet1)
-        self.myTextDoc.automaticstyles.addElement(L1style)
-
-        # Configuro style para los tabs(\t)
-        tabstops_style = TabStops()
-        tabstop_style = TabStop(position="1cm")
-        tabstops_style.addElement(tabstop_style)
-        tabstoppar = ParagraphProperties()
-        tabstoppar.addElement(tabstops_style)
-        self.tabparagraphstyle = Style(name="Question", family="paragraph")
-        self.tabparagraphstyle.addElement(tabstoppar)
-        self.myTextDoc.styles.addElement(self.tabparagraphstyle)
-        self.myTextDoc.styles.addElement(self.tabparagraphstyle)
-
-        # Style para las tablas
-        some_style = Style(name="some_style", family="table-cell")
-        some_style.addElement(TableCellProperties(border="0.05pt solid #000000"))
-        self.myTextDoc.automaticstyles.addElement(some_style)
-
     # Genera un objeto texto listo para agregar al documento
-    def generateText(self, text: textOdt):
-        styleName = f"myStyle{self.cantStyles}"
-        self.cantStyles += 1
-        self.myTextDoc.fontfacedecls.addElement(
-            (FontFace(name=text.mFont, fontfamily=text.mFont, fontfamilygeneric="swiss", fontpitch="variable")))
-        # Cargo el formato
-        style = Style(name=styleName, family="paragraph")
-        attributes = {"fontname": text.mFont, "fontsize": f"{text.mLetterSize}pt", "color": text.mFillColor,
-                      "backgroundcolor": text.mBackgroundColor}
-        if text.mBold == "1":
-            attributes["fontweight"] = "bold"
-            attributes["fontweightasian"] = "bold"
-            attributes["fontweightcomplex"] = "bold"
-        # Set italic
-        if text.mItalic == "1":
-            attributes["fontstyle"] = "italic"
-            attributes["fontstyleasian"] = "italic"
-            attributes["fontstylecomplex"] = "italic"
-        # Set underline
-        if text.mUnderline == "1":
-            attributes["textunderlinestyle"] = "solid"
-            attributes["textunderlinewidth"] = "auto"
-            attributes["textunderlinecolor"] = "font-color"
-        # Set strikethrough
-        if text.mStrikethrough == "1":
-            attributes["textlinethroughstyle"] = "solid"
-            attributes["textlinethroughtype"] = "single"
-        style.addElement(TextProperties(attributes=attributes))
-        style.addElement(ParagraphProperties(attributes={"textalign": text.mAlign}))
+    def generateText(self, text: textOdt, objDestino):
+        paragraph = objDestino.add_paragraph()
 
-        # Config tab = 0.75cm
-        tabstops_style = TabStops()
-        tabstop_style = TabStop(position="0.75cm")
-        tabstops_style.addElement(tabstop_style)
-        tabstoppar = ParagraphProperties()
-        tabstoppar.addElement(tabstops_style)
-        style.addElement(tabstoppar)
-
-        self.myTextDoc.automaticstyles.addElement(style)
-
-        #Texto vacio
+        # Reajusto texto teniendo en cuenta los \t
         if text.mContent is not None:
-            cantSpaces = 0
             newText = ""
-
-            #Reajusto texto teniendo en cuenta los \t
+            cantSpaces = 0
             for c in text.mContent:
                 if c == " ":
                     cantSpaces += 1
@@ -112,150 +48,288 @@ class OdtWriter:
                     newText += c
             text.mContent = newText
 
-            # Genero texto
-            p = P(stylename=style)
-            teletype.addTextToElement(p, text.mContent)
-        else:
-            p = P(text=text.mContent, stylename=style)
-        return p
+        # Establecer el contenido del párrafo
+        content = text.mContent
+        paragraph.add_run(content)
+
+        # Aplicar formatos
+        run = paragraph.runs[0]
+
+        if text.mBold == "1":
+            run.bold = True
+
+        if text.mUnderline == "1":
+            run.underline = True
+
+        if text.mItalic == "1":
+            run.italic = True
+
+        if text.mStrikethrough == "1":
+            run.strike = True
+
+        # Establecer alineación
+        alignment = text.mAlign.lower()
+        paragraph.alignment = Document().styles['Normal'].paragraph_format.alignment
+        if alignment == 'right':
+            paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.RIGHT
+        elif alignment == 'center':
+            paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
+        elif alignment == 'justify':
+            paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.JUSTIFY
+
+        # Establecer color de fuente
+        rgb = separarRgb(text.mFillColor)
+        run.font.color.rgb = RGBColor(rgb[0], rgb[1], rgb[2])
+
+        # Establecer color de fondo
+        #rgb = separarRgb(text.mBackgroundColor)
+        #paragraph.runs[0].font.highlight_color = RGBColor(rgb[0], rgb[1], rgb[2])
+
+        # Establecer fuente y tamaño
+        run.font.name = text.mFont
+        run.font.size = Pt(int(text.mLetterSize))
+
+        return paragraph
 
     # Genera un objeto imagen listo para agregar al documento
-    def generateImage(self, image: imageOdt):
-        # Config Style
-        styleImg = Style(name="img", family="graphic")
-        styleImg.addElement(GraphicProperties(attributes={"wrap": image.mAnchor, "horizontalpos": image.mAlign}))
-        self.myTextDoc.automaticstyles.addElement(styleImg)
+    def generateImage(self, image: imageOdt, objDestino):
 
-        mPath = image.mImgPath
-        mWidth = image.mWidth + "px"
-        mHeight = image.mHeight + "px"
-        p = P(stylename=styleImg)
-        href = self.myTextDoc.addPicture(mPath)
-        f = Frame(name="graphics1", anchortype="paragraph", width=mWidth, height=mHeight, zindex="0",
-                  stylename=styleImg)
-        p.addElement(f)
-        img = Image(href=href, type="simple", show="embed", actuate="onLoad")
-        f.addElement(img)
-        return p
+        paragraph = objDestino.add_paragraph()
 
-    # Genera un objeto header/footer listo para agregar al documento
-    # Obj debe ser o un Header() o un Footer()
-    def writeHeaderFooter(self):
-        pass
+        # Insertar la imagen con tamaño personalizado
+        run = paragraph.add_run()
+        picture = run.add_picture(image.mImgPath)
+        picture.width = Pt(int(image.mWidth)*2/3)
+        picture.height = Pt(int(image.mHeight)*2/3)
+
+        # Establecer el anclaje de la imagen
+        if image.mAnchor == 'paralel':
+            picture.inline = False
+        else:
+            picture.inline = True
+
+        # Establecer la alineación del párrafo
+        if image.mAlign == 'center':
+            paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
+        elif image.mAlign == 'left':
+            paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.LEFT
+        elif image.mAlign == 'right':
+            paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.RIGHT
+
+        return paragraph
 
     # Stea formato
     def setPageConfig(self, setUp: pageOdt):
-        # Config size and margins
-        mTop = setUp.mMarginTop + "mm"
-        mLeft = setUp.mMarginLeft + "mm"
-        mRight = setUp.mMarginRight + "mm"
-        mBottom = setUp.mMarginBottom + "mm"
-        width = setUp.mSizeWidth + "mm"
-        height = setUp.mSizeHeight + "mm"
-        attributes = {"margintop": mTop, "marginleft": mLeft, "marginright": mRight, "marginbottom": mBottom,
-                      "pagewidth": width, "pageheight": height, "printorientation": "landscape"}
-        setup = PageLayout(name="MyLayout")
-        setup.addElement(PageLayoutProperties(attributes=attributes))
-        self.myTextDoc.automaticstyles.addElement(setup)
-        mp = MasterPage(name="Standard", pagelayoutname=setup)
-        self.myTextDoc.masterstyles.addElement(mp)
+        seccion = self.myTextDoc.sections[0]
 
-    # Escribe Header
-    def writeHeader(self, header):
-        self.listElementsHeader = header
+        # Establecer el tamaño de página
+        seccion.page_width = Mm(int(setUp.mSizeWidth))
+        seccion.page_height = Mm(int(setUp.mSizeHeight))
 
-        # Master Page para header y footer############
-        # ->Si lo pongo en el constructor se rompe no se xq
-        pl = PageLayout(name="pagelayout")
-        self.myTextDoc.automaticstyles.addElement(pl)
-        self.mp = MasterPage(name="Standard", pagelayoutname=pl)
-        self.myTextDoc.masterstyles.addElement(self.mp)
-        ##############################################
-
-        # Header
-        header = Header()
-        while len(self.listElementsHeader) != 0:
-            item = self.listElementsHeader.pop(0)
-            if item["type"] == "text":
-                text = self.generateText(item["item"])
-                header.addElement(text)
-            if item["type"] == "image":
-                image = self.generateImage(item["item"])
-                header.addElement(image)
-
-        self.mp.addElement(header)
+        # Establecer los márgenes de página
+        seccion.left_margin = Mm(int(setUp.mMarginLeft))
+        seccion.right_margin = Mm(int(setUp.mMarginRight))
+        seccion.top_margin = Mm(int(setUp.mMarginTop))
+        seccion.bottom_margin = Mm(int(setUp.mMarginBottom))
 
     # Escribe Footer
     def writeFooter(self, footer):
         self.listElementsFooter = footer
+        fText = False
+        fImg = False
+        col = 1
+        colImg = 0
+        colTxt = 0
+        alignTxt = WD_PARAGRAPH_ALIGNMENT.CENTER
+        alignImg = WD_PARAGRAPH_ALIGNMENT.CENTER
 
-        # -> Por protocolo siempre primero se define el header
-        # Entonces el masterpage ya esta definido siempre
-        # Si piso los datos del masterpage se rompe el header
+        # Me fijo que tipo de elementos tengo
+        for elem in footer:
+            if elem["type"] == "text":
+                fText = True
+            if elem["type"] == "image":
+                fImg = True
 
-        # Master Page para header y footer
-        # pl = PageLayout(name="pagelayout")
-        # self.myTextDoc.automaticstyles.addElement(pl)
-        # mp = MasterPage(name="Standard", pagelayoutname=pl)
-        # self.myTextDoc.masterstyles.addElement(mp)
+        # Si tengo texto e imagenes hago dos columnas
+        if fText and fImg:
+            col = 2
+            colImg = 0
+            colTxt = 1
+            alignTxt = WD_PARAGRAPH_ALIGNMENT.RIGHT
+            alignImg = WD_PARAGRAPH_ALIGNMENT.LEFT
 
-        # Footer
-        footer = Footer()
+        # Si no tengo nada slgo
+        if fText == False and fImg == False:
+            return
+
+        # Divido en las columnas que corresponda
+        footer = self.myTextDoc.sections[0].footer
+        htable = footer.add_table(1, col, Inches(6))
+        htab_cells = htable.rows[0].cells
+
+        # Recorro hasta que no haya mas elementos
         while len(self.listElementsFooter) != 0:
             item = self.listElementsFooter.pop(0)
             if item["type"] == "text":
-                text = self.generateText(item["item"])
-                footer.addElement(text)
-            if item["type"] == "image":
-                image = self.generateImage(item["item"])
-                footer.addElement(image)
+                text = item["item"].mContent
+                htTxt = htab_cells[colTxt].add_paragraph(text)
+                htTxt.alignment = alignTxt
 
-        self.mp.addElement(footer)
+            if item["type"] == "image":
+                htImg = htab_cells[colImg].add_paragraph()
+                kh = htImg.add_run()
+                path = item["item"].mImgPath
+                width = item["item"].mWidth
+                kh.add_picture(path, width=Inches(2))
+
+    # Escribe Header
+    def writeHeader(self, header):
+        self.listElementsHeader = header
+        fText = False
+        fImg = False
+        col = 1
+        colImg = 0
+        colTxt = 0
+        alignTxt = WD_PARAGRAPH_ALIGNMENT.CENTER
+        alignImg = WD_PARAGRAPH_ALIGNMENT.CENTER
+        for elem in header:
+            if elem["type"] == "text":
+                fText = True
+            if elem["type"] == "image":
+                fImg = True
+
+        if fText and fImg:
+            col = 2
+            colTxt = 1
+            colImg = 0
+            alignTxt = WD_PARAGRAPH_ALIGNMENT.RIGHT
+            alignImg = WD_PARAGRAPH_ALIGNMENT.LEFT
+
+        if fText==False and fImg==False:
+            return
+
+        header = self.myTextDoc.sections[0].header
+        htable = header.add_table(1, col, Inches(6))
+        htab_cells = htable.rows[0].cells
+
+        while len(self.listElementsHeader) != 0:
+            item = self.listElementsHeader.pop(0)
+            if item["type"] == "text":
+                text = item["item"].mContent
+                htTxt = htab_cells[colTxt].add_paragraph(text)
+                htTxt.alignment = alignTxt
+
+            if item["type"] == "image":
+                ht0 = htab_cells[colImg].add_paragraph()
+                kh = ht0.add_run()
+                path = item["item"].mImgPath
+                width = item["item"].mWidth
+                kh.add_picture(path, width=Inches(2))
 
     # Escribe texto en el body
     def writeText(self, text: textOdt):
-        newText = self.generateText(text)
-        self.myTextDoc.text.addElement(newText)
+        self.generateText(text, self.myTextDoc)
 
     # Escribe imagen en el body
     def writeImage(self, image: imageOdt):
-        img = self.generateImage(image)
-        self.myTextDoc.text.addElement(img)
+        self.generateImage(image, self.myTextDoc)
 
     # Escribe tabla en el body
     def writeTable(self, table: tableOdt):
-        cols = int(table.mColumns)
+        columns = int(table.mColumns)
         rows = int(table.mRows)
         table.sortItems()
-        tbOdt = Table(name="myTable{self.cantTables}")
-        self.cantTables += 1
-        tbOdt.addElement(TableColumn(numbercolumnsrepeated=cols))
-        for row in range(0, rows):
-            tr = TableRow()
-            tbOdt.addElement(tr)
-            for column in range(0, cols):
-                if table.hasItems():
-                    item = table.getItem()
-                    tc = TableCell(valuetype="string", stylename="some_style")
-                    if item.mVoid:
-                        tc.addElement(P())
-                        tr.addElement(tc)
-                    else:
-                        newText = self.generateText(item.mItem)
-                        tc.addElement(newText)
-                        tr.addElement(tc)
-            self.myTextDoc.text.addElement(tbOdt)
+        docTable = self.myTextDoc.add_table(rows=rows, cols=columns, style='Table Grid')
+        for item in table.mItems:
+            celda = docTable.cell(int(item.mRow), int(item.mColumn))
+            if not item.mVoid:
+                #self.generateText(item,celda.paragraphs[0])
+                paragraph = celda.paragraphs[0]
+                text = item.mItem
+
+                # Establecer el contenido del párrafo
+                content = text.mContent
+                paragraph.add_run(content)
+
+                # Aplicar formatos
+                run = paragraph.runs[0]
+                if text.mBold == "1":
+                    run.bold = True
+                if text.mUnderline == "1":
+                    run.underline = True
+                if text.mItalic == "1":
+                    run.italic = True
+                if text.mStrikethrough == "1":
+                    run.strike = True
+
+                # Establecer alineación
+                alignment = text.mAlign.lower()
+                paragraph.alignment = Document().styles['Normal'].paragraph_format.alignment
+                if alignment == 'right':
+                    paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.RIGHT
+                elif alignment == 'center':
+                    paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
+                elif alignment == 'justify':
+                    paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.JUSTIFY
+
+                # Establecer color de fuente
+                rgb = separarRgb(text.mFillColor)
+                run.font.color.rgb = RGBColor(rgb[0], rgb[1], rgb[2])
+
+                # Establecer color de fondo
+                # rgb = separarRgb(text.mBackgroundColor)
+                # paragraph.runs[0].font.highlight_color = RGBColor(rgb[0], rgb[1], rgb[2])
+
+                # Establecer fuente y tamaño
+                run.font.name = text.mFont
+                run.font.size = Pt(int(text.mLetterSize))
+
+            # Alinear verticalmente el contenido de la celda
+            celda.vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER
 
     # Escribe lista en el body
     def writeList(self, textList: listOdt):
-        objList = List(stylename="L1")
-        textList.mListItems.reverse()
-        for i in range(0, textList.mItems):
-            item = ListItem()
-            text = self.generateText(textList.getItem())
-            item.addElement(text)
-            objList.addElement(item)
-        self.myTextDoc.text.addElement(objList)
+        lista = textList.mListItems
+        for text in lista:
+            paragraph = self.myTextDoc.add_paragraph()
+            paragraph.style = 'List Bullet'
+
+            # Establecer el contenido del párrafo
+            content = text.mContent
+            paragraph.add_run(content)
+
+            # Aplicar formatos
+            run = paragraph.runs[0]
+            if text.mBold == "1":
+                run.bold = True
+            if text.mUnderline == "1":
+                run.underline = True
+            if text.mItalic == "1":
+                run.italic = True
+            if text.mStrikethrough == "1":
+                run.strike = True
+
+            # Establecer alineación
+            alignment = text.mAlign.lower()
+            paragraph.alignment = Document().styles['Normal'].paragraph_format.alignment
+            if alignment == 'right':
+                paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.RIGHT
+            elif alignment == 'center':
+                paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
+            elif alignment == 'justify':
+                paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.JUSTIFY
+
+            # Establecer color de fuente
+            rgb = separarRgb(text.mFillColor)
+            run.font.color.rgb = RGBColor(rgb[0], rgb[1], rgb[2])
+
+            # Establecer color de fondo
+            # rgb = separarRgb(text.mBackgroundColor)
+            # paragraph.runs[0].font.highlight_color = RGBColor(rgb[0], rgb[1], rgb[2])
+
+            # Establecer fuente y tamaño
+            run.font.name = text.mFont
+            run.font.size = Pt(int(text.mLetterSize))
 
     # Guarda y cierra el archivo
     def closeFile(self):

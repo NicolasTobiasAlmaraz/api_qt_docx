@@ -17,6 +17,8 @@
     #define CREACION        "creacion"
     #define MODIFICACION    "modificacion"
     #define CARPETA         "carpeta"
+    #define DESCRIPCION     "descripcion"
+
 
 #define CONFIGURACION   "configuracion"
     #define HARDWARE        "hardware"

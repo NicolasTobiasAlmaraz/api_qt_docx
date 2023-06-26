@@ -6,6 +6,7 @@ QDialog(parent), ui(new Ui::DialogConfigDocumentacion) {
     ui->setupUi(this);
     ui->CB_codigo->setEnabled(false);
     ui->TE_descripcion->setPlaceholderText("Escriba la descripcion aquí ...");
+    ui->LE_path->setPlaceholderText("Ruta donde se encuentran los código fuente...");
     ui->LE_path->setDisabled(true);
     fDescripcion = ui->CB_descipcion->isChecked();
     fIntroTeorica = ui->CB_intro->isChecked();
@@ -14,9 +15,11 @@ QDialog(parent), ui(new Ui::DialogConfigDocumentacion) {
     fOdt = ui->CB_odt->isChecked();
     fHtml = ui->CB_html->isChecked();
     ui->TE_descripcion->setText(descripcion);
+    setFixedSize(600,500);
 }
 
 DialogConfigDocumentacion::~DialogConfigDocumentacion() {
+
     delete ui;
 }
 
@@ -102,5 +105,11 @@ void DialogConfigDocumentacion::on_LE_path_textEdited(const QString &arg1) {
         ui->CB_codigo->setChecked(false);
     } else
         ui->CB_codigo->setEnabled(true);
+}
+
+
+void DialogConfigDocumentacion::on_PB_ok_rejected()
+{
+    close();
 }
 

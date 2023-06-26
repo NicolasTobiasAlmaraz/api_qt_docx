@@ -39,6 +39,8 @@ private slots:
 
     void on_LE_path_textEdited(const QString &arg1);
 
+    void on_PB_ok_rejected();
+
 private:
     Ui::DialogConfigDocumentacion *ui;
     std::list<QString> listaArchivos;

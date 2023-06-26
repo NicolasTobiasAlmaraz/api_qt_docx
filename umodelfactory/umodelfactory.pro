@@ -19,6 +19,7 @@ SOURCES += main.cpp\
     dialogconfigdocumentacion.cpp \
     dialogconfigurardebug.cpp \
     dialogconstantes.cpp \
+    dialogdocumentaciongenerada.cpp \
     documentacion.cpp \
     expresiones.cpp \
     interfazinfotronicvirtual.cpp \
@@ -47,6 +48,7 @@ HEADERS  += mainwindow.h \
     dialogconfigdocumentacion.h \
     dialogconfigurardebug.h \
     dialogconstantes.h \
+    dialogdocumentaciongenerada.h \
     documentacion.h \
     expresiones.h \
     interfazinfotronicvirtual.h \
@@ -67,6 +69,7 @@ FORMS    += mainwindow.ui \
     dialogconfigdocumentacion.ui \
     dialogconfigurardebug.ui \
     dialogconstantes.ui \
+    dialogdocumentaciongenerada.ui \
     dialogtransicion.ui \
     dialognuevoproyecto.ui \
     dialogeditorestado.ui \

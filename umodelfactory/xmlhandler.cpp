@@ -1223,6 +1223,7 @@ QString XmlHandler::getComentarioArchivo(const QString &elementId) {
     ret = ret.replace(QChar::ParagraphSeparator, "\n* ").replace(QChar::LineSeparator, "\n* ");
     return ret;
 }
+
 //------------------------------ private functions ------------------------------------
 /*!
  * \brief XmlHandler::addElemento
@@ -1276,6 +1277,7 @@ void XmlHandler::crearEstructuraProyecto()
     addElemento(GENERAL, CREACION);
     addElemento(GENERAL, MODIFICACION);
     addElemento(GENERAL, CARPETA);
+    addElemento(GENERAL, DESCRIPCION);
 
     // Crea los sub-elementos dentro de 'configuracion'
     addElemento(CONFIGURACION, HARDWARE);
