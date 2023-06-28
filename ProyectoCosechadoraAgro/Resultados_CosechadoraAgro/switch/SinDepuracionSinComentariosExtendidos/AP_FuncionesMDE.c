@@ -2,8 +2,8 @@
 *	\file       AP_FuncionesMDE.c
 *	\brief      Funciones de Eventos y Acciones asociadas a las Maquinas de estados
 *	\details    Descripcion detallada del archivo
-*	\author     Almaraz
-*	\date       01-05-2023 14:06:29
+*	\author     Nicolas
+*	\date       28-06-2023 11:33:30
 */
 
 /************************************************************************************************************
@@ -27,17 +27,17 @@
 /*-------------------------------------------- EVENTOS ----------------------------------------------------*/
 
 /**
-*	\fn      int s_Config ( void )
+*	\fn      int s_configCosecha ( void )
 *	\brief   Coloque aqui su descripcion
 *	\details Amplie la descripcion
-*	\author  Almaraz
-*	\date    01-05-2023 14:06:29
+*	\author  Nicolas
+*	\date    28-06-2023 11:33:30
 *   \param   void
 *	\return  int : TRUE y FALSE
 */
 
 
-int s_Config ( void )
+int s_configCosecha ( void )
 {
     int res = 0 ;
 
@@ -47,17 +47,17 @@ int s_Config ( void )
 }
 
 /**
-*	\fn      int s_ConfigCosecha ( void )
+*	\fn      int s_configPlantar ( void )
 *	\brief   Coloque aqui su descripcion
 *	\details Amplie la descripcion
-*	\author  Almaraz
-*	\date    01-05-2023 14:06:29
+*	\author  Nicolas
+*	\date    28-06-2023 11:33:30
 *   \param   void
 *	\return  int : TRUE y FALSE
 */
 
 
-int s_ConfigCosecha ( void )
+int s_configPlantar ( void )
 {
     int res = 0 ;
 
@@ -67,17 +67,17 @@ int s_ConfigCosecha ( void )
 }
 
 /**
-*	\fn      int s_ConfigPlantado ( void )
+*	\fn      int s_finCosecha ( void )
 *	\brief   Coloque aqui su descripcion
 *	\details Amplie la descripcion
-*	\author  Almaraz
-*	\date    01-05-2023 14:06:29
+*	\author  Nicolas
+*	\date    28-06-2023 11:33:30
 *   \param   void
 *	\return  int : TRUE y FALSE
 */
 
 
-int s_ConfigPlantado ( void )
+int s_finCosecha ( void )
 {
     int res = 0 ;
 
@@ -87,17 +87,17 @@ int s_ConfigPlantado ( void )
 }
 
 /**
-*	\fn      int s_ErrorConfig ( void )
+*	\fn      int s_finPlantar ( void )
 *	\brief   Coloque aqui su descripcion
 *	\details Amplie la descripcion
-*	\author  Almaraz
-*	\date    01-05-2023 14:06:29
+*	\author  Nicolas
+*	\date    28-06-2023 11:33:30
 *   \param   void
 *	\return  int : TRUE y FALSE
 */
 
 
-int s_ErrorConfig ( void )
+int s_finPlantar ( void )
 {
     int res = 0 ;
 
@@ -107,17 +107,17 @@ int s_ErrorConfig ( void )
 }
 
 /**
-*	\fn      int s_ErrorProceso ( void )
+*	\fn      int e_tiempoOn ( void )
 *	\brief   Coloque aqui su descripcion
 *	\details Amplie la descripcion
-*	\author  Almaraz
-*	\date    01-05-2023 14:06:29
+*	\author  Nicolas
+*	\date    28-06-2023 11:33:30
 *   \param   void
 *	\return  int : TRUE y FALSE
 */
 
 
-int s_ErrorProceso ( void )
+int e_tiempoOn ( void )
 {
     int res = 0 ;
 
@@ -127,17 +127,17 @@ int s_ErrorProceso ( void )
 }
 
 /**
-*	\fn      int s_HaySemillas ( void )
+*	\fn      int s_sinSemillas ( void )
 *	\brief   Coloque aqui su descripcion
 *	\details Amplie la descripcion
-*	\author  Almaraz
-*	\date    01-05-2023 14:06:29
+*	\author  Nicolas
+*	\date    28-06-2023 11:33:30
 *   \param   void
 *	\return  int : TRUE y FALSE
 */
 
 
-int s_HaySemillas ( void )
+int s_sinSemillas ( void )
 {
     int res = 0 ;
 
@@ -147,17 +147,17 @@ int s_HaySemillas ( void )
 }
 
 /**
-*	\fn      int s_HayFertilizante ( void )
+*	\fn      int s_agujereado ( void )
 *	\brief   Coloque aqui su descripcion
 *	\details Amplie la descripcion
-*	\author  Almaraz
-*	\date    01-05-2023 14:06:29
+*	\author  Nicolas
+*	\date    28-06-2023 11:33:30
 *   \param   void
 *	\return  int : TRUE y FALSE
 */
 
 
-int s_HayFertilizante ( void )
+int s_agujereado ( void )
 {
     int res = 0 ;
 
@@ -167,17 +167,17 @@ int s_HayFertilizante ( void )
 }
 
 /**
-*	\fn      int s_TierraRemovida ( void )
+*	\fn      int s_semillaTirada ( void )
 *	\brief   Coloque aqui su descripcion
 *	\details Amplie la descripcion
-*	\author  Almaraz
-*	\date    01-05-2023 14:06:29
+*	\author  Nicolas
+*	\date    28-06-2023 11:33:30
 *   \param   void
 *	\return  int : TRUE y FALSE
 */
 
 
-int s_TierraRemovida ( void )
+int s_semillaTirada ( void )
 {
     int res = 0 ;
 
@@ -187,17 +187,17 @@ int s_TierraRemovida ( void )
 }
 
 /**
-*	\fn      int s_FertilizanteTirado ( void )
+*	\fn      int s_agujeroTapado ( void )
 *	\brief   Coloque aqui su descripcion
 *	\details Amplie la descripcion
-*	\author  Almaraz
-*	\date    01-05-2023 14:06:29
+*	\author  Nicolas
+*	\date    28-06-2023 11:33:30
 *   \param   void
 *	\return  int : TRUE y FALSE
 */
 
 
-int s_FertilizanteTirado ( void )
+int s_agujeroTapado ( void )
 {
     int res = 0 ;
 
@@ -207,17 +207,17 @@ int s_FertilizanteTirado ( void )
 }
 
 /**
-*	\fn      int s_TierraAgujereada ( void )
+*	\fn      int s_enPosicion ( void )
 *	\brief   Coloque aqui su descripcion
 *	\details Amplie la descripcion
-*	\author  Almaraz
-*	\date    01-05-2023 14:06:29
+*	\author  Nicolas
+*	\date    28-06-2023 11:33:30
 *   \param   void
 *	\return  int : TRUE y FALSE
 */
 
 
-int s_TierraAgujereada ( void )
+int s_enPosicion ( void )
 {
     int res = 0 ;
 
@@ -226,53 +226,51 @@ int s_TierraAgujereada ( void )
     return res ;
 }
 
+/*-------------------------------------------- ACCIONES ----------------------------------------------------*/
+
+/*------------------------------------------TEMPORIZADORES -------------------------------------------------*/
+
 /**
-*	\fn      int s_SemillasPlantadas ( void )
+*	\fn      void t_tiempoOn ( void )
 *	\brief   Coloque aqui su descripcion
 *	\details Amplie la descripcion
-*	\author  Almaraz
-*	\date    01-05-2023 14:06:29
+*	\details Tiempo: 001
+*	\details Base: SEGUNDOS
+*	\author  Nicolas
+*	\date    28-06-2023 11:33:30
 *   \param   void
-*	\return  int : TRUE y FALSE
+*	\return  void
 */
 
 
-int s_SemillasPlantadas ( void )
+void t_tiempoOn ( void )
 {
-    int res = 0 ;
-
     // Coloque aqui su codigo
 
-    return res ;
+    return ;
 }
 
 /**
-*	\fn      int s_AgujeroTapado ( void )
+*	\fn      void t_tiempoOn ( void )
 *	\brief   Coloque aqui su descripcion
 *	\details Amplie la descripcion
-*	\author  Almaraz
-*	\date    01-05-2023 14:06:29
+*	\details Tiempo: 001
+*	\details Base: SEGUNDOS
+*	\author  Nicolas
+*	\date    28-06-2023 11:33:30
 *   \param   void
-*	\return  int : TRUE y FALSE
+*	\return  void
 */
 
 
-int s_AgujeroTapado ( void )
+void t_tiempoOn ( void )
 {
-    int res = 0 ;
-
     // Coloque aqui su codigo
 
-    return res ;
+    return ;
 }
 
-/**
-*	\fn      int s_PlantacionPendiente ( void )
-*	\brief   Coloque aqui su descripcion
-*	\details Amplie la descripcion
-*	\author  Almaraz
-*	\date    01-05-2023 14:06:29
-*   \param   void
+oid
 *	\return  int : TRUE y FALSE
 */
 

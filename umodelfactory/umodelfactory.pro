@@ -30,7 +30,7 @@ SOURCES += main.cpp\
     subwindow.cpp \
     timers.cpp \
     variablesdeproceso.cpp \
-    writer_odt.cpp \
+    writer_docx.cpp \
     xmlhandler.cpp \
     dialogtransicion.cpp \
     dialognuevoproyecto.cpp \
@@ -56,7 +56,7 @@ HEADERS  += mainwindow.h \
     subwindow.h \
     timers.h \
     variablesdeproceso.h \
-    writer_odt.h \
+    writer_docx.h \
     xmlhandler.h \
     dialogtransicion.h \
     dialognuevoproyecto.h \

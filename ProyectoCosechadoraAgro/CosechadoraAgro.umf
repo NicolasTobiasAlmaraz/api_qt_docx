@@ -4,13 +4,16 @@
         <nombre>CosechadoraAgro</nombre>
         <autores>Nicolas</autores>
         <creacion>13-06-2023 16:03:55</creacion>
-        <modificacion>21-06-2023 17:16:35</modificacion>
+        <modificacion>28-06-2023 13:14:51</modificacion>
         <carpeta>D:/UTN/uModelFactory/uModelFactory-Documentacion/ProyectoCosechadoraAgro</carpeta>
-        <descripcion>En este proyecto se describe el funconamiento de una maquina agro-industrial para la cosecha y plantacion de plantas en un campo. Consta de tres maquinas de estados:
-- Máquina A
-- Máquina B
-- Máquina C
-ect etc etc</descripcion>
+        <descripcion>En este proyecto se describe el funconamiento de una maquina agro-industrial para la cosecha y plantación de plantas en un campo. Consta de tres máquinas de estados:
+- Máquina A: Máquina general
+- Máquina B: Movimientos plantación
+- Máquina C: Máquina Luces
+
+Se va a usar en X tipo de campo. Versión 5.1.1
+
+etc etc etc</descripcion>
     </general>
     <configuracion>
         <hardware/>

@@ -2,8 +2,8 @@
 *	\file       AP_MDE.c
 *	\brief      Maquina/s de Estado
 *	\details    Descripcion detallada del archivo
-*	\author     Almaraz
-*	\date       01-05-2023 14:06:29
+*	\author     Nicolas
+*	\date       28-06-2023 11:33:30
 */
 /************************************************************************************************************
  *** INCLUDES
@@ -15,148 +15,184 @@
  *** DEFINES PRIVADOS AL MODULO
  ************************************************************************************************************/
 #define		RESET		0	
-//Maquina: Cosecha
-#define		Reposo		1	// < Maquina: Cosecha >
-#define		Avanzar		2	// < Maquina: Cosecha >
-#define		Retirar_Fruta		3	// < Maquina: Cosecha >
-#define		Depositar_Fruta		4	// < Maquina: Cosecha >
+//Maquina: MdE2
+#define		Tapando Tierra		1	// < Maquina: MdE2 >
+#define		Posicionando		2	// < Maquina: MdE2 >
+#define		Removiendo		3	// < Maquina: MdE2 >
+#define		PLANTANDO		4	// < Maquina: MdE2 >
+#define		Sin_Semillas		5	// < Maquina: MdE2 >
 
-//Maquina: Plantacion
-#define		Reposo		1	// < Maquina: Plantacion >
-#define		Agujerear_Tierra		2	// < Maquina: Plantacion >
-#define		Plantar_Semilla		3	// < Maquina: Plantacion >
-#define		Remover_Tierra		4	// < Maquina: Plantacion >
-#define		Tirar_Fertilizante		5	// < Maquina: Plantacion >
-#define		Tapar_Agujero		6	// < Maquina: Plantacion >
-#define		Avanzar		7	// < Maquina: Plantacion >
-#define		Cargar_Insumos		8	// < Maquina: Plantacion >
+//Maquina: MdE3
+#define		cosechando		1	// < Maquina: MdE3 >
+#define		plantando		2	// < Maquina: MdE3 >
+#define		sin_configuracion		3	// < Maquina: MdE3 >
 
-//Maquina: General
-#define		Esperando Configuracion		1	// < Maquina: General >
-#define		Configurada		2	// < Maquina: General >
-#define		Plantacion_de_semilla		3	// < Maquina: General >
-#define		Cosechado		4	// < Maquina: General >
+//Maquina: MdE4
+#define		led_On		1	// < Maquina: MdE4 >
+#define		led_Off		2	// < Maquina: MdE4 >
 
 /************************************************************************************************************
  *** MACROS PRIVADAS AL MODULO
  ************************************************************************************************************/
-#define     m_AgujerearTierra()
+#define     m_agujerearPiso()
 
-#define     m_ApagarActuadores()
+#define     m_apagarLed()
 
-#define     m_Avanzar()
+#define     m_avanzar()
 
-#define     m_Avanzar()
+#define     m_prenderLed()
 
-#define     m_ChequearAlmacenamiento()
+#define     m_tapar()
 
-#define     m_ChequearConfig()
-
-#define     m_ChequearFertilizante()
-
-#define     m_ChequearSemillas()
-
-#define     m_Cosechar()
-
-#define     m_GuardarFruta()
-
-#define     m_LeerConfig()
-
-#define     m_Plantar()
-
-#define     m_RemoverTierra()
-
-#define     m_RetirarFruta()
-
-#define     m_TaparAgujero()
-
-#define     m_TirarFertilizante()
-
-#define     m_TirarSemillas()
+#define     m_tirarSemilla()
 
 
 /************************************************************************************************************
  *** PROTOTIPO DE FUNCIONES PRIVADAS AL MODULO
  ************************************************************************************************************/
-static int Cosecha ( int );
-static int Plantacion ( int );
-static int General ( int );
+static int MdE2 ( int );
+static int MdE3 ( int );
+static int MdE4 ( int );
 
 /************************************************************************************************************
  *** VARIABLES GLOBALES PUBLICAS
  ************************************************************************************************************/
+int plantaciones ;		//
 
 /************************************************************************************************************
  *** FUNCIONES PRIVADAS AL MODULO
  ************************************************************************************************************/
 
 /**
-*	\fn      static int Cosecha ( int Estado )
+*	\fn      static int MdE2 ( int Estado )
 *	\brief   Coloque aqui su descripcion
 *	\details Amplie la descripcion
-*	\author  Almaraz
-*	\date    01-05-2023 14:06:29
+*	\author  Nicolas
+*	\date    28-06-2023 11:33:30
 *   \param   [in] Estado: caso dentro de la maquina (estado actual)
 *	\return  int : estado siguiente
 */
 
-static int Cosecha ( int  Estado )
+static int MdE2 ( int  Estado )
 {
     switch ( Estado )
     {
 
         case RESET :
-            m_ChequearAlmacenamiento();
-            m_LeerConfig();
+            plantaciones = 0;
 
-            Estado = Reposo;
+            Estado = Posicionando;
 
             break;
 
-        case Reposo :
-            if ( s_HayLugar() )
+        case Tapando Tierra :
+            if ( s_agujeroTapado() )
             {
-                m_RetirarFruta();
+                m_avanzar();
+                plantaciones += 1;
 
-                Estado = Retirar_Fruta;
+                Estado = Posicionando;
             }
 
             break;
 
-        case Avanzar :
-            if ( !s_CosechasPendientes() || !s_HayLugar() )
+        case Posicionando :
+            if ( s_enPosicion() )
             {
+                m_agujerearPiso();
 
-                Estado = Reposo;
-            }
-
-            if ( s_HayLugar() && s_CosechasPendientes() )
-            {
-                m_RetirarFruta();
-
-                Estado = Retirar_Fruta;
+                Estado = Removiendo;
             }
 
             break;
 
-        case Retirar_Fruta :
-            if ( s_FrutaRetirada() )
+        case Removiendo :
+            if ( s_agujereado() && !s_sinSemillas() )
             {
-                m_GuardarFruta();
+                m_tirarSemilla();
 
-                Estado = Depositar_Fruta;
+                Estado = PLANTANDO;
+            }
+
+            if ( s_sinSemillas() )
+            {
+
+                Estado = Sin_Semillas;
             }
 
             break;
 
-        case Depositar_Fruta :
-            if ( s_FrutaGuardada() )
+        case PLANTANDO :
+            if ( s_semillaTirada() )
             {
-                m_Avanzar();
-                m_ChequearConfig();
-                m_ChequearAlmacenamiento();
+                m_tapar();
 
-                Estado = Avanzar;
+                Estado = Tapando Tierra;
+            }
+
+            break;
+
+        case Sin_Semillas :
+            break;
+
+        default:
+            Estado = RESET ;
+            break;
+
+    }
+    return Estado ;
+}
+
+/**
+*	\fn      static int MdE3 ( int Estado )
+*	\brief   Coloque aqui su descripcion
+*	\details Amplie la descripcion
+*	\author  Nicolas
+*	\date    28-06-2023 11:33:30
+*   \param   [in] Estado: caso dentro de la maquina (estado actual)
+*	\return  int : estado siguiente
+*/
+
+static int MdE3 ( int  Estado )
+{
+    switch ( Estado )
+    {
+
+        case RESET :
+
+            Estado = sin_configuracion;
+
+            break;
+
+        case cosechando :
+            if ( s_finCosecha() )
+            {
+
+                Estado = sin_configuracion;
+            }
+
+            break;
+
+        case plantando :
+            if ( s_finPlantar() )
+            {
+
+                Estado = sin_configuracion;
+            }
+
+            break;
+
+        case sin_configuracion :
+            if ( s_configCosecha() )
+            {
+
+                Estado = cosechando;
+            }
+
+            if ( s_configPlantar() )
+            {
+
+                Estado = plantando;
             }
 
             break;
@@ -170,99 +206,87 @@ static int Cosecha ( int  Estado )
 }
 
 /**
-*	\fn      static int Plantacion ( int Estado )
+*	\fn      static int MdE4 ( int Estado )
 *	\brief   Coloque aqui su descripcion
 *	\details Amplie la descripcion
-*	\author  Almaraz
-*	\date    01-05-2023 14:06:29
+*	\author  Nicolas
+*	\date    28-06-2023 11:33:30
 *   \param   [in] Estado: caso dentro de la maquina (estado actual)
 *	\return  int : estado siguiente
 */
 
-static int Plantacion ( int  Estado )
+static int MdE4 ( int  Estado )
 {
     switch ( Estado )
     {
 
         case RESET :
-            m_ApagarActuadores();
-            m_ChequearSemillas();
-            m_ChequearFertilizante();
-            m_ChequearConfig();
+            m_apagarLed();
 
-            Estado = Reposo;
+            Estado = led_Off;
 
             break;
 
-        case Reposo :
-            if ( s_HaySemillas() && s_HayFertilizante() && s_PlantacionPendiente() )
+        case led_On :
+            if ( e_tiempoOn() )
             {
-                m_RemoverTierra();
+                t_tiempoOn_001_S();
+                m_apagarLed();
 
-                Estado = Remover_Tierra;
-            }
-
-            if ( !s_HaySemillas() || !s_HayFertilizante() )
-            {
-
-                Estado = Cargar_Insumos;
+                Estado = led_Off;
             }
 
             break;
 
-        case Agujerear_Tierra :
-            if ( s_TierraAgujereada() )
+        case led_Off :
+            if ( e_tiempoOn() )
             {
-                m_TirarSemillas();
+                t_tiempoOn_001_S();
+                m_prenderLed();
 
-                Estado = Plantar_Semilla;
+                Estado = led_On;
             }
 
             break;
 
-        case Plantar_Semilla :
-            if ( s_SemillasPlantadas() )
-            {
-                m_TaparAgujero();
-
-                Estado = Tapar_Agujero;
-            }
-
+        default:
+            Estado = RESET ;
             break;
 
-        case Remover_Tierra :
-            if ( s_TierraRemovida() )
-            {
-                m_TirarFertilizante();
+    }
+    return Estado ;
+}
 
-                Estado = Tirar_Fertilizante;
-            }
+/************************************************************************************************************
+ *** FUNCIONES GLOBALES AL MODULO
+ ************************************************************************************************************/
 
-            break;
+/**
+*	\fn      void MaquinaDeEstados ( void )
+*	\brief   Coloque aqui su descripcion
+*	\details Amplie la descripcion
+*	\author  Nicolas
+*	\date    28-06-2023 11:33:30
+*   \param   void
+*	\return  void
+*/
+void MaquinaDeEstados ( void )
+{
+    static int estados_MdE2 = RESET;
+    static int estados_MdE3 = RESET;
+    static int estados_MdE4 = RESET;
 
-        case Tirar_Fertilizante :
-            if ( s_FertilizanteTirado() )
-            {
-                m_AgujerearTierra();
+    // Coloque su codigo aqui
 
-                Estado = Agujerear_Tierra;
-            }
+    estados_MdE2 = MdE2( estados_MdE2 );
+    estados_MdE3 = MdE3( estados_MdE3 );
+    estados_MdE4 = MdE4( estados_MdE4 );
 
-            break;
 
-        case Tapar_Agujero :
-            if ( s_AgujeroTapado() )
-            {
-                m_Avanzar();
-                m_ChequearFertilizante();
-                m_ChequearSemillas();
+    return ;
+}
 
-                Estado = Avanzar;
-            }
-
-            break;
-
-        case Avanzar :
+anzar :
             if ( s_PlantacionPendiente() && s_HaySemillas() && s_HayFertilizante() )
             {
                 m_RemoverTierra();

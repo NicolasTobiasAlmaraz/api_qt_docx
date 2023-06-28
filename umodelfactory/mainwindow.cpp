@@ -2602,6 +2602,12 @@ std::list<QString> MainWindow::obtenerNombresArchivos() {
     return listaArchivosStd;
 }
 
+QString htmlToPlainText(const QString& html) {
+    QTextDocument textDocument;
+    textDocument.setHtml(html);
+    return textDocument.toPlainText();
+}
+
 void MainWindow::on_actionGenerarDocumentacion_triggered() {
     int i;
 
@@ -2633,7 +2639,7 @@ void MainWindow::on_actionGenerarDocumentacion_triggered() {
     QString autoresProy = m_datosXml->getContenidoGeneral(AUTORES);
     m_docManager.setAutores(autoresProy);
 
-    QString pathSalidaOdt = pathProy+"/doc_"+tituloProy+"/documentacion.docx";
+    QString pathSalidaOdt = pathProy+"/doc_"+tituloProy+NOMBRE_ARCHIVO_DOCUMENTACION;
 
     //Exporto imagenes de diagramas y copio logo Utn a carpeta proyecto
     std::list<QString> diagramas = exportarImagenesDiagramas();
@@ -2714,15 +2720,20 @@ void MainWindow::on_actionGenerarDocumentacion_triggered() {
     m_docManager.setVariables(variables);
 
     //Cargo info teorica
+    AyudaDinamica::NivelAyuda nivelAyuda = ayudaDinamica.nivelAyuda();
+    ayudaDinamica.setNivelAyuda(AyudaDinamica::AYUDA_USR_BASICO);
+
     bool fInfo = dialogDocumentacion.getFlagIntroTeorica();
     m_docManager.setFlagInfoTeorica(fInfo);
     InfoTeorica info;
-    info.estados = "Estados: definición correspondiente";
-    info.reset = "Reset: definicion correspondiente";
-    info.eventos = "Evetos: definicion correspondiente";
-    info.transiciones = "Transicion: definicion correspondiente";
-    info.acciones = "Acciones: definicion correspondiente";
+    info.estados = htmlToPlainText(ayudaDinamica.getTextoEstadoSimple());
+    info.reset = htmlToPlainText(ayudaDinamica.getTextoEstadoInicial());
+    info.eventos = "Eventos: Un evento es un estímulo o suceso que ocurre en un sistema y que puede desencadenar una transición de un estado a otro. Puede ser cualquier cosa, desde una entrada del usuario, como la finalización de una temporización, hasta una señal enviada por otro componente del sistema. Los eventos son los 'disparadores'.\n";
+    info.transiciones = htmlToPlainText(ayudaDinamica.getTextoTransicion());
+    info.acciones = "Acciones: Una acción es una operación o conjunto de instrucciones que se ejecutan en respuesta a un evento dentro de una máquina de estados. Representa una tarea o comportamiento específico que debe llevarse a cabo cuando se alcanza un determinado estado o cuando ocurre un evento específico. Las acciones pueden incluir desde tareas simples, como encender un led, hasta operaciones más complejas, como ejecutar la rutina de lectura de una memoria.\n";
     m_docManager.setInfoTeorica(info);
+
+    ayudaDinamica.setNivelAyuda(nivelAyuda);
 
     //Cargo codigos
     bool fCodigos = dialogDocumentacion.getFlagCodigo();
@@ -2734,7 +2745,11 @@ void MainWindow::on_actionGenerarDocumentacion_triggered() {
     bool fOdt = dialogDocumentacion.getFlagOdt();
     bool fHtml = dialogDocumentacion.getFlagHtml();
     if(fOdt)
-        m_docManager.generarDocumentacionFormatoOdt(DOCUMENTACION_EXE_PATH, pathSalidaOdt);
+        #ifndef ERROR_SISTEMA_OPERATIVO_DOCUMENTACION
+            m_docManager.generarDocumentacionFormatoDocx(DOCUMENTACION_EXE_PATH, pathSalidaOdt);
+        #else
+            QMessageBox::critical(nullptr, "Error", "Sistema operativo incompatible para generar documentación");
+        #endif
     if(fHtml)
         m_docManager.generarDocumentacionFormatoHtml();
 

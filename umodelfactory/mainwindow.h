@@ -21,6 +21,7 @@
 #include <list>
 #include <dialogconfigdocumentacion.h>
 #include <dialogdocumentaciongenerada.h>
+#include "ayudadinamica.h"
 
 #define DEFAULT_NAME_NUEVA_MAQUINA  "MdE"
 #define DEFAULT_NAME_NUEVO_ESTADO   "ESTADO"
@@ -42,11 +43,12 @@
 #define RECIBO_DATOS_EVENTO     3
 #define FIN_DE_TRAMA            4
 
-#define DOCUMENTACION_EXE_PATH "D:/UTN/uModelFactory/uModelFactory-Documentacion/uModelFactory-Doc/EjecutableWindows/genOdt.exe"
-
 //comentarios
 #define ACTION_ADD_COMENTARIO   "Agregar comentario"
 #define ACTION_EDIT_COMENTARIO  "Editar comentario"
+
+#define NOMBRE_ARCHIVO_DOCUMENTACION "documentacion.docx"
+
 class XmlHandler;
 class QMdiSubWindow;
 class SubWindow;
@@ -200,6 +202,7 @@ private:
     std::list<QString> exportarImagenesDiagramas();
     std::list<QString> obtenerNombresArchivos();
     Documentacion m_docManager;
+    void cargarContenidosInfoTeorica();
 
     // Depuracion
     void procesarDatosRecibidosSerial();

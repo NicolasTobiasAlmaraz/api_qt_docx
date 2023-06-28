@@ -2,8 +2,8 @@
 *	\file       AP_Inicializacion.c
 *	\brief      Funciones de inicializacion de todo el proyecto
 *	\details    Descripcion detallada del archivo
-*	\author     Almaraz
-*	\date       01-05-2023 14:06:29
+*	\author     Nicolas
+*	\date       28-06-2023 11:33:30
 */
 
 /************************************************************************************************************
@@ -19,24 +19,24 @@
 /************************************************************************************************************
  *** PROTOTIPO DE FUNCIONES PRIVADAS AL MODULO
  ************************************************************************************************************/
-static void Inicializar_Cosecha( void ) ;
-static void Inicializar_Plantacion( void ) ;
-static void Inicializar_General( void ) ;
+static void Inicializar_MdE2( void ) ;
+static void Inicializar_MdE3( void ) ;
+static void Inicializar_MdE4( void ) ;
 
 /************************************************************************************************************
  *** FUNCIONES PRIVADAS AL MODULO
  ************************************************************************************************************/
 
 /**
-*	\fn      void Inicializar_Cosecha( void )
+*	\fn      void Inicializar_MdE2( void )
 *	\brief   Inicializacion de las diferentes maquinas de estado
 *	\details Amplie la descripcion
-*	\author  Almaraz
-*	\date    01-05-2023 14:06:29
+*	\author  Nicolas
+*	\date    28-06-2023 11:33:30
 *   \param   void
 *	\return  void
 */
-static void Inicializar_Cosecha( void )
+static void Inicializar_MdE2( void )
 {
     //!< Coloque aqui su codigo
 
@@ -44,15 +44,15 @@ static void Inicializar_Cosecha( void )
 }
 
 /**
-*	\fn      void Inicializar_Plantacion( void )
+*	\fn      void Inicializar_MdE3( void )
 *	\brief   Inicializacion de las diferentes maquinas de estado
 *	\details Amplie la descripcion
-*	\author  Almaraz
-*	\date    01-05-2023 14:06:29
+*	\author  Nicolas
+*	\date    28-06-2023 11:33:30
 *   \param   void
 *	\return  void
 */
-static void Inicializar_Plantacion( void )
+static void Inicializar_MdE3( void )
 {
     //!< Coloque aqui su codigo
 
@@ -60,15 +60,15 @@ static void Inicializar_Plantacion( void )
 }
 
 /**
-*	\fn      void Inicializar_General( void )
+*	\fn      void Inicializar_MdE4( void )
 *	\brief   Inicializacion de las diferentes maquinas de estado
 *	\details Amplie la descripcion
-*	\author  Almaraz
-*	\date    01-05-2023 14:06:29
+*	\author  Nicolas
+*	\date    28-06-2023 11:33:30
 *   \param   void
 *	\return  void
 */
-static void Inicializar_General( void )
+static void Inicializar_MdE4( void )
 {
     //!< Coloque aqui su codigo
 
@@ -83,8 +83,8 @@ static void Inicializar_General( void )
 *	\fn      void Inicializar( void )
 *	\brief   Inicializacion de las diferentes maquinas de estado
 *	\details Amplie la descripcion
-*	\author  Almaraz
-*	\date    01-05-2023 14:06:29
+*	\author  Nicolas
+*	\date    28-06-2023 11:33:30
 *   \param   void
 *	\return  void
 */
@@ -93,9 +93,17 @@ void Inicializar( void )
     //Coloque aqui su codigo
 
 
-	Inicializar_Cosecha( );
+	Inicializar_MdE2( );
 
-	Inicializar_Plantacion( );
+	Inicializar_MdE3( );
+
+	Inicializar_MdE4( );
+
+	
+    return ;
+}
+
+);
 
 	Inicializar_General( );
 

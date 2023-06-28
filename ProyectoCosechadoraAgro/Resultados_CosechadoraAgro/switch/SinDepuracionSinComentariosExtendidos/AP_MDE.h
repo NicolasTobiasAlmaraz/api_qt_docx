@@ -2,8 +2,8 @@
 *	\file       AP_MDE.h
 *	\brief      Prototipos, defines, etc. de las diferentes la M de E
 *	\details    Descripcion detallada del archivo
-*	\author     Almaraz
-*	\date       01-05-2023 14:06:29
+*	\author     Nicolas
+*	\date       28-06-2023 11:33:30
 */
 
 #ifndef INC_AP_MDEE_H_
@@ -20,6 +20,7 @@
 /************************************************************************************************************
  *** VARIABLES GLOBALES PUBLICAS
  ************************************************************************************************************/
+extern int plantaciones ;
 
 /************************************************************************************************************
  *** PROTOTIPO DE FUNCIONES GLOBALES

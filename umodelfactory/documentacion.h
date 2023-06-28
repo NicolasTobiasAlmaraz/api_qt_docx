@@ -1,7 +1,16 @@
 #ifndef DOCUMENTACION_H
 #define DOCUMENTACION_H
 
-#include <writer_odt.h>
+#ifdef _WIN32
+    //#define DOCUMENTACION_EXE_PATH "./EjecutablesDocumentacion/genDocx.exe"
+    #define DOCUMENTACION_EXE_PATH "D:/UTN/uModelFactory/uModelFactory-Documentacion/umodelfactory/EjecutablesDocumentacion/genDocx.exe"
+#elif __linux__
+    #define DOCUMENTACION_EXE_PATH "./Ejecutables/genDocx.out"
+#else
+    #ERROR_SISTEMA_OPERATIVO_DOCUMENTACION "Sistema operativo no compatible"
+#endif
+
+#include <writer_docx.h>
 #include <QImage>
 #include <QTextDocument>
 #include <QTextCharFormat>
@@ -53,17 +62,17 @@ public:
     inline void resetListaMaq() {mMaquinas.clear();}
 
     // Generar documentacion
-    void generarDocumentacionFormatoOdt(QString exePath, QString outPath);
+    void generarDocumentacionFormatoDocx(QString exePath, QString outPath);
     void generarDocumentacionFormatoHtml();
 
     inline QString getDescripcion(){return mDescripcion;}
 
     //Generador de tabla
-    static tableOdt generarTablaEstados(std::list<std::list<QString>> filas);
+    static tableDocx generarTablaEstados(std::list<std::list<QString>> filas);
 
 private:
 
-    const static textOdt newLine;
+    const static textDocx newLine;
 
     //Configuraciones
     bool fDescripcion;
@@ -90,14 +99,14 @@ private:
     std::list <QString> mAcciones;
 
     //Manager
-    writerOdt* mManagerOdt;
+    writerDocx* mManagerDocx;
 
     //Metodos generales
     std::list<QString> generarImagenes();
     std::list<QString> generarCodigos();
 
-    //Metodos de generacion de Odt
-    writerOdt pageSetUp(QString exePath, QString outPath);
+    //Metodos de generacion de Docx
+    writerDocx pageSetUp(QString exePath, QString outPath);
 
     void escribirTitulo(QString txt,int size);
     void escribirSubtitulo(QString txt);
@@ -107,8 +116,8 @@ private:
     void escribirDescripcion();
     void escribirTituloMaqGeneral();
     void escribirEventosAccionesVariables();
-    void escribirDiagrama(imageOdt img);
-    void escribirTablaEstados(tableOdt tabla);
+    void escribirDiagrama(imageDocx img);
+    void escribirTablaEstados(tableDocx tabla);
     void escribirCodigoFuente();
 
     //Metodos de generacion de Html

@@ -1,10 +1,10 @@
 #include "documentacion.h"
 
-const textOdt Documentacion::newLine = textOdt("");
+const textDocx Documentacion::newLine = textDocx("");
 
 Documentacion::Documentacion() {
     //Paths
-    mExePath = "genOdt.exe";
+    mExePath = "genDocx.exe";
     mOutPath = "documentacion.odt";
 
     //Config archivo
@@ -18,15 +18,15 @@ Documentacion::Documentacion() {
     fTabla = true;
 
     //Manager
-    mManagerOdt = nullptr;
+    mManagerDocx = nullptr;
 }
 
-void Documentacion::generarDocumentacionFormatoOdt(QString exePath, QString outPath) {
+void Documentacion::generarDocumentacionFormatoDocx(QString exePath, QString outPath) {
     mExePath = exePath;
     mOutPath = outPath;
 
     //Genero manager y le configuro el page set up, header y footer
-    mManagerOdt = new writerOdt( pageSetUp(exePath, outPath) );
+    mManagerDocx = new writerDocx( pageSetUp(exePath, outPath) );
 
     //Escribo titulo del proyecto
     escribirTitulo(mNombreProyecto, 14);
@@ -54,7 +54,7 @@ void Documentacion::generarDocumentacionFormatoOdt(QString exePath, QString outP
 
         //Diagrama
         //ajustarImagenAncho(maq.diagrama, 750); //Ajusto ancho de la hoja
-        imageOdt img(maq.diagrama, imageOdt::NONE, imageOdt::CENTER);
+        imageDocx img(maq.diagrama, imageDocx::NONE, imageDocx::CENTER);
         img.scaleToWidth(750);
         escribirDiagrama(img);
 
@@ -67,7 +67,7 @@ void Documentacion::generarDocumentacionFormatoOdt(QString exePath, QString outP
     //Codigo
     if(fCodigos)
         escribirCodigoFuente();
-    mManagerOdt->generateOdt();
+    mManagerDocx->generateDocx();
 }
 
 void Documentacion::generarDocumentacionFormatoHtml() {
@@ -239,8 +239,8 @@ void Documentacion::generarDocumentacionFormatoHtml() {
     writer.write(m_document);
 }
 
-tableOdt Documentacion::generarTablaEstados(std::list<std::list<QString>> filas) {
-    tableOdt table(filas.size()+1,4);
+tableDocx Documentacion::generarTablaEstados(std::list<std::list<QString>> filas) {
+    tableDocx table(filas.size()+1,4);
 
     //Encabezado
     std::list <QString> encabezado;
@@ -251,8 +251,8 @@ tableOdt Documentacion::generarTablaEstados(std::list<std::list<QString>> filas)
     for(int columna=0; columna<4; columna++) {
         QString aux = encabezado.front();
         encabezado.pop_front();
-        textOdt textElement(aux);
-        textElement.setAlign(textOdt::ALIGN_CENTER);
+        textDocx textElement(aux);
+        textElement.setAlign(textDocx::ALIGN_CENTER);
         textElement.setBold(true);
         tableElement elemento(textElement);
         elemento.setPos(0, columna);
@@ -267,7 +267,7 @@ tableOdt Documentacion::generarTablaEstados(std::list<std::list<QString>> filas)
         for(int columna=0; columna<4; columna++) {
             QString aux = datosFila.front();
             datosFila.pop_front();
-            textOdt textElement(aux);
+            textDocx textElement(aux);
             tableElement elemento(textElement);
             elemento.setPos(fila,columna);
             table.addElement(elemento);
@@ -277,9 +277,9 @@ tableOdt Documentacion::generarTablaEstados(std::list<std::list<QString>> filas)
     return table;
 }
 
-writerOdt Documentacion::pageSetUp(QString exePath, QString outPath) {
+writerDocx Documentacion::pageSetUp(QString exePath, QString outPath) {
     //Configuro tamaño de hoja y margenes (en mm)
-    pageOdt pageSetUp;
+    pageDocx pageSetUp;
     pageSetUp.setMarginTop(20);
     pageSetUp.setMarginLeft(30);
     pageSetUp.setMarginRight(20);
@@ -288,46 +288,46 @@ writerOdt Documentacion::pageSetUp(QString exePath, QString outPath) {
     pageSetUp.setSizeWidth(210);
 
     //Configuro header
-    headerFooterOdt header;
-    imageOdt imgHeader(mLogoUtn, imageOdt::PARALEL, imageOdt::RIGHT);
+    headerFooterDocx header;
+    imageDocx imgHeader(mLogoUtn, imageDocx::PARALEL, imageDocx::RIGHT);
     imgHeader.scaleToWidth(200);
-    textOdt autores("Autores: "+mAutores);
-    textOdt fecha("Fecha: "+mFecha);
+    textDocx autores("Autores: "+mAutores);
+    textDocx fecha("Fecha: "+mFecha);
     header.addElement(imgHeader);
     header.addElement(autores);
     header.addElement(fecha);
     header.addElement(newLine);
 
     //Configuro footer
-    headerFooterOdt footer;
-    textOdt uModelFactory("Generado automáticamente con uModelFactory");
-    uModelFactory.setAlign(textOdt::ALIGN_CENTER);
+    headerFooterDocx footer;
+    textDocx uModelFactory("Generado automáticamente con uModelFactory");
+    uModelFactory.setAlign(textDocx::ALIGN_CENTER);
     footer.addElement(uModelFactory);
 
     //Creo documento
-    writerOdt manager(exePath, outPath, pageSetUp, header, footer);
+    writerDocx manager(exePath, outPath, pageSetUp, header, footer);
     return manager;
 }
 
 void Documentacion::escribirIntroTeorica() {
     escribirTitulo("Introducción teorica",12);
 
-    textOdt estados(mInfoTeorica.estados);
-    mManagerOdt->writeText(estados);
+    textDocx estados(mInfoTeorica.estados);
+    mManagerDocx->writeText(estados);
 
-    textOdt transiciones(mInfoTeorica.transiciones);
-    mManagerOdt->writeText(transiciones);
+    textDocx transiciones(mInfoTeorica.transiciones);
+    mManagerDocx->writeText(transiciones);
 
-    textOdt eventos(mInfoTeorica.eventos);
-    mManagerOdt->writeText(eventos);
+    textDocx eventos(mInfoTeorica.eventos);
+    mManagerDocx->writeText(eventos);
 
-    textOdt acciones(mInfoTeorica.acciones);
-    mManagerOdt->writeText(acciones);
+    textDocx acciones(mInfoTeorica.acciones);
+    mManagerDocx->writeText(acciones);
 
-    textOdt reset(mInfoTeorica.reset);
-    mManagerOdt->writeText(reset);
+    textDocx reset(mInfoTeorica.reset);
+    mManagerDocx->writeText(reset);
 
-    mManagerOdt->writeText(newLine);
+    mManagerDocx->writeText(newLine);
 }
 
 void Documentacion::escribirDescripcion() {
@@ -336,44 +336,44 @@ void Documentacion::escribirDescripcion() {
     QStringList lineas = mDescripcion.split("\n");
     // Agregar cada línea a la lista
     for (const QString& linea : lineas) {
-        textOdt texto = textOdt(linea);
-        mManagerOdt->writeText(texto);
+        textDocx texto = textDocx(linea);
+        mManagerDocx->writeText(texto);
     }
 }
 
 
 void Documentacion::escribirTitulo(QString txt, int size) {
-    textOdt titulo(txt);
-    titulo.setAlign(textOdt::ALIGN_CENTER);
+    textDocx titulo(txt);
+    titulo.setAlign(textDocx::ALIGN_CENTER);
     titulo.setBold(true);
     titulo.setUnderline(true);
     titulo.setLetterSize(size);
-    mManagerOdt->writeText(titulo);
+    mManagerDocx->writeText(titulo);
     //mManagerOdt->writeText(newLine);
 }
 
 void Documentacion::escribirSubtitulo(QString txt) {
-    textOdt titulo(txt);
+    textDocx titulo(txt);
     titulo.setBold(true);
     titulo.setUnderline(true);
     titulo.setItalic(true);
-    mManagerOdt->writeText(titulo);
+    mManagerDocx->writeText(titulo);
     //mManagerOdt->writeText(newLine);
 }
 
-void Documentacion::escribirDiagrama(imageOdt img) {
+void Documentacion::escribirDiagrama(imageDocx img) {
     escribirSubtitulo("Diagrama de estados:");
-    mManagerOdt->writeText(newLine);
+    mManagerDocx->writeText(newLine);
     //mManagerOdt->writeText(newLine);
-    mManagerOdt->writeImage(img);
+    mManagerDocx->writeImage(img);
     //mManagerOdt->writeText(newLine);
-    mManagerOdt->writeText(newLine);
+    mManagerDocx->writeText(newLine);
 }
 
-void Documentacion::escribirTablaEstados(tableOdt tabla) {
+void Documentacion::escribirTablaEstados(tableDocx tabla) {
     escribirSubtitulo("Tabla de estados y trancisiones:");
-    mManagerOdt->writeTable(tabla);
-    mManagerOdt->writeText(newLine);
+    mManagerDocx->writeTable(tabla);
+    mManagerDocx->writeText(newLine);
 }
 
 void Documentacion::escribirEventosAccionesVariables() {
@@ -386,23 +386,23 @@ void Documentacion::escribirEventosAccionesVariables() {
 void Documentacion::escribirLista(QString subtitulo, std::list<QString> lista) {
     escribirSubtitulo(subtitulo);
 
-    listOdt myList;
+    listDocx myList;
     while( lista.size()!=0 ) {
         QString txt = lista.front();
         lista.pop_front();
-        myList.addElement( textOdt(txt) );
+        myList.addElement( textDocx(txt) );
     }
-    mManagerOdt->writeList(myList);
-    mManagerOdt->writeText(newLine);
+    mManagerDocx->writeList(myList);
+    mManagerDocx->writeText(newLine);
 }
 
 void Documentacion::escribirCodigoFuente() {
-    textOdt titulo("Implementación en C:");
+    textDocx titulo("Implementación en C:");
     titulo.setBold(true);
     titulo.setLetterSize(12);
-    titulo.setAlign(textOdt::ALIGN_CENTER);
-    mManagerOdt->writeText(titulo);
-    mManagerOdt->writeText(newLine);
+    titulo.setAlign(textDocx::ALIGN_CENTER);
+    mManagerDocx->writeText(titulo);
+    mManagerDocx->writeText(newLine);
 
     std::list<QString> listCodigos = mPathsCodigos;
     while(listCodigos.size()!=0) {
@@ -413,16 +413,16 @@ void Documentacion::escribirCodigoFuente() {
         QString nameFile = pathCodigo;
         int aux = pathCodigo.lastIndexOf("/");
         nameFile.remove(0,aux+1);
-        textOdt tituloCodigo(nameFile);
-        tituloCodigo.setAlign(textOdt::ALIGN_CENTER);
+        textDocx tituloCodigo(nameFile);
+        tituloCodigo.setAlign(textDocx::ALIGN_CENTER);
         tituloCodigo.setBold(true);
         tituloCodigo.setFont("Courier new");
         tituloCodigo.setLetterSize(14);
         tableElement TE_tituloCodigo(tituloCodigo);
         TE_tituloCodigo.setPos(0,0);
-        tableOdt tableCode(1,1);
+        tableDocx tableCode(1,1);
         tableCode.addElement(TE_tituloCodigo);
-        mManagerOdt->writeTable(tableCode);
+        mManagerDocx->writeTable(tableCode);
 
         //Abro archivos
         QFile file(pathCodigo);
@@ -434,12 +434,12 @@ void Documentacion::escribirCodigoFuente() {
         //Leo linea por linea y las escribo
         while(!in.atEnd()) {
             code = in.readLine();
-            textOdt line(code);
+            textDocx line(code);
             line.setFont("Courier new");
             line.setLetterSize(10);
-            mManagerOdt->writeText(line);
+            mManagerDocx->writeText(line);
         }
         file.close();
-        mManagerOdt->writeText(newLine);
+        mManagerDocx->writeText(newLine);
     }
 }

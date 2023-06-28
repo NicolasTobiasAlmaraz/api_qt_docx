@@ -2,8 +2,8 @@
 *	\file       main.c
 *	\brief      Proyecto: CosechadoraAgro
 *	\details    Descripcion detallada del archivo
-*	\author     Almaraz
-*	\date       01-05-2023 14:06:29
+*	\author     Nicolas
+*	\date       28-06-2023 11:33:30
 */
 
 /************************************************************************************************************

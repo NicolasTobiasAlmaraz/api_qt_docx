@@ -2,8 +2,8 @@
 *	\file       AP_FuncionesMDE.h
 *	\brief      Prototipos, defines, etc. de los Eventos y Acciones asociadas a la M de E
 *	\details    Descripcion detallada del archivo
-*	\author     Almaraz
-*	\date       01-05-2023 14:06:29
+*	\author     Nicolas
+*	\date       28-06-2023 11:33:30
 */
 
 #ifndef INC_AP_FUNCIONESMDEE_H_
@@ -31,25 +31,27 @@
 
 /*-------------------------------------------- EVENTOS ----------------------------------------------------*/
 
-int s_Config ( void );
-int s_ConfigCosecha ( void );
-int s_ConfigPlantado ( void );
-int s_ErrorConfig ( void );
-int s_ErrorProceso ( void );
-int s_HaySemillas ( void );
-int s_HayFertilizante ( void );
-int s_TierraRemovida ( void );
-int s_FertilizanteTirado ( void );
-int s_TierraAgujereada ( void );
-int s_SemillasPlantadas ( void );
-int s_AgujeroTapado ( void );
-int s_PlantacionPendiente ( void );
-int s_HayLugar ( void );
-int s_FrutaRetirada ( void );
-int s_FrutaGuardada ( void );
-int s_CosechasPendientes ( void );
+int s_configCosecha ( void );
+int s_configPlantar ( void );
+int s_finCosecha ( void );
+int s_finPlantar ( void );
+int e_tiempoOn ( void );
+int s_sinSemillas ( void );
+int s_agujereado ( void );
+int s_semillaTirada ( void );
+int s_agujeroTapado ( void );
+int s_enPosicion ( void );
 
 /*-------------------------------------------- ACCIONES ----------------------------------------------------*/
+
+
+/*------------------------------------------TEMPORIZADORES -------------------------------------------------*/
+
+void t_tiempoOn ( void );
+void t_tiempoOn ( void );
+
+#endif /* INC_AP_FUNCIONESMDEE_H_ */
+--------------------------------*/
 
 
 /*------------------------------------------TEMPORIZADORES -------------------------------------------------*/

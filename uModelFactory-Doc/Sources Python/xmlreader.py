@@ -1,9 +1,9 @@
-from tableodt import tableOdt
-from textodt import textOdt
-from imageodt import imageOdt
-from pageodt import pageOdt
+from tabledocx import tableDocx
+from textdocx import textDocx
+from imagedocx import imageDocx
+from pagedocx import pageDocx
 from tableelement import tableElement
-from listodt import listOdt
+from listdocx import listDocx
 import xml.etree.ElementTree as ET
 
 # Page set up
@@ -39,7 +39,7 @@ TABLE_ROWS = 1
 
 
 def getPageSetUp(nodeXml):
-    setUp = pageOdt()
+    setUp = pageDocx()
     setUp.mMarginTop = nodeXml[MARGIN_TOP].text
     setUp.mMarginLeft = nodeXml[MARGIN_LEFT].text
     setUp.mMarginRight = nodeXml[MARGIN_RIGHT].text
@@ -50,7 +50,7 @@ def getPageSetUp(nodeXml):
 
 
 def getText(nodeXml):
-    text = textOdt("")
+    text = textDocx("")
     text.mContent = nodeXml[CONTENT].text
     text.mLetterSize = nodeXml[SIZE].text
     text.mFont = nodeXml[FONT].text
@@ -65,7 +65,7 @@ def getText(nodeXml):
 
 
 def getImage(nodeXml):
-    img = imageOdt()
+    img = imageDocx()
     img.mImgPath = nodeXml[IMAGE_PATH].text
     img.mWidth = nodeXml[IMAGE_WIDTH].text
     img.mHeight = nodeXml[IMAGE_HEIGHT].text
@@ -74,7 +74,7 @@ def getImage(nodeXml):
     return img
 
 def getTable(nodeXml):
-    table = tableOdt()
+    table = tableDocx()
     table.mRows = nodeXml[TABLE_ROWS].text
     table.mColumns = nodeXml[TABLE_COLUMNS].text
     for elem in nodeXml:
@@ -92,7 +92,7 @@ def getTable(nodeXml):
 
 
 def getList(nodeXml):
-    myList = listOdt()
+    myList = listDocx()
     myList.mItems = 0
     for elem in nodeXml:
         if elem.tag != "element":
@@ -143,7 +143,7 @@ class XmlReader:
             elif child.tag == "outputPath":
                 self.path = child.text
             else:
-                raise ValueError("Error en el archivo genOdt.xml")
+                raise ValueError("Error en el archivo genDocx.xml")
 
             if child.tag != "outputPath":
                 self.listItems.append((item, child.tag))
