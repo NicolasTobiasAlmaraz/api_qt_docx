@@ -47,7 +47,7 @@
 #define ACTION_ADD_COMENTARIO   "Agregar comentario"
 #define ACTION_EDIT_COMENTARIO  "Editar comentario"
 
-#define NOMBRE_ARCHIVO_DOCUMENTACION "documentacion.docx"
+#define NOMBRE_ARCHIVO_DOCUMENTACION "/documentacion.docx"
 
 class XmlHandler;
 class QMdiSubWindow;

@@ -4,7 +4,7 @@
         <nombre>CosechadoraAgro</nombre>
         <autores>Nicolas</autores>
         <creacion>13-06-2023 16:03:55</creacion>
-        <modificacion>28-06-2023 13:14:51</modificacion>
+        <modificacion>28-06-2023 18:11:36</modificacion>
         <carpeta>D:/UTN/uModelFactory/uModelFactory-Documentacion/ProyectoCosechadoraAgro</carpeta>
         <descripcion>En este proyecto se describe el funconamiento de una maquina agro-industrial para la cosecha y plantación de plantas en un campo. Consta de tres máquinas de estados:
 - Máquina A: Máquina general

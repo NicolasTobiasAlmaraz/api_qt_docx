@@ -2728,9 +2728,9 @@ void MainWindow::on_actionGenerarDocumentacion_triggered() {
     InfoTeorica info;
     info.estados = htmlToPlainText(ayudaDinamica.getTextoEstadoSimple());
     info.reset = htmlToPlainText(ayudaDinamica.getTextoEstadoInicial());
-    info.eventos = "Eventos: Un evento es un estímulo o suceso que ocurre en un sistema y que puede desencadenar una transición de un estado a otro. Puede ser cualquier cosa, desde una entrada del usuario, como la finalización de una temporización, hasta una señal enviada por otro componente del sistema. Los eventos son los 'disparadores'.\n";
+    info.eventos = "Eventos:\nUn evento es un estímulo o suceso que ocurre en un sistema y que puede desencadenar una transición de un estado a otro. Puede ser cualquier cosa, desde una entrada del usuario, como la finalización de una temporización, hasta una señal enviada por otro componente del sistema. Los eventos son los 'disparadores'.\n";
     info.transiciones = htmlToPlainText(ayudaDinamica.getTextoTransicion());
-    info.acciones = "Acciones: Una acción es una operación o conjunto de instrucciones que se ejecutan en respuesta a un evento dentro de una máquina de estados. Representa una tarea o comportamiento específico que debe llevarse a cabo cuando se alcanza un determinado estado o cuando ocurre un evento específico. Las acciones pueden incluir desde tareas simples, como encender un led, hasta operaciones más complejas, como ejecutar la rutina de lectura de una memoria.\n";
+    info.acciones = "Acciones:\nUna acción es una operación o conjunto de instrucciones que se ejecutan en respuesta a un evento dentro de una máquina de estados. Representa una tarea o comportamiento específico que debe llevarse a cabo cuando se alcanza un determinado estado o cuando ocurre un evento específico. Las acciones pueden incluir desde tareas simples, como encender un led, hasta operaciones más complejas, como ejecutar la rutina de lectura de una memoria.\n";
     m_docManager.setInfoTeorica(info);
 
     ayudaDinamica.setNivelAyuda(nivelAyuda);

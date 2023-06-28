@@ -29,7 +29,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Secciones opcionales:</string>
+    <string>Secciones opcionales (para archivo docx):</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="LE_path">
@@ -186,7 +186,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Exportar HTML</string>
+    <string>Exportar .html</string>
    </property>
   </widget>
   <widget class="QCheckBox" name="CB_odt">
@@ -199,7 +199,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Exportar ODT</string>
+    <string>Exportar .docx</string>
    </property>
    <property name="checked">
     <bool>true</bool>
