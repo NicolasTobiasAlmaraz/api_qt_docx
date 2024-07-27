@@ -1,2 +1,0 @@
-            <Acciones>
-            Estado = <Siguiente>;

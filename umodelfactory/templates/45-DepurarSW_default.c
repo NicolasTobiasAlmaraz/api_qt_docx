@@ -1,4 +1,0 @@
-            #ifdef  DEPURACION
-                <Log> ;
-            #endif
-

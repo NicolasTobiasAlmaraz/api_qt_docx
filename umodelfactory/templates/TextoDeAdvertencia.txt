@@ -1,5 +1,0 @@
-/*********************************************************************************************************************************;
-	El contenido de este archivo es generado en forma automatica a partir del modelo planteado. Cualquier cambio realizado en 
-el mismo a partir del modelo planteado.
-Cualquier cambio realizado en el mismo por el desarrollador sera eliminado
-**********************************************************************************************************************************/;

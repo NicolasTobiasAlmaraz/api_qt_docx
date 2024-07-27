@@ -1,9 +1,0 @@
-				if({EVENTO_ENTRADA})
-				{
-					{ACCION_SALIDA}
-					estado = {ESTADO_SALIDA};
-		
-				}
-                                #ifdef DEPURAR
-                                Log(0,{INFO_DEPURAR});
-                                #endif

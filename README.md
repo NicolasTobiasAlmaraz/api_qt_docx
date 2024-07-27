@@ -10,13 +10,15 @@ TODO: Foto
 - Márgenes
 
 ### Texto con formato:
-- Color
+- Color de fondo
+- Color de relleno
 - Negrita
 - Cursiva
 - Alineación
 - Fuente
 - Tamaño de letra
 - Subrayado
+- Tachado
 
 ### Encabezado y pie de página
 - Dentro podemos poner texto y una imágen a modo de rótulo

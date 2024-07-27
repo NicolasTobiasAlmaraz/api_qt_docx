@@ -1,2 +1,0 @@
-        default:
-            Estado = RESET ;
