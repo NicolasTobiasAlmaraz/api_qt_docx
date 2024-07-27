@@ -1,6 +1,9 @@
 # API Qt Docx
 En este repositorio encotnrarán una API que desarrollé para tener soporte en la escritura de archivos .docx desde Qt utilizando en lenguaje C++.
 
+## Ejemplo de documento que podemos generar con la API
+TODO: Foto
+
 ## Funcionalidades Ofrecidas
 ### Formato de hoja
 - Tamaño
@@ -40,17 +43,23 @@ La idea sería desde Qt escribir un archivo XML auxiliar indicando todo lo que q
 
 Este script de Python consumirá el XML que generamos previamente y hace uso del módulo llamado python-docx ([más info aquí](https://python-docx.readthedocs.io/en/latest/)) para generar el archivo .docx con todo lo que le indicamos.
 
-Obviamente para hacer todo esto tenemos un conjunto de clases que nos permite hacer una capa de abstracción y se adjunta también un ejemplo demostrativo para generar este documento de prueba:
+Obviamente para hacer todo esto tenemos un conjunto de clases que nos permite hacer una capa de abstracción y se adjunta también un ejemplo demostrativo para generar el documento de prueba de la imagen anterior.
 
-TODO: (adjuntar foto)
+Cabe destacar que en este repositorio solamente se encuentra el ejecutable de Python hecho para Windows.
+
+En caso de que estén trabajando en otro sistema operativo, deberían generar el ejecutable de los archivos del proyecto de python que se encuentra en la carpeta src_python/
+
+Para esto pueden utilizar herramientas como py-installer ([Más info aquí](https://pyinstaller.org/en/stable/))
 
 ## API Reference
-La documentación de las clases y métodos está en la carpeta doc/index.html
+La documentación de las clases y métodos está en la api_reference/index.html
+
 Allí encontrarán la documentación generada con Doxygen.
+
 Cabe destacar que para utilizar esta API previamente deben añadir como resource en su proyecto al ejecutable de python
 
 ## Video Tutorial - QuickStart
-En este video se muestra un ejemplo de cómo configurar el proyecto desde Qt:
+En este video se muestra un ejemplo de cómo configurar el proyecto desde Qt agregando como resource el ejecutable de python y añadiendo los archivos .h y .cpp
 
 TODO: (Adjuntar Video)
 
