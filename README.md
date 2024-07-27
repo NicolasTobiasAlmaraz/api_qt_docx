@@ -1,4 +1,4 @@
-# API para escritura de archivos .docx desde Qt en C++
+# API Qt Docx
 En este repositorio encotnrarán una API que desarrollé para tener soporte en la escritura de archivos .docx desde Qt utilizando en lenguaje C++.
 
 ## Funcionalidades Ofrecidas
@@ -48,7 +48,7 @@ TODO: (adjuntar foto)
 La documentación de las clases y métodos está en la carpeta doc/index.html
 Allí encontrarán la documentación generada con Doxygen
 
-# Contexto
+## Contexto
 Esta API la desarrollé en un marco académico dentro el PID (Proyecto de investigación y desarrollo) "uModelFactory".
 Este proyecto se desarrolla en la Universidad Tecnológica Nacional Facultad Regional Buenos AIRES (UTN FRBA).
 Consiste en una App para diseño, simulación y depuración de máquinas de estados.
