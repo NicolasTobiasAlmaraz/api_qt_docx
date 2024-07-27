@@ -38,7 +38,7 @@ El esquema de funcionamiento es el que se ve en la figura:
 
 La idea sería desde Qt escribir un archivo XML auxiliar indicando todo lo que queremos escribir y una vez que hayamos terminado de escribir todo lo deseado, desde Qt lanzamos un thread que ejecuta un script de Python.
 
-Este script de Python consumirá el XML que generamos previamente y hace uso del módulo llamado python-docx ([más info aquí](https://python-docx.readthedocs.io/en/latest/) para generar el archivo .docx con todo lo que le indicamos.
+Este script de Python consumirá el XML que generamos previamente y hace uso del módulo llamado python-docx ([más info aquí](https://python-docx.readthedocs.io/en/latest/)) para generar el archivo .docx con todo lo que le indicamos.
 
 Obviamente para hacer todo esto tenemos un conjunto de clases que nos permite hacer una capa de abstracción y se adjunta también un ejemplo demostrativo para generar este documento de prueba:
 
@@ -46,7 +46,13 @@ TODO: (adjuntar foto)
 
 ## API Reference
 La documentación de las clases y métodos está en la carpeta doc/index.html
-Allí encontrarán la documentación generada con Doxygen
+Allí encontrarán la documentación generada con Doxygen.
+Cabe destacar que para utilizar esta API previamente deben añadir como resource en su proyecto al ejecutable de python
+
+## Video Tutorial - QuickStart
+En este video se muestra un ejemplo de cómo configurar el proyecto desde Qt:
+
+TODO: (Adjuntar Video)
 
 ## Contexto
 Esta API la desarrollé en un marco académico dentro el PID (Proyecto de investigación y desarrollo) "uModelFactory".
