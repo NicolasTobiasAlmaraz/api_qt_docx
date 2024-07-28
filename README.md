@@ -52,8 +52,9 @@ Cabe destacar que en este repositorio solamente se encuentra el ejecutable de Py
 
 Para esto pueden utilizar herramientas como py-installer ([Más info aquí](https://pyinstaller.org/en/stable/))
 
-### Warning!
-Hice algunas pruebas en Linux pero no funciona correctamente el header y footer. Por eso es que decidí validar dichas funcionalidades en el script de python. Si quieren utilizarlo desde linux deberían modificar muy probablemente los fuentes de python
+### Nota!
+Hice algunas pruebas en Linux pero no funciona correctamente cuando se intenta añadir un header y footer.
+No sé bien por qué es que pasa esto, pero podrían probarlo ustedes mismos a ver si tienen suerte. 
 
 ## API Reference
 La documentación de las clases y métodos está en la "api_reference/index.html"
