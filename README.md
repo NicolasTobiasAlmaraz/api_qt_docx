@@ -48,11 +48,12 @@ Este script de Python consumirá el XML que generamos previamente y hace uso del
 
 Obviamente para hacer todo esto tenemos un conjunto de clases que nos permite hacer una capa de abstracción y se adjunta también un ejemplo demostrativo para generar el documento de prueba de la imagen anterior.
 
-Cabe destacar que en este repositorio solamente se encuentra el ejecutable de Python hecho para Windows.
-
-En caso de que estén trabajando en otro sistema operativo, deberían generar el ejecutable de los archivos del proyecto de python que se encuentra en la carpeta "src_python/"
+Cabe destacar que en este repositorio solamente se encuentra el ejecutable de Python hecho para Windows. En caso de que estén trabajando en otro sistema operativo, deberían generar el ejecutable de los archivos del proyecto de python que se encuentra en la carpeta "src_python/".
 
 Para esto pueden utilizar herramientas como py-installer ([Más info aquí](https://pyinstaller.org/en/stable/))
+
+### Warning!
+Hice algunas pruebas en Linux pero no funciona correctamente el header y footer. Por eso es que decidí validar dichas funcionalidades en el script de python. Si quieren utilizarlo desde linux deberían modificar muy probablemente los fuentes de python
 
 ## API Reference
 La documentación de las clases y métodos está en la "api_reference/index.html"
@@ -65,7 +66,7 @@ Donde está el paso a paso de cómo generar el documento de ejemplo
 
 ## Contexto
 Esta API la desarrollé en un marco académico dentro del PID (Proyecto de investigación y desarrollo) llamado "uModelFactory".
-Este proyecto se desarrolla en la Universidad Tecnológica Nacional Facultad Regional Buenos AIRES (UTN FRBA).
+Este proyecto se desarrolla en la Universidad Tecnológica Nacional Facultad Regional Buenos Aires (UTN FRBA).
 Consiste en una App para diseño, simulación y depuración de máquinas de estados finitas orientadas a sistemas embebidos.
 Particularmente esta API la desarrollé para que la app ofrezca la posibilidad de generar documentación automáticamente acerca del proyecto que estamos desarrollando.
 
