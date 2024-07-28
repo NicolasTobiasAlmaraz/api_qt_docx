@@ -2,7 +2,7 @@
 En este repositorio encotnrarán una API que desarrollé para tener soporte en la escritura de archivos .docx desde Qt utilizando en lenguaje C++.
 
 ## Ejemplo de documento que podemos generar con la API
-![image](https://github.com/user-attachments/assets/b3961003-72db-4751-a190-d2448c4e7072)
+![Ejemplo](https://github.com/user-attachments/assets/d891d31f-3077-4d63-b35a-ae9012523a83)
 
 
 ## Funcionalidades Ofrecidas
