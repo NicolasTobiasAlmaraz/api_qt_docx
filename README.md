@@ -2,7 +2,8 @@
 En este repositorio encotnrarán una API que desarrollé para tener soporte en la escritura de archivos .docx desde Qt utilizando en lenguaje C++.
 
 ## Ejemplo de documento que podemos generar con la API
-TODO: Foto
+![image](https://github.com/user-attachments/assets/b3961003-72db-4751-a190-d2448c4e7072)
+
 
 ## Funcionalidades Ofrecidas
 ### Formato de hoja
@@ -54,16 +55,13 @@ En caso de que estén trabajando en otro sistema operativo, deberían generar el
 Para esto pueden utilizar herramientas como py-installer ([Más info aquí](https://pyinstaller.org/en/stable/))
 
 ## API Reference
-La documentación de las clases y métodos está en la api_reference/index.html
+La documentación de las clases y métodos está en la "api_reference/index.html"
 
 Allí encontrarán la documentación generada con Doxygen.
 
-Cabe destacar que para utilizar esta API previamente deben añadir como resource en su proyecto al ejecutable de python
+Cabe destacar que la mejor referencia que pueden tener es seguir el ejemplo de uso ubicado en la "carpeta example/"
 
-## Video Tutorial - QuickStart
-En este video se muestra un ejemplo de cómo configurar el proyecto desde Qt agregando como resource el ejecutable de python y añadiendo los archivos .h y .cpp
-
-TODO: (Adjuntar Video)
+Donde está el paso a paso de cómo generar el documento de ejemplo
 
 ## Contexto
 Esta API la desarrollé en un marco académico dentro el PID (Proyecto de investigación y desarrollo) "uModelFactory".
