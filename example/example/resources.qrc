@@ -1,9 +1,0 @@
-<RCC>
-    <qresource prefix="/img">
-        <file>resources/img/logoUTN.png</file>
-        <file>resources/img/hinchada.jpg</file>
-    </qresource>
-    <qresource prefix="/exe">
-        <file>resources/exe/exe_windows.exe</file>
-    </qresource>
-</RCC>

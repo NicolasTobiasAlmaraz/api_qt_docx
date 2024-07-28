@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['scaletowidth_0',['scaleToWidth',['../classimage_docx.html#aa61edc985d01f71b215c0eb5e6cb02a2',1,'imageDocx']]],
+  ['setalign_1',['setAlign',['../classtext_docx.html#aa9042532ee2449481b2e1b20d3335626',1,'textDocx']]],
+  ['setbackgroundcolor_2',['setBackgroundColor',['../classtext_docx.html#a95696118fef23f20c53809e0a7cc1343',1,'textDocx']]],
+  ['setbold_3',['setBold',['../classtext_docx.html#afef21e29e05088afc048e361db9413f1',1,'textDocx']]],
+  ['setcontent_4',['setContent',['../classtext_docx.html#a1c42c08f965455483bbbfb2786f55817',1,'textDocx']]],
+  ['setfillcolor_5',['setFillColor',['../classtext_docx.html#a2102e5aadce7dd710ea7d271e7a2147d',1,'textDocx']]],
+  ['setfont_6',['setFont',['../classtext_docx.html#a13f4cbf073ab525e016fd6f2c5d24e5d',1,'textDocx']]],
+  ['setitalic_7',['setItalic',['../classtext_docx.html#a9d0693a685d477277d14123b674e0c62',1,'textDocx']]],
+  ['setlettersize_8',['setLetterSize',['../classtext_docx.html#ab430cf1952bea137865d667e3c021e1c',1,'textDocx']]],
+  ['setmarginbottom_9',['setMarginBottom',['../classpage_docx.html#a2e6fda558b73350551f352979b90d4bd',1,'pageDocx']]],
+  ['setmarginleft_10',['setMarginLeft',['../classpage_docx.html#a4388f33e57e89808adfc7e8712d59cc2',1,'pageDocx']]],
+  ['setmarginright_11',['setMarginRight',['../classpage_docx.html#ae235a33bdebb4401c3b54e8ba8e2a9a4',1,'pageDocx']]],
+  ['setmargintop_12',['setMarginTop',['../classpage_docx.html#a06d77225a790e0c938fd643b9f3a47fb',1,'pageDocx']]],
+  ['setpos_13',['setPos',['../classtable_element.html#a0a0194caa21406a07748b4c5aa85861f',1,'tableElement']]],
+  ['setsizeheight_14',['setSizeHeight',['../classpage_docx.html#ad86b668c765c83c8521fe3c17c184d11',1,'pageDocx']]],
+  ['setsizewidth_15',['setSizeWidth',['../classpage_docx.html#ad8aa901e5551d5c551504633ab908da5',1,'pageDocx']]],
+  ['setstrikethrough_16',['setStrikethrough',['../classtext_docx.html#a7542514cd6305b843b08edaf7d05edae',1,'textDocx']]],
+  ['settext_17',['setText',['../classtable_element.html#a4024dbde964c63953dbd2e9267759347',1,'tableElement']]],
+  ['setunderline_18',['setUnderline',['../classtext_docx.html#ac1dbccc6a23cbb222783c2f592420acd',1,'textDocx']]]
+];
