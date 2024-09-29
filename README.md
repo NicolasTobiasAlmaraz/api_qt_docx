@@ -57,13 +57,13 @@ Hice algunas pruebas en Linux pero no funciona correctamente cuando se intenta a
 No sé bien por qué es que pasa esto, pero podrían probarlo ustedes mismos a ver si tienen suerte. 
 
 ## API Reference
-La documentación de las clases y métodos está en la "api_reference/index.html"
+La documentación de las clases y métodos está en el siguiente enlace: [API Reference](https://rawcdn.githack.com/NicolasTobiasAlmaraz/api_qt_docx/55c8692e5ef825acc2a4fd5fbc2cd00679bd51fa/apiReference/index.html)
 
 Allí encontrarán la documentación generada con Doxygen.
 
 Cabe destacar que la mejor referencia que pueden tener es seguir el ejemplo de uso ubicado en la "carpeta example/"
 
-Donde está el paso a paso de cómo generar el documento de ejemplo
+Donde está el paso a paso de cómo generar el documento de ejemplo de la imagen
 
 ## Contexto
 Esta API la desarrollé en un marco académico dentro del PID (Proyecto de investigación y desarrollo) llamado "uModelFactory".
